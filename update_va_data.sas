@@ -1,3 +1,4 @@
+/*comment1 */
 
 options msglevel=i;
 *options cashost="hlsrd53au.vsp.sas.com" casport=5570;
