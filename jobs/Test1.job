@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job releaseVersion="1.0" description="" executionMode="SEQUENTIAL" sddVersion="4.0" log="/SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs" lst="/SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs" mnf="/SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs">
+  <tasks>
+    <task path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/Programs/autoexec.sas" />
+    <task path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/Programs/d0_dm.sas" />
+  </tasks>
+  <taskSpecs>
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/Programs/autoexec.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/Programs/d0_dm.sas" type="FILE" version="*" includeSubFolders="false" />
+  </taskSpecs>
+  <otherSpecs>
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/Macros/mstudydy.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/RawData/dm.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/RawData/sda.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/RawData/ds.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/RawData/oe.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/RawData/spc.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/Files/HLS_Pharma/Cardiology/XMB113/RawData/vs.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+  </otherSpecs>
+  <outputPaths />
+  <outputSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputSpec>
+  <parameters />
+</job>
+

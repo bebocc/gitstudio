@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest version="2.1" type="PUBLISHED">
+  <job jobPath="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/jobs/Test.job" jobName="Test.job" jobDescription="" jobVersion="1.1" uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/jobs/Test.job?id=a5790c4d-1ceb-41fc-816d-6f4083333a79&amp;version=1.1" isVersioned="true" modDate="20200218143140EST" syncVersion="1.1" />
+  <jobSubmission jobSubmissionId="c3b20bc7-b3d2-41b4-b2b1-6b0bb7b90d7c" />
+  <tasks>
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/autoexec.sas?id=8bc6423d-cacd-48d6-9355-06b5d898bcaf&amp;version=1.2" syncVersion="1.2" isVersioned="true" modDate="20200218141432EST" state="WARNINGS" info="" executionTime="78" size="2508" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas?id=d478f5c6-38ba-4068-b3c2-22d1984810f7&amp;version=1.1" syncVersion="1.1" isVersioned="true" modDate="20200218141432EST" state="SUCCESSFUL" info="" executionTime="119" size="4998" />
+  </tasks>
+  <inputs>
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/Macros/mstudydy.sas?id=f2944532-7e9a-4cc0-a2d0-cdc6584275d4&amp;version=1.0" isVersioned="true" modDate="20200122102436EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="768" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/RawData/dm.sas7bdat?id=d0fe9435-56b3-45da-8b3a-fc36b1d73a7e&amp;version=1.0" isVersioned="true" modDate="20200122102414EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="17408" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/RawData/sda.sas7bdat?id=44d3ec12-f792-416a-8d4b-c464fc3bf854&amp;version=1.0" isVersioned="true" modDate="20200122102414EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="66560" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/RawData/ds.sas7bdat?id=b92f9148-4525-4544-8bd1-2b91d11f4973&amp;version=1.0" isVersioned="true" modDate="20200122102414EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="50176" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/RawData/oe.sas7bdat?id=91aa8524-299b-41c8-9c31-8958ba12964f&amp;version=1.0" isVersioned="true" modDate="20200122102414EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="13312" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/RawData/spc.sas7bdat?id=8551df93-497e-4255-b437-2e4ca7aefaf7&amp;version=1.0" isVersioned="true" modDate="20200122102414EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="33792" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/RawData/vs.sas7bdat?id=a9634535-7e39-4ba2-8bb8-be52599c55e1&amp;version=1.0" isVersioned="true" modDate="20200122102414EST" referencingSASFile="/Clinical Development/B_POC/Indication_001/Protocol_001/Study_001/Programs/d0_dm.sas" syncVersion="1.0" size="25600" />
+  </inputs>
+  <outputs>
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/jobs/Test.log?id=7de0a16c-9206-4ffc-bcf4-1d110a971a5c&amp;version=2.0" isVersioned="true" modDate="20200218143148EST" wasSynced="true" syncVersion="2.0" size="29116" />
+    <file uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/jobs/Test.lst?id=71fd6d5f-4540-4890-8f7e-856abfa702fe&amp;version=2.0" isVersioned="true" modDate="20200218143148EST" wasSynced="true" syncVersion="2.0" size="1226" />
+  </outputs>
+  <outputFileSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputFileSpec>
+  <log uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/jobs/Test.log?id=7de0a16c-9206-4ffc-bcf4-1d110a971a5c&amp;version=2.0" isVersioned="true" modDate="20200218143148EST" syncVersion="2.0" wasSynced="true" />
+  <lst uri="sdd:///Clinical%20Development/B_POC/Indication_001/Protocol_001/Study_001/jobs/Test.lst?id=71fd6d5f-4540-4890-8f7e-856abfa702fe&amp;version=2.0" isVersioned="true" modDate="20200218143148EST" syncVersion="2.0" wasSynced="true" />
+  <mnf />
+  <parameters />
+  <metrics>
+    <transferMetrics>
+      <transferMetric name="jobs" total="1" size="1329" time="3" />
+      <transferMetric name="programs" total="2" size="7506" time="2" />
+      <transferMetric name="inputs" total="7" size="207616" time="6" />
+      <transferMetric name="referenced" total="7" size="207616" time="6" />
+      <transferMetric name="outputs" total="2" size="30342" time="63" />
+    </transferMetrics>
+  </metrics>
+</manifest>
+

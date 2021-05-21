@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest releaseVersion="1.0" type="PUBLISHED">
+  <job jobPath="/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Disposition Report.job" jobName="Disposition Report.job" jobDescription="" jobVersion="1.0" uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Disposition%20Report.job?id=5ddeb404-f1f6-41f2-ac61-89b87d5dc665&amp;version=1.0" isVersioned="true" modDate="20160901141233EDT" syncVersion="1.0" />
+  <jobSubmission jobSubmissionId="648711cc-730c-4c3c-96c2-57b090c5f9e8" />
+  <tasks>
+    <file uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Frequency.sas?id=3c73e061-beb2-48ab-a3ba-7f1225236f32&amp;version=1.1" syncVersion="1.1" isVersioned="true" modDate="20160901141445EDT" sasSYSCC="0" didRun="true" failed="false" info="" />
+  </tasks>
+  <inputs>
+    <file uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/disposition.sas7bdat?id=f83f625c-42ef-44be-bffb-f05811a9e674&amp;version=1.0" isVersioned="true" modDate="20160901113632EDT" referencingSASFile="/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Frequency.sas" syncVersion="1.0" />
+  </inputs>
+  <outputs>
+    <file uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Disposition%20Report.log?id=4056f93c-8ac2-4ec0-b9ae-93096054a24b&amp;version=2.0" isVersioned="true" modDate="20160901141524EDT" wasSynced="true" syncVersion="2.0" />
+    <file uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Disposition%20Report.lst?id=fb0cc0e0-24eb-4ead-a2b0-ad27a08c7cc9&amp;version=2.0" isVersioned="true" modDate="20160901141524EDT" wasSynced="true" syncVersion="2.0" />
+    <file uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/FreqReport.txt?id=449a6d2d-2835-4c5a-9254-58e67ccaedd9&amp;version=1.0" isVersioned="true" modDate="20160901141524EDT" wasSynced="true" referencingSASFile="/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Frequency.sas" syncVersion="1.0" />
+  </outputs>
+  <outputFileSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputFileSpec>
+  <log uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Disposition%20Report.log?id=4056f93c-8ac2-4ec0-b9ae-93096054a24b&amp;version=2.0" isVersioned="true" modDate="20160901141524EDT" syncVersion="2.0" wasSynced="true" />
+  <lst uri="sdd:///SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Disposition%20Report.lst?id=fb0cc0e0-24eb-4ead-a2b0-ad27a08c7cc9&amp;version=2.0" isVersioned="true" modDate="20160901141524EDT" syncVersion="2.0" wasSynced="true" />
+  <mnf />
+  <parameters />
+</manifest>
+

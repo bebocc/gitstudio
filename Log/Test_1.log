@@ -1,0 +1,117 @@
+﻿NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+4          OPTIONS LOCALE=en_US DFLANG=LOCALE VALIDVARNAME=ANY;
+5          OPTIONS VALIDMEMNAME=COMPAT;
+6          FILENAME _HTMLOUT %nrstr("F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113/Output/Listings/Test_1.html");
+7          FILENAME _GSFNAME TEMP;
+8          DATA _NULL_;
+9          CALL SYMPUT("GRAPHINIT","");
+10         CALL SYMPUT("GRAPHTERM","");
+11         RC=TSLVL('GEOCODE','N');
+12         _ERROR_=0;
+13         IF (RC^=' ') THEN DO;
+14         CALL SYMPUT("GRAPHINIT","GOPTIONS RESET=ALL GSFNAME=_GSFNAME;");
+15         CALL SYMPUT("GRAPHTERM","GOPTIONS NOACCESSIBLE;");
+16         END;
+17         RUN;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+18         DATA _NULL_;
+19         RC=SYSPROD("PRODNUM002");
+20         IF (RC^=1) THEN DO;
+21         CALL SYMPUT("GRAPHINIT","");
+22         CALL SYMPUT("GRAPHTERM","");
+23         END;
+24         RUN;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+25         %LET SYSCC=0;
+26         %LET _CLIENTAPP=SAS Studio;
+27         %LET _CLIENTAPPVERSION=3.6;
+28         %LET _SASSERVERNAME=%BQUOTE(localhost);
+29         %LET _CLIENTUSERID=%BQUOTE(prdesa);
+30         %LET _CLIENTUSERNAME=%BQUOTE();
+31         %LET CLIENTMACHINE=%BQUOTE(HLSRDTS01.VSP.SAS.COM);
+32         
+33         %LET _SASPROGRAMFILE = %BQUOTE(F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113/Programs/Test_1.sas);
+34         %LET _EXECENV=SASStudio Background;
+35         %LET _SASWS_ = %BQUOTE(D:/Users/prdesa);
+36         %LET _SASWSTEMP_=%BQUOTE();
+37         ODS LISTING CLOSE;
+38         ODS AUTONAVIGATE OFF;
+39         ODS GRAPHICS ON;
+40         ODS HTML5 (ID=WEB) DEVICE=PNG GPATH="&_SASWSTEMP_" ENCODING=utf8 FILE=_HTMLOUT (TITLE='Results: Test_1.sas')
+40       ! STYLE=Htmlblue OPTIONS(BITMAP_MODE='INLINE' OUTLINE='ON' SVG_MODE='INLINE'
+40       ! CSS_PREFIX='.ods_38e2ef82-91b2-4b16-98e3-b2158c6dbfc6' BODY_ID='div_38e2ef82-91b2-4b16-98e3-b2158c6dbfc6' );
+NOTE: Writing HTML5(WEB) Body file: _HTMLOUT
+41         &GRAPHINIT;
+42         ********************************************************************************;
+43         ***
+44         *** Program:        HLS Pharma Test1.sas
+45         *** Programmer:     Pritesh Desai (new pgm)
+46         *** Date Created:   31May2017
+47         ***
+2                                                       The SAS System                      Wednesday, May 31, 2017 11:22:01 PM
+
+48         *** Input :         none
+49         ***
+50         *** Output:         none
+51         ***
+52         *** Purpose:        Assign project definitions, options, libnames and macro vars
+53         ***
+54         *** Comments:
+55         ***
+56         *** Software:       LSAF 4.x
+57         ***
+58         *** Modifications:
+59         ***
+60         *** Date       Programmer        Description
+61         *** ---------  ----------------  --------------
+62         ***  31MAY2017  PD 					Test1
+63         ********************************************************************************;
+64         *** Adding new comment;
+65         
+66         proc printto log= "F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113/Log/Test_1.log";
+67         	 run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+68         
+69         proc printto print= "F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113/Output/Listings/Test_1.lst";
+70         	 run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+71         	
+72         proc print data=sdtm.dm(obs=10);
+ERROR: Libref SDTM is not assigned.
+73         	run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+74         	
+
+
+75         proc printto;
+76         	 run;
+

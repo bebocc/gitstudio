@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job releaseVersion="1.0" description="" executionMode="SEQUENTIAL" sddVersion="4.0" log="./" lst="./" mnf="./">
+  <tasks>
+    <task path="./Frequency.sas" />
+  </tasks>
+  <taskSpecs>
+    <inputSpec path="./Frequency.sas" type="FILE" version="*" includeSubFolders="false" />
+  </taskSpecs>
+  <otherSpecs>
+    <inputSpec path="/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/disposition.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+  </otherSpecs>
+  <outputPaths>
+    <outputPath path="/SAS/HLS_Pharma/Cardiology/Files/XMB111" includeSubFolders="false" />
+  </outputPaths>
+  <outputSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputSpec>
+  <parameters />
+</job>
+

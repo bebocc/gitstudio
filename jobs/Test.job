@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job releaseVersion="1.0" description="" log="./" lst="./" mnf="./">
+  <tasks>
+    <task path="../Programs/autoexec.sas" />
+    <task path="../Programs/d0_dm.sas" />
+  </tasks>
+  <taskSpecs>
+    <inputSpec path="../Programs/autoexec.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../Programs/d0_dm.sas" type="FILE" version="*" includeSubFolders="false" />
+  </taskSpecs>
+  <otherSpecs>
+    <inputSpec path="../Macros/mstudydy.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../RawData/dm.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../RawData/sda.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../RawData/ds.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../RawData/oe.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../RawData/spc.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="../RawData/vs.sas7bdat" type="FILE" version="*" includeSubFolders="false" />
+  </otherSpecs>
+  <outputPaths />
+  <outputSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputSpec>
+  <parameters />
+</job>
+

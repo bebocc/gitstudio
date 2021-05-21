@@ -1,0 +1,158 @@
+1                                                          The SAS System                          18:15 Thursday, September 1, 2016
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M3 MBCS3170) 
+      Licensed to R&D PACKAGE VALIDATION, Site 70188996.
+NOTE: This session is executing on the Linux 2.6.32-504.30.3.el6.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 14.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 2.6.32-504.30.3.el6.x86_64 #1 SMP Thu Jul 9 15:20:47 EDT 2015 x86_64 Red Hat Enterprise Linux Server release 6.6 
+      (Santiago) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS Initialization used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+NOTE: The autoexec file, /sso/biconfig/940/Lev1/SASApp/WorkspaceServer/autoexec.sas, was executed at server initialization.
+1          options nofmterr ls=98;
+2          options linesize=98;
+3          options dtreset;
+4          options locale=EN_US;
+5          %let _SDDUSR_=%bquote(jimbox);
+6          %let _SASWS_ = %nrstr("/sddshared/SASWorkspaces/.transient/Disposition
+6        ! Report.job-eb3c3f52-cdbd-479c-ab52-84296fdb9de0");
+7          %let _SASWS_ = %qsubstr(&_SASWS_, 2, %length(&_SASWS_) - 2);
+8          
+9          %let _SASUSRWS_ = %nrstr("/sddshared/SASWorkspaces/.transient/Disposition
+9        ! Report.job-eb3c3f52-cdbd-479c-ab52-84296fdb9de0/Users/jimbox");
+10         %let _SASUSRWS_ = %qsubstr(&_SASUSRWS_, 2, %length(&_SASUSRWS_) - 2);
+11         options nosource;
+
+NOTE: DATA statement used (Total process time):
+      real time           1.02 seconds
+      cpu time            0.02 seconds
+      
+
+2                                         The SAS System         18:15 Thursday, September 1, 2016
+
+18         
+
+/**********************************************************************************************************************
+ * Submission Start: Frequency.sas
+ * Sep 01, 2016 18:15:24 GMT by jimbox
+ *********************************************************************************************************************/
+3                                         The SAS System         18:15 Thursday, September 1, 2016
+
+19         
+20         options nosyntaxcheck errorcheck=strict notes;
+21         
+22         
+23         ;*';*";*/;*);run;quit;
+24         *reset syscc macro variable;
+25         %let syscc=0;
+26         %let _SASFILEPATH_ =
+26       ! %nrstr("/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/Frequency.sas");
+27         %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+28         
+29         /**************************************************************************************
+29       ! ******************************/
+30         proc scaproc; record
+30       ! "&_SASWS_/.sessions/4/sca_2a65a289-134b-4730-9d0f-f592fc85ad79.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+31         
+32         options nomprint;
+33         /**************************************************************************************
+33       ! ******************************/
+34         
+35         /* Macro Variables for Job Parameters */
+36         
+37         /**************************************************************************************
+37       ! ******************************/
+38         
+39         
+40         
+41         libname metrics "&_sasws_/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics";
+NOTE: Libref METRICS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /sddshared/SASWorkspaces/.transient/Disposition 
+      Report.job-eb3c3f52-cdbd-479c-ab52-84296fdb9de0/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metri
+      cs
+42         
+43         
+44         proc printto
+44       ! print="&_sasws_/SAS/HLS_Pharma/Cardiology/Files/XMB111/Metrics/FreqReport.txt" NEW ;
+44       ! run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+45         proc freq data=metrics.disposition;
+46         table siteID*disposition;
+47         run;
+
+NOTE: There were 1000 observations read from the data set METRICS.DISPOSITION.
+NOTE: The PROCEDURE FREQ printed pages 1-2.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+4                                         The SAS System         18:15 Thursday, September 1, 2016
+
+      cpu time            0.01 seconds
+      
+
+48         proc printto print=print;
+49          run;
+
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+50         
+51         
+52         ;*';*";*/;*);run;quit;
+53         proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+54         options nonotes;
+55         
+
+/**********************************************************************************************************************
+ * Submission End: Frequency.sas
+ * Sep 01, 2016 18:15:24 GMT
+ *********************************************************************************************************************/

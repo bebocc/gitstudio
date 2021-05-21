@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest releaseVersion="1.0" type="PUBLISHED">
+  <job jobPath="/SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs/Test1.job" jobName="Test1.job" jobDescription="" jobVersion="1.0" uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs/Test1.job?id=3bce47ee-9340-41e0-b4b4-78223c99ee0b&amp;version=1.0" isVersioned="true" modDate="20181024082450EDT" syncVersion="1.0" />
+  <jobSubmission jobSubmissionId="78544bcf-ef79-4e54-bf14-91e16420730f" />
+  <tasks>
+    <file uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/Programs/autoexec.sas?id=096fb0c7-8179-43fd-bebf-50eb1b4815a7" isVersioned="false" modDate="20180119091752EST" sasSYSCC="4" didRun="true" failed="false" info="" />
+    <file uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/Programs/d0_dm.sas?id=ff3eefd9-e2b5-494d-8dfe-4ac2fcdb6ebc" isVersioned="false" modDate="20180119091753EST" sasSYSCC="3000" didRun="true" failed="false" info="" />
+  </tasks>
+  <inputs />
+  <outputs>
+    <file uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs/Test1.log?id=aac01fad-3978-44da-9d01-4ff5f3a65f04&amp;version=1.0" isVersioned="true" modDate="20181024082522EDT" wasSynced="true" syncVersion="1.0" />
+    <file uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs/Test1.lst?id=a4ffe8ad-7af1-4f1f-b16b-56706c22477d&amp;version=1.0" isVersioned="true" modDate="20181024082522EDT" wasSynced="true" syncVersion="1.0" />
+  </outputs>
+  <outputFileSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputFileSpec>
+  <log uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs/Test1.log?id=aac01fad-3978-44da-9d01-4ff5f3a65f04&amp;version=1.0" isVersioned="true" modDate="20181024082522EDT" syncVersion="1.0" wasSynced="true" />
+  <lst uri="sdd:///SAS/Files/HLS_Pharma/Cardiology/XMB113/jobs/Test1.lst?id=a4ffe8ad-7af1-4f1f-b16b-56706c22477d&amp;version=1.0" isVersioned="true" modDate="20181024082522EDT" syncVersion="1.0" wasSynced="true" />
+  <mnf />
+  <parameters />
+</manifest>
+
