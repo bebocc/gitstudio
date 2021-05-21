@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<processFlowManifestForXML>
+    <attachments>
+        <attachment>
+            <attachedDate>2016-06-07T10:27:57-04:00</attachedDate>
+            <location>/SAS/HLS Pharma/Cardiology/Files/XMB111/Study Documents</location>
+            <modifiedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </modifiedBy>
+            <modifiedDate>2016-06-06T11:31:30-04:00</modifiedDate>
+            <name>Comments.xlsx</name>
+            <size>8293</size>
+            <version>1.0</version>
+        </attachment>
+    </attachments>
+    <completedFlowElements/>
+    <completedTasks>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T10:28:49.739-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T10:28:49.739-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T11:03:39.472-04:00</dateStarted>
+                    <identifier>588b5220-00d3-4521-ab7b-9f6ac7ebaffa</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>B</taskId>
+                    <taskIdentifier>15021</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T11:04:16.806-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes>
+                <completionAttribute>
+                    <identifier>changesRequired</identifier>
+                    <name>Are changes required</name>
+                    <type>BOOLEAN</type>
+                    <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true</value>
+                </completionAttribute>
+            </completionAttributes>
+            <completionComment>Add new column and change mapping of another column</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T10:28:49.690-04:00</created>
+            <description>Are there changes required to the default template PK/PD ETL job for the new specification?</description>
+            <attributes/>
+            <identifier>15021</identifier>
+            <name>Changes Required?</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T11:03:39.472-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>B</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T10:28:08.768-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T10:28:08.768-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T10:28:28.863-04:00</dateStarted>
+                    <identifier>3ea3794d-8e88-467a-907a-374f256a1f3e</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>A</taskId>
+                    <taskIdentifier>15008</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T10:28:49.685-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes/>
+            <completionComment>Changes required</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T10:28:08.667-04:00</created>
+            <description>Compare the new specification to the template(s)</description>
+            <attributes/>
+            <identifier>15008</identifier>
+            <name>New Study - Compare Specification</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T10:28:28.863-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>A</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T11:09:50.003-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T11:09:50.003-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T11:09:55.568-04:00</dateStarted>
+                    <identifier>75e4afa9-8521-4ede-9952-5296a4fcb397</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>E</taskId>
+                    <taskIdentifier>15095</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T11:10:12.028-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes/>
+            <completionComment>productionized code</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T11:09:49.966-04:00</created>
+            <description>Move new specification and ETL job to production</description>
+            <attributes/>
+            <identifier>15095</identifier>
+            <name>Move to Production</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T11:09:55.568-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>E</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T11:08:45.792-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T11:08:45.792-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T11:08:57.908-04:00</dateStarted>
+                    <identifier>ae8f5031-9cec-48d7-a30a-17bb797529ed</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>C</taskId>
+                    <taskIdentifier>15067</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T11:09:23.501-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes/>
+            <completionComment>updated metadata on new column</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T11:08:45.752-04:00</created>
+            <description>Programmer update ETL job for new specification, save as study specific OR new template per business rules</description>
+            <attributes/>
+            <identifier>15067</identifier>
+            <name>Programmer Makes Changes</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T11:08:57.908-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>C</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T11:04:16.876-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T11:04:16.876-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T11:05:44.183-04:00</dateStarted>
+                    <identifier>ead2eaee-38a1-4980-8c89-c2923f3a9c78</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>C</taskId>
+                    <taskIdentifier>15038</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T11:06:21.267-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes/>
+            <completionComment>added new column to target and updated mappings</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T11:04:16.835-04:00</created>
+            <description>Programmer update ETL job for new specification, save as study specific OR new template per business rules</description>
+            <attributes/>
+            <identifier>15038</identifier>
+            <name>Programmer Makes Changes</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T11:05:44.183-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>C</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T11:06:21.307-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T11:06:21.307-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T11:07:17.666-04:00</dateStarted>
+                    <identifier>32bc3463-327b-4c89-b4ae-9e9183bd98ca</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>D</taskId>
+                    <taskIdentifier>15050</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T11:08:45.747-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes>
+                <completionAttribute>
+                    <identifier>testSuccessful</identifier>
+                    <name>Testing successful</name>
+                    <type>BOOLEAN</type>
+                    <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">false</value>
+                </completionAttribute>
+            </completionAttributes>
+            <completionComment>need to fix metadata on new column</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T11:06:21.270-04:00</created>
+            <description>QC Reviewer test to ensure all changes needed for the new study specification ETL job have been implemented.</description>
+            <attributes/>
+            <identifier>15050</identifier>
+            <name>Test Changes</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T11:07:17.666-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>D</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+        <completedTask>
+            <activityType>USER_TASK</activityType>
+            <assigned>2016-06-07T11:09:23.540-04:00</assigned>
+            <assignee>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </assignee>
+            <assignments>
+                <assignment>
+                    <actualHours>0.0</actualHours>
+                    <assignee>
+                        <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                        <objectType>sas:user</objectType>
+                        <displayName>Kris Wilson</displayName>
+                        <principalId>krwils</principalId>
+                        <principalName>krwils</principalName>
+                        <userId>krwils</userId>
+                    </assignee>
+                    <dateAssigned>2016-06-07T11:09:23.540-04:00</dateAssigned>
+                    <dateStarted>2016-06-07T11:09:29.574-04:00</dateStarted>
+                    <identifier>f2d4b8d6-8142-4d57-bf41-eb5d4527f1a5</identifier>
+                    <processFlowId>b2089681-16a0-441e-b4fa-183df1b35705</processFlowId>
+                    <taskId>D</taskId>
+                    <taskIdentifier>15079</taskIdentifier>
+                </assignment>
+            </assignments>
+            <completed>2016-06-07T11:09:49.962-04:00</completed>
+            <completedBy>
+                <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+                <objectType>sas:user</objectType>
+                <displayName>Kris Wilson</displayName>
+                <principalId>krwils</principalId>
+                <principalName>krwils</principalName>
+                <userId>krwils</userId>
+            </completedBy>
+            <completionAttributes>
+                <completionAttribute>
+                    <identifier>testSuccessful</identifier>
+                    <name>Testing successful</name>
+                    <type>BOOLEAN</type>
+                    <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true</value>
+                </completionAttribute>
+            </completionAttributes>
+            <completionComment>test is correct</completionComment>
+            <complexity>MEDIUM</complexity>
+            <created>2016-06-07T11:09:23.503-04:00</created>
+            <description>QC Reviewer test to ensure all changes needed for the new study specification ETL job have been implemented.</description>
+            <attributes/>
+            <identifier>15079</identifier>
+            <name>Test Changes</name>
+            <priority>MEDIUM</priority>
+            <started>2016-06-07T11:09:29.574-04:00</started>
+            <status>COMPLETED</status>
+            <taskId>D</taskId>
+            <totalActualHours>0.0</totalActualHours>
+        </completedTask>
+    </completedTasks>
+    <manifestDetails>
+        <identifier>e9d92ff7-7f9f-42aa-814a-a41800df4c66</identifier>
+        <manifestVersion>1.0</manifestVersion>
+    </manifestDetails>
+    <processData/>
+    <processDefinitionInfo>
+        <flowElementDefinitions/>
+        <identifier>Amgen_New_Study:3:13668</identifier>
+        <key>Amgen_New_Study</key>
+        <name>New Study</name>
+        <processDefinitionDiagramInfo>
+            <bpmnComponents>
+                <bpmnComponent>
+                    <activityType>USER_TASK</activityType>
+                    <description>Move new specification and ETL job to production</description>
+                    <elementId>E</elementId>
+                    <elementType>userTask</elementType>
+                    <location>
+                        <height>76.0</height>
+                        <width>105.0</width>
+                        <x>992.0</x>
+                        <y>-482.0</y>
+                    </location>
+                    <name>Move to Production</name>
+                </bpmnComponent>
+                <bpmnComponent>
+                    <activityType>USER_TASK</activityType>
+                    <description>Programmer update ETL job for new specification, save as study specific OR new template per business rules</description>
+                    <elementId>C</elementId>
+                    <elementType>userTask</elementType>
+                    <location>
+                        <height>80.0</height>
+                        <width>100.0</width>
+                        <x>682.0</x>
+                        <y>-316.0</y>
+                    </location>
+                    <name>Programmer Makes Changes</name>
+                </bpmnComponent>
+                <bpmnComponent>
+                    <activityType>USER_TASK</activityType>
+                    <description>QC Reviewer test to ensure all changes needed for the new study specification ETL job have been implemented.</description>
+                    <elementId>D</elementId>
+                    <elementType>userTask</elementType>
+                    <location>
+                        <height>77.0</height>
+                        <width>105.0</width>
+                        <x>861.0</x>
+                        <y>-394.0</y>
+                    </location>
+                    <name>Test Changes</name>
+                </bpmnComponent>
+                <bpmnComponent>
+                    <activityType>USER_TASK</activityType>
+                    <description>Compare the new specification to the template(s)</description>
+                    <elementId>A</elementId>
+                    <elementType>userTask</elementType>
+                    <location>
+                        <height>80.0</height>
+                        <width>100.0</width>
+                        <x>220.0</x>
+                        <y>-318.0</y>
+                    </location>
+                    <name>New Study - Compare Specification</name>
+                </bpmnComponent>
+                <bpmnComponent>
+                    <activityType>USER_TASK</activityType>
+                    <description>Are there changes required to the default template PK/PD ETL job for the new specification?</description>
+                    <elementId>B</elementId>
+                    <elementType>userTask</elementType>
+                    <location>
+                        <height>80.0</height>
+                        <width>100.0</width>
+                        <x>407.0</x>
+                        <y>-318.0</y>
+                    </location>
+                    <name>Changes Required?</name>
+                </bpmnComponent>
+                <bpmnComponent>
+                    <activityType>END</activityType>
+                    <elementId>EndEvent_0xrgrp0</elementId>
+                    <elementType>endEvent</elementType>
+                    <location>
+                        <height>36.0</height>
+                        <width>36.0</width>
+                        <x>549.0</x>
+                        <y>-482.0</y>
+                    </location>
+                </bpmnComponent>
+                <bpmnComponent>
+                    <activityType>START</activityType>
+                    <elementId>StartEvent_1</elementId>
+                    <elementType>startEvent</elementType>
+                    <location>
+                        <height>36.0</height>
+                        <width>36.0</width>
+                        <x>72.0</x>
+                        <y>-316.0</y>
+                    </location>
+                </bpmnComponent>
+            </bpmnComponents>
+            <bpmnGatewayComponents>
+                <bpmnGatewayComponent>
+                    <activityType>EXCLUSIVE_GATEWAY</activityType>
+                    <elementId>exclusivegateway1</elementId>
+                    <elementType>exclusiveGateway</elementType>
+                    <location>
+                        <height>40.0</height>
+                        <width>40.0</width>
+                        <x>548.0</x>
+                        <y>-317.0</y>
+                    </location>
+                    <name>Exclusive Gateway</name>
+                </bpmnGatewayComponent>
+                <bpmnGatewayComponent>
+                    <activityType>EXCLUSIVE_GATEWAY</activityType>
+                    <elementId>exclusivegateway2</elementId>
+                    <elementType>exclusiveGateway</elementType>
+                    <location>
+                        <height>40.0</height>
+                        <width>40.0</width>
+                        <x>991.0</x>
+                        <y>-317.0</y>
+                    </location>
+                    <name>Exclusive Gateway</name>
+                </bpmnGatewayComponent>
+            </bpmnGatewayComponents>
+            <identifier>Amgen_New_Study:3:13668</identifier>
+            <name>New Study</name>
+            <bpmnSequenceFlows>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>flow10</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>991.0</x>
+                        <y>-339.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>991.0</x>
+                        <y>-440.0</y>
+                    </location>
+                    <conditionExpression>${testSuccessful==true}</conditionExpression>
+                    <default>false</default>
+                    <fromElementId>exclusivegateway2</fromElementId>
+                    <toElementId>E</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>flow5</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>462.0</x>
+                        <y>-318.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>526.0</x>
+                        <y>-317.0</y>
+                    </location>
+                    <default>false</default>
+                    <fromElementId>B</fromElementId>
+                    <toElementId>exclusivegateway1</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>flow4</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>934.0</x>
+                        <y>-482.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>569.0</x>
+                        <y>-482.0</y>
+                    </location>
+                    <default>false</default>
+                    <fromElementId>E</fromElementId>
+                    <toElementId>EndEvent_0xrgrp0</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>flow2</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>737.0</x>
+                        <y>-316.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>860.0</x>
+                        <y>-352.0</y>
+                    </location>
+                    <default>false</default>
+                    <fromElementId>C</fromElementId>
+                    <toElementId>D</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>SequenceFlow_1w2cwy8</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>275.0</x>
+                        <y>-318.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>352.0</x>
+                        <y>-318.0</y>
+                    </location>
+                    <default>false</default>
+                    <fromElementId>A</fromElementId>
+                    <toElementId>B</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>noChanges</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>548.0</x>
+                        <y>-339.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>549.0</x>
+                        <y>-462.0</y>
+                    </location>
+                    <name>No Changes</name>
+                    <conditionExpression>${changesRequired==false}</conditionExpression>
+                    <default>false</default>
+                    <fromElementId>exclusivegateway1</fromElementId>
+                    <toElementId>EndEvent_0xrgrp0</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>SequenceFlow_1nab9ik</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>91.0</x>
+                        <y>-316.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>165.0</x>
+                        <y>-318.0</y>
+                    </location>
+                    <default>false</default>
+                    <fromElementId>StartEvent_1</fromElementId>
+                    <toElementId>A</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>changes</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>570.0</x>
+                        <y>-317.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>627.0</x>
+                        <y>-316.0</y>
+                    </location>
+                    <name>Changes</name>
+                    <conditionExpression>${changesRequired==true}</conditionExpression>
+                    <default>false</default>
+                    <fromElementId>exclusivegateway1</fromElementId>
+                    <toElementId>C</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>flow9</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>969.0</x>
+                        <y>-317.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>737.0</x>
+                        <y>-316.0</y>
+                    </location>
+                    <conditionExpression>${testSuccessful==false}</conditionExpression>
+                    <default>false</default>
+                    <fromElementId>exclusivegateway2</fromElementId>
+                    <toElementId>C</toElementId>
+                </bpmnSequenceFlow>
+                <bpmnSequenceFlow>
+                    <activityType>SEQUENCEFLOW</activityType>
+                    <elementId>flow8</elementId>
+                    <elementType>sequenceFlow</elementType>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>860.0</x>
+                        <y>-352.0</y>
+                    </location>
+                    <location>
+                        <height>0.0</height>
+                        <width>0.0</width>
+                        <x>991.0</x>
+                        <y>-339.0</y>
+                    </location>
+                    <default>false</default>
+                    <fromElementId>D</fromElementId>
+                    <toElementId>exclusivegateway2</toElementId>
+                </bpmnSequenceFlow>
+            </bpmnSequenceFlows>
+            <bpmnSignalEventComponents/>
+            <bpmnTimerEventComponents/>
+        </processDefinitionDiagramInfo>
+        <taskDefinitions>
+            <description>Compare the new specification to the template(s)</description>
+            <elementId>A</elementId>
+            <name>New Study - Compare Specification</name>
+            <taskId>A</taskId>
+            <type>USER_TASK</type>
+        </taskDefinitions>
+        <taskDefinitions>
+            <description>Are there changes required to the default template PK/PD ETL job for the new specification?</description>
+            <elementId>B</elementId>
+            <name>Changes Required?</name>
+            <taskId>B</taskId>
+            <type>USER_TASK</type>
+        </taskDefinitions>
+        <taskDefinitions>
+            <description>Programmer update ETL job for new specification, save as study specific OR new template per business rules</description>
+            <elementId>C</elementId>
+            <name>Programmer Makes Changes</name>
+            <taskId>C</taskId>
+            <type>USER_TASK</type>
+        </taskDefinitions>
+        <taskDefinitions>
+            <description>QC Reviewer test to ensure all changes needed for the new study specification ETL job have been implemented.</description>
+            <elementId>D</elementId>
+            <name>Test Changes</name>
+            <taskId>D</taskId>
+            <type>USER_TASK</type>
+        </taskDefinitions>
+        <taskDefinitions>
+            <description>Move new specification and ETL job to production</description>
+            <elementId>E</elementId>
+            <name>Move to Production</name>
+            <taskId>E</taskId>
+            <type>USER_TASK</type>
+        </taskDefinitions>
+        <version>3</version>
+    </processDefinitionInfo>
+    <processFlowDetails>
+        <context>
+            <identifier>d5be4722-dd9a-4e47-9322-6147a67af78e</identifier>
+            <name>SAS</name>
+            <objectType>sas:organization</objectType>
+            <path>/SAS</path>
+        </context>
+        <created>2016-06-07T10:25:10.257-04:00</created>
+        <createdBy>
+            <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+            <objectType>sas:user</objectType>
+            <displayName>Kris Wilson</displayName>
+            <principalId>krwils</principalId>
+            <principalName>krwils</principalName>
+            <userId>krwils</userId>
+        </createdBy>
+        <identifier>b2089681-16a0-441e-b4fa-183df1b35705</identifier>
+        <lastModified>2016-06-07T11:10:12.078-04:00</lastModified>
+        <lastModifiedBy>
+            <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+            <objectType>sas:user</objectType>
+            <displayName>Kris Wilson</displayName>
+            <principalId>krwils</principalId>
+            <principalName>krwils</principalName>
+            <userId>krwils</userId>
+        </lastModifiedBy>
+        <name>Practice Study 1</name>
+        <owner>
+            <identifier>0a3ebe55-13ba-4313-ae8f-16c563a436b8</identifier>
+            <objectType>sas:user</objectType>
+            <displayName>Kris Wilson</displayName>
+            <principalId>krwils</principalId>
+            <principalName>krwils</principalName>
+            <userId>krwils</userId>
+        </owner>
+        <status>COMPLETED</status>
+    </processFlowDetails>
+</processFlowManifestForXML>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job releaseVersion="1.0" description="Runs autoexec, d0_dm and rldemo" executionMode="SEQUENTIAL" sddVersion="4.0" log="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs" lst="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs" mnf="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs">
+  <tasks>
+    <task path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/autoexec.sas" />
+    <task path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/d0_dm.sas" />
+    <task path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/rldemo.sas" />
+    <task path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/rtdemog.sas" />
+  </tasks>
+  <taskSpecs>
+    <inputSpec path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/rldemo.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/autoexec.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/d0_dm.sas" type="FILE" version="*" includeSubFolders="false" />
+    <inputSpec path="/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/rtdemog.sas" type="FILE" version="*" includeSubFolders="false" />
+  </taskSpecs>
+  <otherSpecs>
+    <inputSpec path="/SAS/HLS Pharma/Cardiology/Files/XMB111" type="CONTAINER" version="*" includeSubFolders="true" />
+  </otherSpecs>
+  <outputPaths>
+    <outputPath path="/SAS/HLS Pharma/Cardiology/Files/XMB111" includeSubFolders="true" />
+  </outputPaths>
+  <outputSpec enableVersioningForNewFiles="true">
+    <versionType type="MAJOR" />
+  </outputSpec>
+  <parameters />
+</job>
+

@@ -1,0 +1,729 @@
+1                                                          The SAS System                              20:16 Wednesday, May 11, 2016
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M3 MBCS3170) 
+      Licensed to R&D PACKAGE VALIDATION, Site 70188996.
+NOTE: This session is executing on the Linux 2.6.32-504.30.3.el6.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 14.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 2.6.32-504.30.3.el6.x86_64 #1 SMP Thu Jul 9 15:20:47 EDT 2015 x86_64 Red Hat Enterprise Linux Server release 6.6 
+      (Santiago) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS Initialization used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: The autoexec file, /sso/biconfig/940/Lev1/SASApp/WorkspaceServer/autoexec.sas, was executed at server initialization.
+1          options nofmterr ls=98;
+2          options linesize=98;
+3          options dtreset;
+4          options locale=EN_US;
+5          %let _SDDUSR_=%bquote(jimbox);
+6          %let _SASWS_ =
+6        ! %nrstr("/sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f
+6        ! 96c5dc96");
+7          %let _SASWS_ = %qsubstr(&_SASWS_, 2, %length(&_SASWS_) - 2);
+8          
+9          %let _SASUSRWS_ =
+9        ! %nrstr("/sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f
+9        ! 96c5dc96/Users/jimbox");
+10         %let _SASUSRWS_ = %qsubstr(&_SASUSRWS_, 2, %length(&_SASUSRWS_) - 2);
+11         
+
+/**********************************************************************************************************************
+ * Submission Start: autoexec.sas
+ * May 11, 2016 20:16:32 GMT by jimbox
+ *********************************************************************************************************************/
+2                                         The SAS System             20:16 Wednesday, May 11, 2016
+
+12         
+13         options nosyntaxcheck errorcheck=strict notes;
+14         
+15         
+16         ;*';*";*/;*);run;quit;
+17         *reset syscc macro variable;
+18         %let syscc=0;
+19         %let _SASFILEPATH_ = %nrstr("/SAS/HLS
+19       ! Pharma/Cardiology/Files/XMB111/Programs/autoexec.sas");
+20         %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+21         
+22         /**************************************************************************************
+22       ! ******************************/
+23         proc scaproc; record
+23       ! "&_SASWS_/.sessions/2/sca_66b2b42d-f51c-4b6e-a1f0-606cc1b62acc.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+24         
+25         options nomprint;
+26         /**************************************************************************************
+26       ! ******************************/
+27         
+28         /* Macro Variables for Job Parameters */
+29         
+30         /**************************************************************************************
+30       ! ******************************/
+31         
+32         ********************************************************************************;
+33         ***
+34         *** Program:        HLS Pharma autoexec.sas
+35         *** Programmer:     Matt Becker
+36         *** Date Created:   02FEB2014
+37         ***
+38         *** Input :         none
+39         ***
+40         *** Output:         none
+41         ***
+42         *** Purpose:        Assign project definitions, options, libnames and macro vars
+43         ***
+44         *** Comments:
+45         ***
+46         *** Software:       SDD 4.x
+47         ***
+48         *** Modifications:
+49         ***
+50         *** Date       Programmer        Description
+51         *** ---------  ----------------  --------------
+52         ***
+53         ********************************************************************************;
+54         %let pathname=&_sasws_/SAS/HLS Pharma/Cardiology/Files/XMB111;
+55         %let rootdir=&_sasws_/SAS/HLS Pharma/Cardiology/Files/XMB111;
+56         
+57         %let ptitle1=%str(PharmaCo);
+58         %let ptitle2=%str(PharmaCo - Compound2 - CONFIDENTIAL);
+3                                         The SAS System             20:16 Wednesday, May 11, 2016
+
+59         
+60         %let ddt=&pathname./Study Documents/ddt.xls;
+61         %let sdtm=&pathname./Study Documents/sdtm.xls;
+62         
+63         libname raw "&pathname./RawData";
+NOTE: Libref RAW was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f96c5dc96/SAS/
+      HLS Pharma/Cardiology/Files/XMB111/RawData
+64         libname sdtm "&pathname./SDTM";
+NOTE: Libref SDTM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f96c5dc96/SAS/
+      HLS Pharma/Cardiology/Files/XMB111/SDTM
+65         libname derived "&pathname./ADAM";
+NOTE: Libref DERIVED was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f96c5dc96/SAS/
+      HLS Pharma/Cardiology/Files/XMB111/ADAM
+66         
+67         libname psmac   "&pathname./Macros" access=read;
+NOTE: Libref PSMAC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f96c5dc96/SAS/
+      HLS Pharma/Cardiology/Files/XMB111/Macros
+68         libname fmtdata "&pathname./ADAM";
+NOTE: Libref FMTDATA refers to the same physical library as DERIVED.
+NOTE: Libref FMTDATA was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f96c5dc96/SAS/
+      HLS Pharma/Cardiology/Files/XMB111/ADAM
+69         libname library "&pathname./ADAM";
+NOTE: Libref LIBRARY refers to the same physical library as FMTDATA.
+NOTE: Libref LIBRARY was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_setup.job-2eb51e8c-9afa-44d4-9d2e-a96f96c5dc96/SAS/
+      HLS Pharma/Cardiology/Files/XMB111/ADAM
+70         
+71         %global rawdata derdata suppkeep;
+72         %let rawdata=raw;
+73         %let derdata=derived;
+74         %let suppkeep=%str(studyid rdomain usubjid idvar idvarval qnam qlabel qval qorig qeval)
+74       ! ;
+75         
+76         %let output =&pathname./Output;
+77         %let program=&pathname./Programs;
+78         
+79         %*** set treatment variables used in MSS, MFREQ;
+80         %global ovtrt tottrt;
+81         %let ovtrt=6;
+82         %let tottrt=6;
+83         
+4                                         The SAS System             20:16 Wednesday, May 11, 2016
+
+84         *** set global macro vars;
+85         %global study studynum keepdemo draft_final trtspace demovars ps ls;
+86         %let study=;
+87         %let studynum=;
+88         %let keepdemo=;
+89         %let draft_final=FINAL;
+90         %let trtspace=4;
+91         %let demovars=%str(usubjid age atrt rfendtc rfendtn rfstdtn rfstdtc cnstdtn q_safeas
+91       ! q_immuas race sex tbsa);
+92         %let ps=50;
+93         %let ls=130;
+94         
+95         options linesize=136 pagesize=50 formchar="|----|+|---+=|-/\<>*";
+96         
+97         options mautosource mrecall missing='';
+98         options sasautos=("&pathname" "&pathname/Macros" sasautos) fmtsearch=(fmtdata WORK);
+99         
+100        ods path sashelp.tmplmst(read) &derdata..tplate;
+101        
+102        %let options=mprint center ps=45 ls=132;
+103        %let moptions=macrogen symbolgen /* mlogic */;
+104        %let topdatef=date9.;
+105        
+106        %let fpgfln=%str(put '\b0\f4\fs16\pard\par '; );
+107        %let border=%str(\brdrb\brdrs);
+108        
+109        %let ori=l;     *** landscape;
+110        
+111        data _null_;
+112           daytim=put("&sysdate"d,date9.)||" "||put("&systime"t,time8.);
+113           call symput("nowdate", daytim);
+114        run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+115        
+116        
+117        ;*';*";*/;*);run;quit;
+118        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+5                                                            The SAS System                                20:16 Wednesday, May 11, 2016
+
+119        options nonotes;
+120        
+
+/**********************************************************************************************************************
+ * Submission End: autoexec.sas
+ * May 11, 2016 20:16:32 GMT
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Submission Start: _run_toc.sas
+ * May 11, 2016 20:16:32 GMT by jimbox
+ *********************************************************************************************************************/
+6                                                            The SAS System                                20:16 Wednesday, May 11, 2016
+
+121        
+122        options nosyntaxcheck errorcheck=strict notes;
+123        
+124        
+125        ;*';*";*/;*);run;quit;
+126        *reset syscc macro variable;
+127        %let syscc=0;
+128        %let _SASFILEPATH_ = %nrstr("/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/_run_toc.sas");
+129        %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+130        
+131        /********************************************************************************************************************/
+132        proc scaproc; record "&_SASWS_/.sessions/2/sca_6a7db276-bc1f-4e73-9c89-6e611e9e97b5.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+133        
+134        options nomprint;
+135        /********************************************************************************************************************/
+136        
+137        proc import out=toc datafile="&pathname/Programs/toc.xls" dbms=xls replace;
+138             getnames=yes;
+139        run;
+
+NOTE:    Variable Name Change.  U/R -> U_R                             
+NOTE: The import data set has 399 observations and 96 variables.
+NOTE: WORK.TOC data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+140        
+141        data &derdata..toc_prog;
+142             length tabnum $50 title1-title6 footn1-footn8 $200 outname $60 l_source $200;
+143             set toc;
+144        	 table=trim(left(table));
+145        	 number=trim(left(number));
+146             tabnum=trim(left(table)) || " " || trim(left(number));
+147        	 number=translate(number,'.','-');
+148             numtitle=0;
+149             array titles {6} title1-title6;
+150             do i=1 to 6;
+151                if titles(i)^="" then do;
+152                   numtitle+1;
+153                   titles(i)=trim(titles(i));
+7                                                            The SAS System                                20:16 Wednesday, May 11, 2016
+
+154                end;
+155             end;
+156        	 array footnotes {8} footn1-footn8;
+157        	 numfoot=0;
+158             do i=1 to 8;
+159                if footnotes(i)^="" then numfoot+1;
+160             end;
+161             outname=substr(table,1,1);
+162        	 if outname='P' then outname='L';
+163        	 /*
+164        	 n1=input(scan(left(number),1,'.'),??8.);
+165        	 n2=input(scan(left(number),2,'.'),??8.);
+166        	 n3=input(scan(left(number),3,'.'),??8.);
+167        	 outname=trim(outname) || put(n1,z2.);
+168        	 if n2 ne . then outname=trim(outname) || '_' || put(n2,z3.);
+169        	 if n3 ne . then outname=trim(outname) || '_' || put(n3,z3.);
+170             outname=compress(outname || '_' || lowcase(progid));
+171        
+172        	 */
+173             n1a=scan(left(number),1,'.');
+174        	 if n1a ne '' and compress(n1a,'1234567890 ')='' then n1=put(input(n1a,??8.),z2.);
+175        	 else n1=n1a;
+176        	 n2a=scan(left(number),2,'.');
+177        	 if n2a ne '' and compress(n2a,'1234567890 ')='' then n2=put(input(n2a,??8.),z2.);
+178        	 else n2=n2a;
+179        	 n3a=scan(left(number),3,'.');
+180        	 if n3a ne '' and compress(n3a,'1234567890 ')='' then n3=put(input(n3a,??8.),z2.);
+181        	 else n3=n3a;
+182        	 n4a=scan(left(number),4,'.');
+183        	 if n4a ne '' and compress(n4a,'1234567890 ')='' then n4=put(input(n4a,??8.),z2.);
+184        	 else n4=n4a;
+185        	 n5a=scan(left(number),5,'.');
+186        	 if n5a ne '' and compress(n5a,'1234567890 ')='' then n5=put(input(n5a,??8.),z2.);
+187        	 else n5=n5a;
+188             n6a=scan(left(number),6,'.');
+189        	 if n6a ne '' and compress(n6a,'1234567890 ')='' then n6=put(input(n6a,??8.),z2.);
+190        	 else n6=n6a;
+191        
+192        	 outname=trim(outname) || n1;
+193        	 if n2 ne '' then outname=trim(outname) || '_' || n2;
+194        	 if n3 ne '' then outname=trim(outname) || '_' || n3;
+195        	 if n4 ne '' then outname=trim(outname) || '_' || n4;
+196        	 if n5 ne '' then outname=trim(outname) || '_' || n5;
+197        	 if n6 ne '' then outname=trim(outname) || '_' || n6;
+198        
+199             if substr(tabnum,1,1) in('T' 'L' 'A' 'F' 'S') then outname=compress(outname || '_' || lowcase(progid));  ** added S for
+199      ! stat appendices - kcm 17sept09 **;
+200        	 else outname=lowcase(progid);
+8                                                            The SAS System                                20:16 Wednesday, May 11, 2016
+
+201        
+202             *outname=compress(outname,'-');
+203        
+204        	 outname=lowcase(outname);
+205        
+206             if numtitle^=0;
+207             drop i table number n1 n2 n3 n4 n1a n2a n3a n4a  n5 n5a;
+208        run;
+
+NOTE: There were 399 observations read from the data set WORK.TOC.
+NOTE: The data set DERIVED.TOC_PROG has 110 observations and 100 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.05 seconds
+      
+
+209        
+210        
+211        
+212        ;*';*";*/;*);run;quit;
+213        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+214        options nonotes;
+215        
+
+/**********************************************************************************************************************
+ * Submission End: _run_toc.sas
+ * May 11, 2016 20:16:32 GMT
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Submission Start: formats.sas
+ * May 11, 2016 20:16:32 GMT by jimbox
+ *********************************************************************************************************************/
+9                                                            The SAS System                                20:16 Wednesday, May 11, 2016
+
+216        
+217        options nosyntaxcheck errorcheck=strict notes;
+218        
+219        
+220        ;*';*";*/;*);run;quit;
+221        *reset syscc macro variable;
+222        %let syscc=0;
+223        %let _SASFILEPATH_ = %nrstr("/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/formats.sas");
+224        %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+225        
+226        /********************************************************************************************************************/
+227        proc scaproc; record "&_SASWS_/.sessions/2/sca_0000d61a-7d19-4bad-a931-87f0cb3594fe.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+228        
+229        options nomprint;
+230        /********************************************************************************************************************/
+231        
+232        *******************************************************************************
+233        ***
+234        *** Program:        FORMATS.SAS
+235        *** Programmer:     Matt Becker
+236        *** Date Created:   02Feb2010
+237        ***
+238        *** Purpose:        Creates formats for this study
+239        ***
+240        *** Comments:
+241        ***
+242        ***
+243        *** Modification History:
+244        ***
+245        *** Date       Programmer         Description
+246        *** ---------  ----------------   --------------
+247        ***
+248        ********************************************************************************;
+249        proc format lib=&derdata;
+250        invalue statord 'N'=1
+251                        'MEANSD'=2
+252                        'MEAN'=2
+253                        'STD'=2
+254                        'MEDIAN'=3
+255                        'RANGE'=4
+256                        'CI95'=5;
+NOTE: Informat STATORD is already on the library DERIVED.FORMATS.
+10                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+NOTE: Informat STATORD has been output.
+257        
+258        picture perc (round)
+259        	0 - < 100 ='09.9'
+260        	100='100.0' (noedit);
+NOTE: Format PERC is already on the library DERIVED.FORMATS.
+NOTE: Format PERC has been written to DERIVED.FORMATS.
+261        
+262        value sexf 1='Male'
+263                   2='Female';
+NOTE: Format SEXF is already on the library DERIVED.FORMATS.
+NOTE: Format SEXF has been written to DERIVED.FORMATS.
+264        
+265        value racef 1='American Indian/Alaska Native'
+266                    2='Asian'
+267                    3='Black or African American'
+268                    4='Hispanic'
+269            	     5='Native Hawaiian/Pacific Islander'
+270                    6='White'
+271                    7='Other';
+NOTE: Format RACEF is already on the library DERIVED.FORMATS.
+NOTE: Format RACEF has been written to DERIVED.FORMATS.
+272        
+273        value indicf 1="Primary Skin Graft"
+274                     2="Skin Graft Revision"
+275        			99="Other";
+NOTE: Format INDICF is already on the library DERIVED.FORMATS.
+NOTE: Format INDICF has been written to DERIVED.FORMATS.
+276        
+277        value btypef 1="Chemical"
+278                     2="Electrical"
+279        			 3="Flame"
+280        			 4="Scald"
+281        			 5="Thermal"
+282        			 99="Other";
+NOTE: Format BTYPEF is already on the library DERIVED.FORMATS.
+NOTE: Format BTYPEF has been written to DERIVED.FORMATS.
+283        
+284        value gtypef 1="Mesh Graft"
+285                     2="Sheet Graft";
+NOTE: Format GTYPEF is already on the library DERIVED.FORMATS.
+NOTE: Format GTYPEF has been written to DERIVED.FORMATS.
+286        
+287        value $yesno "Y"="Yes"
+288                     "N"="No"
+289                     "U"="Unknown";
+NOTE: Format $YESNO is already on the library DERIVED.FORMATS.
+NOTE: Format $YESNO has been written to DERIVED.FORMATS.
+11                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+290        
+291        value discreas 1="Adverse Event"
+292                       2="Death"
+293        			   3="Withdrawal of Consent"
+294        			   4="Lost to Follow-up"
+295        			   5="Study Termination by Sponsor"
+296        			   6="Physician Decision"
+297        			  11="Not Eligible"
+298        			  12="Eligible, but not Treated"
+299        			  99="Other";
+NOTE: Format DISCREAS is already on the library DERIVED.FORMATS.
+NOTE: Format DISCREAS has been written to DERIVED.FORMATS.
+300        
+301        value medreas 1="Lack of Appropriate Bleeding"
+302                      2="Died Pre-treatment"
+303        			  3="Change in Operative Plan"
+304        			  4="Withdrew Consent"
+305        			  5="Drug Not Available"
+306        			 99="Other";
+NOTE: Format MEDREAS is already on the library DERIVED.FORMATS.
+NOTE: Format MEDREAS has been written to DERIVED.FORMATS.
+307        
+308        value exlocnf 1="Scalp"
+309                      2="Face"
+310        		      3="Neck"
+311        			  4="Chest"
+312        			  5="Back"
+313        			  6="Abdomen/Pelvis"
+314        			  7="Buttocks"
+315        			  8="Extremity, upper, excluding hand"
+316        			  9="Hand"
+317        			 10="Extremity, lower, excluding foot"
+318        			 11="Foot";
+NOTE: Format EXLOCNF is already on the library DERIVED.FORMATS.
+NOTE: Format EXLOCNF has been written to DERIVED.FORMATS.
+319        
+320        value sevf -99="Any"
+321                   -55=">2"
+322           	         1="1"
+323        		 	 2="2"
+324        			 3="3";
+NOTE: Format SEVF is already on the library DERIVED.FORMATS.
+NOTE: Format SEVF has been written to DERIVED.FORMATS.
+325        
+326        value aesev 1="Mild"
+327                    2="Moderate"
+328        			3="Severe"
+329        			4="Life Threatening"
+12                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+330        			5="Fatal";
+NOTE: Format AESEV is already on the library DERIVED.FORMATS.
+NOTE: Format AESEV has been written to DERIVED.FORMATS.
+331        
+332        value bpunit 1="mL"
+333                     2="Units";
+NOTE: Format BPUNIT is already on the library DERIVED.FORMATS.
+NOTE: Format BPUNIT has been written to DERIVED.FORMATS.
+334        
+335        value visitf 0="Screening/Baseline"
+336                     1="Day 1"
+337        			 2="Day 2"
+338        			29="Day 29 End of Study"
+339        			99="Log Pages"
+340        		   901="Unscheduled Visit";
+NOTE: Format VISITF is already on the library DERIVED.FORMATS.
+NOTE: Format VISITF has been written to DERIVED.FORMATS.
+341        
+342        value labid 102="HGB"
+343                    101="HCT"
+344        			105="WBC"
+345        			104="RBC"
+346        			103="PLAT"
+347        			114="LYM"
+348        			115="MONO"
+349        			116="NEUT"
+350        			113="EOSO"
+351        			112="BASO"
+352        			401="PT"
+353        			402="aPTT"
+354        			403="INR"
+355        			205="BUN"
+356        			207="CREAT";
+NOTE: Format LABID is already on the library DERIVED.FORMATS.
+NOTE: Format LABID has been written to DERIVED.FORMATS.
+357        
+358          value $textm 'JAN'='01'
+359                       'FEB'='02'
+360        			   'MAR'='03'
+361        			   'APR'='04'
+362        			   'MAY'='05'
+363        			   'JUN'='06'
+364        			   'JUL'='07'
+365        			   'AUG'='08'
+366        			   'SEP'='09'
+367        			   'OCT'='10'
+368        			   'NOV'='11'
+369        			   'DEC'='12';
+13                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+NOTE: Format $TEXTM is already on the library DERIVED.FORMATS.
+NOTE: Format $TEXTM has been written to DERIVED.FORMATS.
+370        run;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.07 seconds
+      
+
+371        
+372        
+373        
+374        ;*';*";*/;*);run;quit;
+375        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+376        options nonotes;
+377        
+
+/**********************************************************************************************************************
+ * Submission End: formats.sas
+ * May 11, 2016 20:16:32 GMT
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Submission Start: xmb111_std.sas
+ * May 11, 2016 20:16:32 GMT by jimbox
+ *********************************************************************************************************************/
+14                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+378        
+379        options nosyntaxcheck errorcheck=strict notes;
+380        
+381        
+382        ;*';*";*/;*);run;quit;
+383        *reset syscc macro variable;
+384        %let syscc=0;
+385        %let _SASFILEPATH_ = %nrstr("/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/xmb111_std.sas");
+386        %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+387        
+388        /********************************************************************************************************************/
+389        proc scaproc; record "&_SASWS_/.sessions/2/sca_25e0cbc3-8aea-4b03-8c55-7cad90eec237.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+390        
+391        options nomprint;
+392        /********************************************************************************************************************/
+393        
+394        *************************************************************************;
+395        * Title: xmb111_std.sas								                    *;
+396        * Author: MJB							                *;
+397        * Date:	17 June 2003							                        *;
+398        * SAS Version: 8.2							                            *;
+399        * OS: Windows NT							                            *;
+400        * Purpose:	create a standard template for zgi output via ods			*;
+401        * Project: 								                                *;
+402        * Files used:								                            *;
+403        * Files created:							                            *;
+404        * Validated by: xyz on ddMONyyyy 					                    *;
+405        * Validation Method:							                        *;
+406        * Comments:								                                *;
+407        * Modifications:  02Feb2010 Matt Becker - updated to run on system      *;
+408        *************************************************************************;
+409        ods path
+410           &derdata..tplate (update)
+411           sashelp.tmplmst (read) ;
+412        
+413        proc template;
+414           define style xmb111_std / store =  &derdata..TPLATE (update);
+415              parent = styles.rtf;
+416              style Body from Document /
+417                 marginleft = 1in
+418                 marginright = 1in
+419                 margintop = 1in
+15                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+420                 marginbottom = 1in;
+421              style table from output /
+422                 rules = groups
+423                 frame = hsides
+424                 borderspacing = 1
+425                 padding = 0
+426                 protectspecialchars = off;
+427              style header from header /
+428                 backgroundcolor = _undef_;
+429              style SystemFooter from TitlesAndFooters /
+430                 font = Fonts('FootFont');
+431              style headersAndFooters from cell /
+432                 color = colors('headerfg')
+433                 font = fonts('HeadingFont');
+434              style fonts /
+435                 'docFont' = ("Times New Roman",9pt)
+436                 'headingFont' = ("Times New Roman",9pt,bold)
+437                 'FootFont' = ("Times New Roman",9pt)
+438                 'headingEmphasisFont' = ("Times New Roman",9pt,bold italic)
+439                 'FixedFont' = ("Times New Roman",9pt)
+440                 'BatchFixedFont' = ("Times New Roman",9pt)
+441                 'FixedHeadingFont' = ("Times New Roman",9pt,bold)
+442                 'FixedStrongFont' = ("Times New Roman",9pt,bold)
+443                 'FixedEmphasisFont' = ("Times New Roman",9pt,italic)
+444                 'EmphasisFont' = ("Times New Roman",9pt,italic)
+445                 'StrongFont' = ("Times New Roman",9pt,bold)
+446                 'TitleFont' = ("Times New Roman",9pt,bold)
+447                 'TitleFont2' = ("Times New Roman",9pt,bold);
+448        
+449           end;
+NOTE: STYLE 'Xmb111_std' has been saved to: DERIVED.TPLATE
+450        run;
+NOTE: PROCEDURE TEMPLATE used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.05 seconds
+      
+
+451        
+452        
+453        
+454        ;*';*";*/;*);run;quit;
+455        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+16                                                           The SAS System                                20:16 Wednesday, May 11, 2016
+
+456        options nonotes;
+457        
+
+/**********************************************************************************************************************
+ * Submission End: xmb111_std.sas
+ * May 11, 2016 20:16:32 GMT
+ *********************************************************************************************************************/

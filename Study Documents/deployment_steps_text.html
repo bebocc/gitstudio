@@ -1,0 +1,1305 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"><!--
+/**************************************************************************
+* Copyright (c) 2014 by SAS Institute Inc., Cary, NC 27513
+**************************************************************************/
+
+   .scrollableTable {            
+      margin: 10px;     
+      width: 290px;
+      background: transparent;
+   }
+   .scrollableTable table, .scrollableTable tr, .scrollable td {
+      border: 0;
+      background: transparent;
+   }
+   .scrollableTable .topScrollableTable, .scrollableTable .bottomScrollableTable {
+      display:block;
+      background:transparent;
+      font-size:1px;
+   }
+   .scrollableTable .b1, .scrollableTable .b2, .scrollableTable .b3, .scrollableTable .b4, 
+   .scrollableTable .b1b, .scrollableTable .b2b, .scrollableTable .b3b, .scrollableTable .b4b {
+      display:block;
+      overflow:hidden;
+   }
+   .scrollableTable .b1, .scrollableTable .b2, .scrollableTable .b3, 
+   .scrollableTable .b1b, .scrollableTable .b2b, .scrollableTable .b3b {
+      height:1px;
+   }
+   .scrollableTable .boxContent {
+      display:block;
+      border-left:1px solid #fff;
+      border-right:1px solid #999;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+   .scrollableTable .b2 {border-left:1px solid #fff; border-right:1px solid #eee;}
+   .scrollableTable .b3 {border-left:1px solid #fff; border-right:1px solid #ddd;}
+   .scrollableTable .b4 {border-left:1px solid #fff; border-right:1px solid #aaa;}
+   .scrollableTable .b4b {border-left:1px solid #eee; border-right:1px solid #999;}
+   .scrollableTable .b3b {border-left:1px solid #ddd; border-right:1px solid #999;}
+   .scrollableTable .b2b {border-left:1px solid #aaa; border-right:1px solid #999;}
+   .scrollableTable .b1 {margin:0 5px; background:#fff;}
+   .scrollableTable .b2, .scrollableTable .b2b {margin:0 3px; border-width:0 2px;}
+   .scrollableTable .b3, .scrollableTable .b3b {margin:0 2px;}
+   .scrollableTable .b4, .scrollableTable .b4b {height:2px; margin:0 1px;}
+   .scrollableTable .b1b {margin:0 5px; background:#999;}
+
+   .serverTierBox table, .serverTierBox tr, .serverTierBox td, .serverTierBox .b2,
+   .serverTierBox .b3, .serverTierBox .b4, .serverTierBox .b4b, .serverTierBox .b3b,
+   .serverTierBox .b2b, .serverTierBox .boxContent {     
+      background: #B0C7EE;
+   }
+   .midTierBox table, .midTierBox tr, .midTierBox td, .midTierBox .b2,
+   .midTierBox .b3, .midTierBox .b4, .midTierBox .b4b, .midTierBox .b3b,
+   .midTierBox .b2b, .midTierBox .boxContent {     
+      background: #D3DBE2;
+   }
+   .clientBox table, .clientBox tr, .clientBox td, .clientBox .b2,
+   .clientBox .b3, .clientBox .b4, .clientBox .b4b, .clientBox .b3b,
+   .clientBox .b2b, .clientBox .boxContent {    
+      background: #F6F0D6;
+   }
+   .machineBox table, .machineBox tr, .machineBox td, .machineBox .b2,
+   .machineBox .b3, .machineBox .b4, .machineBox .b4b, .machineBox .b3b,
+   .machineBox .b2b, .machineBox .boxContent {    
+      background: #D2DDB9;
+   }
+   .scrollableTextTable {
+      border-bottom: 1px solid black;
+      margin: 0;
+      padding: 5px;
+      width: 100%;
+   }
+   .machineName {
+      font-weight: bold;
+      font-size: larger;
+   }
+   .machineList {
+       margin-top: 0;
+       border-top-width: 0;
+       padding-top: 0;
+       margin-bottom: 0;
+       border-bottom-width: 0;
+       padding-bottom: 0;  
+   }
+   .horizontalFill {
+      width: 100%;
+      margin: 0;
+   }
+   #sasVersionLabel {
+      padding-left: 10px;
+   }
+   .padBottom {
+      padding-bottom: 1.5em;
+   }
+   .multipleStepNote {
+      font-weight: bold;
+   }
+   .multipleStepComment {
+      font-style: italic;
+   }
+   .summaryOptionalMachine {
+      color: #999;
+      background-color: #fff;
+   }
+   .summaryNowrapCell {
+      width: 2%;
+      white-space: nowrap;
+      padding-right: 1.5em;
+   }
+/**************************************************************************
+* Copyright (c) 2008-2014 by SAS Institute Inc., Cary, NC 27513
+**************************************************************************/
+
+a:link {color: #0000CC}
+a:visited {color: #0000CC }
+a:hover {color: #0000CC}
+a:active {color: #0000CC }
+
+body{
+	background-color:#fff;
+	font-family:'trebuchet ms',arial,helvetica,sans-serif;
+	font-size:small;
+	margin:0;
+}
+	
+div.transbar {
+   font-family: 'Trebuchet MS',helvetica,sans-serif;
+   font-size: small;
+   width:100%;
+}
+
+table.linkbar {
+   font-family: 'Trebuchet MS',helvetica,sans-serif;
+   font-size: small;
+   color:#fff;
+   position:absolute;
+   z-index:1;
+   top:0px;
+   left:0px;
+}
+
+table.linkbar td a {
+   color:#fff;
+   text-decoration:none;
+   padding-left:1ex;
+   padding-right:1ex;
+}
+
+table.linkbar td a:visited {
+   color:#fff;		
+   text-decoration:none;
+}
+
+table.linkbar td a:hover {
+   color:#fff;		
+   text-decoration:underline;
+}
+
+table.linkbar td a:active {
+   color:#fff;		
+   text-decoration:none;
+}
+
+.banuserwelcome {
+   font-family: Arial,helvetica,sans-serif;
+   font-size: x-small;
+   color:#ffffff;
+}
+
+.banisadmin {
+   font-family: Courier;
+   font-size: large;
+   color:red;
+}
+
+div#banner td#bantitle {
+   color:#fff;
+   font-family:Arial,helvetica,sans-serif;
+   font-size: large;
+   font-weight:bold;
+   vertical-align:middle;
+   padding-left:1ex;
+   padding-top:1ex;
+   padding-bottom:1ex;
+}
+
+#banback{
+	background:#039 url(../images/banback.gif) top left repeat;
+	position:relative;}
+
+#bantran{
+	background-color:#fff;
+	width:100%;		
+	color: #fff;
+}
+	
+#global_links {
+	position:absolute;
+	right: 2px;
+	z-index: 1;
+}
+
+#global_links a {
+	text-decoration: none;
+}
+
+#banutil,#bantran,#bantabs{
+	font-size:small;}
+
+#banutil{
+	color:#fff;
+	position:absolute;
+	z-index:1;}
+
+#banutil td{
+	padding:0 4px;}
+
+#banutil a{
+	color:#fff;
+	text-decoration:none;}
+
+#banutil a:hover{
+	text-decoration:underline;}
+
+#baninfo{
+	color:#fff;
+	font-size:medium;
+	font-weight:bold;
+	padding:1px 0 1px 4px;}
+
+#baninfo a{
+	color:#fff;
+	text-decoration:none;}
+
+#baninfo a:hover{
+	text-decoration:underline;}
+
+span.mmhide_banwdg{
+	color:#ccf;}
+
+span.mmhide_bantit{
+	color:#eed;}
+
+#bantabs a{
+	color:#fff;
+	text-decoration:none;
+	white-space:nowrap;}
+
+#bantabs a:hover{
+	text-decoration:underline;}
+
+#bantabs img{
+	background-color:#039;}
+
+#bantabs td.mmhide_tab1st{
+	background:#039 url(../images/tab_left_first.gif) top left repeat-y;}
+
+#bantabs td.mmhide_tablft{
+	background-color:#039}
+
+#bantabs td.mmhide_tablab{
+	background:#039 url(../images/tab_top.gif) top left repeat-x;
+	padding:1px .5ex;}
+
+#bantabs td.mmhide_tabrgt{
+	background:#039 url(../images/tab_right.gif) top right repeat-y;}
+
+#bantabs td.mmhide_tabsel1st{
+	background:#f1eacb top left repeat-y;}
+
+#bantabs td.mmhide_tabsellft{
+	background-color:#f1eacb}
+
+#bantabs td.mmhide_tabsellab{
+	background:#f1eacb top left repeat-x;
+	font-weight:bold;
+	padding:1px .5ex;}
+
+#bantabs td.mmhide_tabsellab a{
+	cursor:default;}
+
+#bantabs td.mmhide_tabsellab a:hover{
+	text-decoration:none;}
+
+#bantabs td.mmhide_tabsellab a{
+	color:#960;}
+
+#bantabs td.mmhide_tabselrgt{
+	background:#eed top right repeat-y;}
+
+#butbar{
+	background-color:#f1eacb;
+	font-size:small;
+	padding:2px;
+	border-bottom:1px solid #cfcbb1;}
+
+#butfill{
+	font-size:1px;
+	line-height:.1;}
+
+#butbar a{
+	color:#275e94;
+	padding:0 1ex;
+	border:1px solid #f1eacb;
+	text-decoration:none;
+	white-space:nowrap;}
+
+#butbar a:hover{
+	color:#275e94;
+/*	background-color:#cfdeeb; */
+/*	border-color:#7f9db9; */
+	text-decoration:underline;}
+
+#butbar a.mmhide_butact{
+	color:#960;
+	background-color:#e0e7ed;
+	border-color:#7f9db9;
+	cursor:default;}
+
+#butbar a.mmhide_butact:hover{
+	color:#960;
+	background-color:#e0e7ed;
+	text-decoration:none;}
+
+#navcel{
+	background-color:#faf8ed;}
+
+#navcel li.mmhide_navhd,#navcel div.mmhide_navhd{
+	color:#333;
+	background-color:#f1eacb;
+	font-size:small;
+	font-weight:bold;
+	white-space:nowrap;
+	padding:0 2px;
+	border:1px solid #cfcbb1;
+	margin:2px 2px 4px 2px;}
+
+#navsch{
+	font-size:small;
+	white-space:nowrap;
+	margin:2px 4px 6px 4px;}
+
+#navcol ul{
+	font-size:small;
+	padding:0;
+	margin:0;
+	display:none;}
+
+#navcol li{
+	list-style-type:none;
+	padding:0 4px;
+	margin:.5ex 0;}
+
+#navcol a{
+	color:#960;
+	text-decoration:none;}
+
+#navcol a:hover{
+	text-decoration:underline;}
+
+#navcol li.mmhide_navact{
+	background-color:#fff !important;
+	font-weight:bold;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;}
+
+#navcol li.mmhide_navact a{
+	cursor:default;}
+
+#navcol li.mmhide_navact a:hover{
+	text-decoration:none;}
+
+#bantabs a.mmhide_dis{
+	color:#999;}
+
+#butbar a.mmhide_dis,#navcol a.mmhide_dis{
+	color:#ccc;}
+
+#bantabs a.mmhide_dis:hover,#butbar a.mmhide_dis:hover,#navcol a.mmhide_dis:hover{
+	text-decoration:none;
+	cursor:default;}
+
+#butbar a.mmhide_dis:hover{
+	color:#ccc;
+	background-color:#f1eacb;
+	border-color:#f1eacb;}
+
+#navwdg{
+	background-color:#f1eacb;
+	border-left:1px solid #cfcbb1;
+	border-right:1px solid #cfcbb1;}
+
+#main{
+	padding:0 12px 12px 12px;}
+
+#main a{
+	color:#039;}
+
+#main a:hover{
+	text-decoration:underline;}
+
+h1,h2,h3,h4,h5,h6{
+	color:#960;
+	margin:1.5em 0 .5ex 0;}
+
+#main h1 a,#main h2 a,#main h3 a,#main h4 a,#main h5 a,#main h6 a{
+	color:#960;}
+
+#main h1 a:hover,#main h2 a:hover,#main h3 a:hover,#main h4 a:hover,#main h5 a:hover,#main h6 a:hover{
+	text-decoration:none;}
+
+h1{
+	font-size:large;
+	margin-top:1ex;
+	margin-left:-4px;}
+
+h2{
+	background-color:#f1eacb;
+	font-size:medium;
+	padding:0 4px;
+	border:1px solid #cfcbb1;
+	margin-left:-5px;}
+
+h3{
+	font-size:medium;
+	border-bottom:1px solid #cfcbb1;}
+
+h4{
+	font-size:medium;}
+
+h5,h6{
+	font-size:small;}
+
+p{
+	margin:1ex 0;}
+
+dl{
+	margin:1ex 0;}
+
+dt{
+	font-weight:bold;}
+
+dd{
+	margin-left:1.5em;}
+
+ol{
+	padding:0;
+	margin:1ex 0 1ex 3em;}
+
+ul{
+	padding:0;
+	margin:1ex 0 1ex 2.5em;}
+
+div.mmhide_messwarn{
+	padding:3px;
+	border:3px solid #c00;
+	margin:12px 0;}
+
+div.mmhide_messhd,div.mmhide_messbd{
+	padding:.5ex 1ex;}
+
+div.mmhide_messhd{
+	font-weight:bold;
+	background-color:#ddd;
+	margin-bottom:3px;}
+
+div.mmhide_messbd{
+	background-color:#f6f6f6;}
+
+#recnav{
+	font-size:small;
+	padding:0 4px;}
+
+#recnav div.mmhide_recitm{
+	margin:.5ex 0;}
+
+#recnav span.mmhide_recdt{
+	color:#666;
+	font-size:x-small;
+	white-space:nowrap;}
+
+a#dspall{
+	font-size:small;
+	text-decoration:none;
+	margin-top:1ex;
+	float:right;}
+
+a#dspall:hover{
+	text-decoration:underline;}
+
+#map{
+	font-size:small;
+	line-height:1.2;
+	margin-top:1em;}
+
+#map a{
+	text-decoration:none;}
+
+#map a:hover{
+	text-decoration:underline;}
+
+#map ul{
+	font-size:small;
+	padding:0;
+	margin:0;
+	display:none;}
+
+#map li{
+	list-style-type:none;}
+
+#map div.mmhide_path{
+	font-weight:bold;
+	margin-top:.5ex;}
+
+#map div.mmhide_path a{}
+
+#map span.mmhide_dspchar{
+	font-family:monospace;
+	font-weight:normal;}
+
+#foot{
+	color:#666;
+	font-size:x-small;
+	text-align:right;
+	padding:2px;
+	border-top:1px solid #cfcbb1;}
+
+#foot a{
+	color:#666;
+	text-decoration:none;}
+
+#foot a:hover{
+	text-decoration:underline;}
+
+input.mmhide_btn{
+	color:#036;
+	font-family:'trebuchet ms',helvetica,sans-serif;
+	font-size:84%;
+	font-weight:bold;
+	background-color:#fcf4dc;
+	border:1px solid;
+	border-top-color:#b1c1d0;
+	border-left-color:#b1c1d0;
+	border-right-color:#3872ac;
+	border-bottom-color:#3872ac;
+}
+
+input.mmhide_btnhov{
+	border-top-color:#fc3;
+	border-left-color:#fc3;
+	border-right-color:#c90;
+	border-bottom-color:#c90;}
+
+#srchbox{
+	background-color: #faf8ed;
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	margin:4px 0 1em 0;}
+
+#srchbox td{
+	white-space:nowrap;
+	padding:8px;
+	border-right:1px solid #ccc;}
+
+#srchform form{
+	margin:0;}
+
+#srchtips{
+	color:#666;
+	font-family:'andale mono','lucida console',monospace;
+	font-size:small;}
+
+span.mmhide_srchterm{
+	background-color:#ced;}
+
+div.mmhide_srchmess{
+	background-color:#f1eacb;
+	padding:0 .5ex;
+	border:1px solid #cfcbb1;}
+
+div.mmhide_srchnext{
+	white-space:nowrap;
+	float:right;}
+
+div.mmhide_srchnext span{
+	color:#999;
+	padding:0 .2ex;}
+
+div.mmhide_srchnext a{
+	color:#036;
+	text-decoration:none;}
+
+div.mmhide_srchnext a:hover{
+	text-decoration:underline;}
+
+#srchres li a{
+	color:#036;
+	text-decoration:underline;}
+
+#srchres li div.mmhide_desc{
+	font-size:small;}
+
+#srchres li div.mmhide_href{
+	color:#666;
+	font-size:small;
+	margin-bottom:1em;}
+
+.figref{
+	font-size:x-small !important;
+	margin-top:0px;}
+--></style>
+</head>
+<body>
+<P id="sasVersionLabel">SAS Version: 9.4 (9.4_M4)</P>
+<TABLE ALIGN="LEFT" CELLPADDING="0" CELLSPACING="0" CLASS="horizontalFill" VALIGN="TOP">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP">
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Deployment Steps</B></SPAN></TD>
+</TR>
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN>You must perform the deployment of the various machines in your environment in the order specified below.</SPAN></TD>
+</TR>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<tr ALIGN="LEFT" VALIGN="TOP">
+<td ALIGN="LEFT" VALIGN="TOP" colspan="3"><SPAN><B>Summary:</B></SPAN></td>
+</tr>
+<tr ALIGN="LEFT" VALIGN="TOP">
+<td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Step #1:</td><td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Install and configure</td><td ALIGN="LEFT" VALIGN="TOP">Server</td>
+</tr>
+<tr ALIGN="LEFT" CLASS="summaryOptionalMachine" VALIGN="TOP">
+<td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Step #2:</td><td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Install and configure</td><td ALIGN="LEFT" VALIGN="TOP">Metadata Server Node  (Optional)</td>
+</tr>
+<tr ALIGN="LEFT" CLASS="summaryOptionalMachine" VALIGN="TOP">
+<td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Step #3:</td><td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Install and configure</td><td ALIGN="LEFT" VALIGN="TOP">Grid Manager Node  (Optional)</td>
+</tr>
+<tr ALIGN="LEFT" VALIGN="TOP">
+<td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Step #4:</td><td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Install and configure</td><td ALIGN="LEFT" VALIGN="TOP">Middle Tier</td>
+</tr>
+<tr ALIGN="LEFT" CLASS="summaryOptionalMachine" VALIGN="TOP">
+<td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Step #5:</td><td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Install and configure</td><td ALIGN="LEFT" VALIGN="TOP">Middle Tier Node  (Optional)</td>
+</tr>
+<tr ALIGN="LEFT" VALIGN="TOP">
+<td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Step #6:</td><td ALIGN="LEFT" CLASS="summaryNowrapCell" VALIGN="TOP">Install and configure</td><td ALIGN="LEFT" VALIGN="TOP">Clients</td>
+</tr>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Step #1: Server</B></SPAN>
+<BR>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToInstallLabel1">Software to Install:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_softwareToInstallList1">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_1">
+<LI>Java Platform Standard Edition Runtime Environment 1.7.0_111</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_2">
+<LI>SAS Deployment Agent 9.49536</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_3">
+<LI>SAS Remote Deployment Agent Client 9.49508</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_4">
+<LI>SAS Providers for OLE DB 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_5">
+<LI>SAS Integration Technologies Client 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_6">
+<LI>SAS/GRAPH ActiveX Control 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_7">
+<LI>SAS Foundation 9.4</LI>
+</SPAN>
+<UL CLASS="machineList" ID="ds_ul_nc_machineInstallableDeployedCompList1_7">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_1">
+<LI>Base SAS 9.4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_2">
+<LI>Base SAS User Interface 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_3">
+<LI>SAS Data Mining Scoring 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_4">
+<LI>SAS/CONNECT 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_5">
+<LI>SAS Compiler and Symbolic Differentiator 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_6">
+<LI>SAS Help Viewer for Windows 9.44</LI>
+</SPAN>
+</UL>
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_8">
+<LI>SAS High Performance Server Help and Documentation 2.1_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_9">
+<LI>SAS Web Infrastructure Platform Data Server 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_10">
+<LI>SAS Intelligence Platform Object Framework 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_11">
+<LI>SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_12">
+<LI>SAS Web Infrastructure Platform Data Server Configuration 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_13">
+<LI>SAS Configuration Manager 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_14">
+<LI>SAS Deployment Tester Plug-in for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_15">
+<LI>SAS Grid Manager Plug-ins for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_16">
+<LI>Platform Grid Management Service 8.01D</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_17">
+<LI>Platform LSF 9.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_18">
+<LI>Platform Process Manager 9.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_19">
+<LI>SAS Add-in for MS Office Server Data 7.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_20">
+<LI>SAS Enterprise Guide Server Data 7.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_21">
+<LI>SAS Web Infrastructure Platform Scheduling Services 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_22">
+<LI>SAS Environment Manager Enablement Kit Server 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_23">
+<LI>SAS Web Infrastructure Data Base JDBC Drivers 9.4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_24">
+<LI>SAS Web Application Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_25">
+<LI>SAS Studio Basic 3.6</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_26">
+<LI>SAS ODBC Drivers for the Web Infrastructure Platform Data Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_27">
+<LI>SAS Grid Manager Client Utility 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_28">
+<LI>SAS Environment Manager Agent 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_29">
+<LI>SAS Environment Manager Log File Collector 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_30">
+<LI>SAS Deployment Tester - Server 2.2_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_31">
+<LI>SAS Deployment Tester - Client 2.2_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_32">
+<LI>Standalone Formats 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_33">
+<LI>Report Fonts for Clients 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_34">
+<LI>SAS Client Connection Profile Configuration 5.2</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_35">
+<LI>SAS ODS Graphics C Renderer 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_36">
+<LI>SAS ODS Graphics Editor 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp1_37">
+<LI>SAS Security Certificate Framework 9.49536</LI>
+</SPAN>
+</UL>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToConfigureLabel1">Software to Configure:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_machineSoftwareToConfigureList1">
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Application Server Context 9.4_M3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Metadata Server Configuration 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Management Console 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Web Infrastructure Platform Data Server Configuration 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Object Spawner 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">Platform Process Manager 9.13</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Grid Manager Control Server Configuration 9.43</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Stored Process Server 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Workspace Server 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Grid Manager Client Utility Configuration 9.4_M2</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Add-in for MS Office Server Data 7.13</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Enterprise Guide Server Data 7.13</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Management Console Server Data 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Web Infrastructure Platform Scheduling Services 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Environment Manager Enablement Kit Server 2.3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Environment Manager Agent Configuration 2.51</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Environment Manager Log File Collector 2.3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Deployment Tester - Server 2.2_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp1_0">SAS Client Connection Profile Configuration 5.2</SPAN>
+</LI>
+</UL>
+</TD>
+</TR>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Step #2: Metadata Server Node  (Optional)</B></SPAN>
+<BR>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToInstallLabel2">Software to Install:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_softwareToInstallList2">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_1">
+<LI>Java Platform Standard Edition Runtime Environment 1.7.0_111</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_2">
+<LI>SAS Deployment Agent 9.49536</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_3">
+<LI>SAS Remote Deployment Agent Client 9.49508</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_4">
+<LI>SAS Providers for OLE DB 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_5">
+<LI>SAS Integration Technologies Client 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_6">
+<LI>SAS Foundation 9.4</LI>
+</SPAN>
+<UL CLASS="machineList" ID="ds_ul_nc_machineInstallableDeployedCompList2_6">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_1">
+<LI>Base SAS 9.4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_2">
+<LI>Base SAS User Interface 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_3">
+<LI>SAS Data Mining Scoring 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_4">
+<LI>SAS Compiler and Symbolic Differentiator 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_5">
+<LI>SAS Help Viewer for Windows 9.44</LI>
+</SPAN>
+</UL>
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_7">
+<LI>SAS Intelligence Platform Object Framework 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_8">
+<LI>SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_9">
+<LI>SAS Configuration Manager 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_10">
+<LI>SAS Deployment Tester Plug-in for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_11">
+<LI>SAS Grid Manager Plug-ins for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_12">
+<LI>SAS Web Application Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_13">
+<LI>SAS Studio Basic 3.6</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_14">
+<LI>SAS ODBC Drivers for the Web Infrastructure Platform Data Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_15">
+<LI>SAS Environment Manager Agent 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_16">
+<LI>SAS Environment Manager Log File Collector 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_17">
+<LI>SAS Deployment Tester - Client 2.2_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_18">
+<LI>Standalone Formats 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_19">
+<LI>Report Fonts for Clients 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_20">
+<LI>SAS Client Connection Profile Configuration 5.2</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_21">
+<LI>SAS ODS Graphics C Renderer 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_22">
+<LI>SAS ODS Graphics Editor 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp2_23">
+<LI>SAS Security Certificate Framework 9.49536</LI>
+</SPAN>
+</UL>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToConfigureLabel2">Software to Configure:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_machineSoftwareToConfigureList2">
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp2_0">SAS Application Server Context 9.4_M3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp2_0">SAS Metadata Server Node Configuration 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp2_0">SAS Management Console 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp2_0">SAS Environment Manager Agent Configuration 2.51</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp2_0">SAS Environment Manager Log File Collector 2.3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp2_0">SAS Client Connection Profile Configuration 5.2</SPAN>
+</LI>
+</UL>
+</TD>
+</TR>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Step #3: Grid Manager Node  (Optional)</B></SPAN>
+<BR>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToInstallLabel3">Software to Install:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_softwareToInstallList3">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_1">
+<LI>Java Platform Standard Edition Runtime Environment 1.7.0_111</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_2">
+<LI>SAS Deployment Agent 9.49536</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_3">
+<LI>SAS Remote Deployment Agent Client 9.49508</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_4">
+<LI>SAS Providers for OLE DB 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_5">
+<LI>SAS Integration Technologies Client 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_6">
+<LI>SAS Foundation 9.4</LI>
+</SPAN>
+<UL CLASS="machineList" ID="ds_ul_nc_machineInstallableDeployedCompList3_6">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_1">
+<LI>Base SAS 9.4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_2">
+<LI>Base SAS User Interface 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_3">
+<LI>SAS Data Mining Scoring 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_4">
+<LI>SAS/CONNECT 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_5">
+<LI>SAS Compiler and Symbolic Differentiator 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_6">
+<LI>SAS Help Viewer for Windows 9.44</LI>
+</SPAN>
+</UL>
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_7">
+<LI>SAS Intelligence Platform Object Framework 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_8">
+<LI>Platform LSF 9.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_9">
+<LI>SAS Web Application Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_10">
+<LI>SAS Studio Basic 3.6</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_11">
+<LI>SAS ODBC Drivers for the Web Infrastructure Platform Data Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_12">
+<LI>SAS Environment Manager Agent 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_13">
+<LI>SAS Environment Manager Log File Collector 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_14">
+<LI>Standalone Formats 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_15">
+<LI>Report Fonts for Clients 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_16">
+<LI>SAS ODS Graphics C Renderer 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_17">
+<LI>SAS ODS Graphics Editor 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp3_18">
+<LI>SAS Security Certificate Framework 9.49536</LI>
+</SPAN>
+</UL>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToConfigureLabel3">Software to Configure:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_machineSoftwareToConfigureList3">
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp3_0">SAS Grid Manager Node Configuration 9.43</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp3_0">SAS Environment Manager Agent Configuration 2.51</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp3_0">SAS Environment Manager Log File Collector 2.3</SPAN>
+</LI>
+</UL>
+</TD>
+</TR>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Step #4: Middle Tier</B></SPAN>
+<BR>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToInstallLabel4">Software to Install:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_softwareToInstallList4">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_1">
+<LI>Java Platform Standard Edition Runtime Environment 1.7.0_111</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_2">
+<LI>SAS Deployment Agent 9.49536</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_3">
+<LI>SAS Remote Deployment Agent Client 9.49508</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_4">
+<LI>SAS Intelligence Platform Object Framework 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_5">
+<LI>SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_6">
+<LI>SAS Configuration Manager 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_7">
+<LI>SAS Deployment Tester Plug-in for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_8">
+<LI>SAS Grid Manager Plug-ins for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_9">
+<LI>Windows Powershell 2.2</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_10">
+<LI>SAS Web Infrastructure Data Base JDBC Drivers 9.4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_11">
+<LI>SAS Web Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_12">
+<LI>SAS Web Application Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_13">
+<LI>SAS Foundation Services 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_14">
+<LI>SAS Web Infrastructure Platform 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_15">
+<LI>SAS Flex Application Themes 4.7.1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_16">
+<LI>SAS Web Application Themes 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_17">
+<LI>SAS Environment Manager Mid-Tier 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_18">
+<LI>SAS Deployment Backup and Recovery Tool 9.42</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_19">
+<LI>SAS Security Administration Module 2.3_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_20">
+<LI>SAS Help Viewer for the Web 9.45</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_21">
+<LI>SAS Shared Services 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_22">
+<LI>Deployment Backup and Recovery Tool Help and Documentation 9.42</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_23">
+<LI>SAS Environment Manager Help and Documentation 2.5</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_24">
+<LI>SAS Environment Manager Mid-Tier Help and Documentation 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_25">
+<LI>SAS Flex Application Themes Help and Documentation 4.7</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_26">
+<LI>SAS Studio Mid-Tier Help and Documentation 3.5</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_27">
+<LI>SAS Web Infrastructure Platform Help and Documentation 9.4_M2</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_28">
+<LI>SAS Environment Manager Library Module 2.1_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_29">
+<LI>SAS Environment Manager Server Module 2.1_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_30">
+<LI>SAS Environment Manager User Module 2.2_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_31">
+<LI>SAS Studio Mid-Tier 3.6</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_32">
+<LI>SAS Environment Manager Plug-ins for Foundation Servers 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_33">
+<LI>SAS Environment Manager 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_34">
+<LI>SAS Environment Manager Enablement Kit Plug-in 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_35">
+<LI>SAS Environment Manager Agent 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_36">
+<LI>SAS Environment Manager Log File Collector 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_37">
+<LI>SAS Deployment Tester - Client 2.2_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_38">
+<LI>Report Fonts for Clients 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_39">
+<LI>SAS Client Connection Profile Configuration 5.2</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp4_40">
+<LI>SAS Security Certificate Framework 9.49536</LI>
+</SPAN>
+</UL>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToConfigureLabel4">Software to Configure:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_machineSoftwareToConfigureList4">
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Management Console 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Web Server Configuration 9.75</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Web Application Server Configuration 9.75</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Foundation Services 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Web Infrastructure Platform 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Flex Application Themes 4.7.1</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Web Application Themes 9.44</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Mid-Tier 2.5_M1</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Deployment Backup and Recovery Tool 9.42</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Security Administration Module 2.3_M1</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Help Viewer for Midtier Applications 9.45</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Shared Services 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Library Module 2.1_M1</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Server Module 2.1_M1</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager User Module 2.2_M1</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Studio Mid-Tier 3.6</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Plug-ins for Foundation Servers 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Configuration 2.51</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Enablement Kit Plug-in 2.3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Agent Configuration 2.51</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Environment Manager Log File Collector 2.3</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp4_0">SAS Client Connection Profile Configuration 5.2</SPAN>
+</LI>
+</UL>
+</TD>
+</TR>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Step #5: Middle Tier Node  (Optional)</B></SPAN>
+<BR>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToInstallLabel5">Software to Install:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_softwareToInstallList5">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_1">
+<LI>Java Platform Standard Edition Runtime Environment 1.7.0_111</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_2">
+<LI>SAS Deployment Agent 9.49536</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_3">
+<LI>SAS Remote Deployment Agent Client 9.49508</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_4">
+<LI>SAS Intelligence Platform Object Framework 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_5">
+<LI>SAS Web Application Server 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_6">
+<LI>SAS Environment Manager Agent 2.5_M1</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_7">
+<LI>SAS Environment Manager Log File Collector 2.3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_8">
+<LI>Report Fonts for Clients 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp5_9">
+<LI>SAS Security Certificate Framework 9.49536</LI>
+</SPAN>
+</UL>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToConfigureLabel5">Software to Configure:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_machineSoftwareToConfigureList5">
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp5_0">SAS Web Application Server Node Configuration 9.75</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp5_0">SAS Environment Manager Agent Configuration 2.51</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp5_0">SAS Environment Manager Log File Collector 2.3</SPAN>
+</LI>
+</UL>
+</TD>
+</TR>
+</TABLE>
+<TABLE CELLPADDING="0" CELLSPACING="0" CLASS="scrollableTextTable">
+<TR ALIGN="LEFT" VALIGN="TOP">
+<TD ALIGN="LEFT" VALIGN="TOP"><SPAN><B>Step #6: Clients</B></SPAN>
+<BR>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToInstallLabel6">Software to Install:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_softwareToInstallList6">
+<SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_1">
+<LI>Java Platform Standard Edition Runtime Environment 1.7.0_111</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_2">
+<LI>SAS Providers for OLE DB 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_3">
+<LI>SAS Integration Technologies Client 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_4">
+<LI>SAS/GRAPH ActiveX Control 9.44</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_5">
+<LI>SAS Intelligence Platform Object Framework 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_6">
+<LI>SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_7">
+<LI>SAS Configuration Manager 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_8">
+<LI>SAS Deployment Tester Plug-in for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_9">
+<LI>SAS Grid Manager Plug-ins for SAS Management Console 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_10">
+<LI>SAS Deployment Tester - Client 2.2_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_11">
+<LI>SAS Add-in for Microsoft Office 7.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_12">
+<LI>SAS Enterprise Guide 7.13</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_13">
+<LI>Standalone Formats 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_14">
+<LI>Report Fonts for Clients 9.43</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_15">
+<LI>SAS Client Connection Profile Configuration 5.2</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_16">
+<LI>SAS ODS Graphics Designer 9.4_M3</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_17">
+<LI>SAS Personal Login Manager 9.4_M4</LI>
+</SPAN><SPAN ID="ds_ctr_nc_machineInstallableDeployedComp6_18">
+<LI>SAS Security Certificate Framework 9.49536</LI>
+</SPAN>
+</UL>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD><SPAN ID="ds_ctr_nc_softwareToConfigureLabel6">Software to Configure:</SPAN>
+<BR>
+<UL CLASS="machineList" ID="ds_ul_nc_machineSoftwareToConfigureList6">
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp6_0">SAS Management Console 9.4_M4</SPAN>
+</LI>
+<LI>
+<SPAN ID="ds_ctr_nc_machineConfigurableComp6_0">SAS Client Connection Profile Configuration 5.2</SPAN>
+</LI>
+</UL>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+</body>
+</html>

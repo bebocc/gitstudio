@@ -1,0 +1,519 @@
+Problem report created: Friday, December 08, 2017 3:52:55 PM UTC
+
+SAS Enterprise Guide
+An unexpected error has occurred
+A connection could not be made to the requested resource.
+
+-------------------------------------------------------------------------------------------------------
+Exception information
+-------------------------------------------------------------------------------------------------------
+
+[Error] Failed to start the server.
+[Error] Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.
+[Error] Cannot initialize the grid provider module.
+[Error] PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf
+[Error] PROVIDER(Platform): Unable to open file lsf.conf
+
+
+-------------------------- Technical Information Follows --------------------------
+
+Exception Details:
+----------------------------------------
+Exception type:  SAS.EG.SDS.SDSException
+SAS Message:     [Error] Failed to start the server.
+[Error] Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.
+[Error] Cannot initialize the grid provider module.
+[Error] PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf
+[Error] PROVIDER(Platform): Unable to open file lsf.conf
+
+Raw Message:     <?xml version="1.0" ?><Exceptions><Exception><SASMessage severity="Error">Failed to start the server.</SASMessage></Exception><Exception><SASMessage severity="Error">Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.</SASMessage></Exception><Exception><SASMessage severity="Error">Cannot initialize the grid provider module.</SASMessage></Exception><Exception><SASMessage severity="Error">PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf</SASMessage></Exception><Exception><SASMessage severity="Error">PROVIDER(Platform): Unable to open file lsf.conf</SASMessage></Exception></Exceptions>
+Source:          SAS.EG.SDS.Model
+Target Site:     SASWorkspace
+
+Stack Trace:
+   at SAS.EG.SDS.Model.Server.SASWorkspace(Boolean checkWorkspace)
+   at SAS.EG.SDS.Views.View.DoPopulate(DisplayOperation& op)
+
+Inner Exception Details:
+----------------------------------------
+Exception type:  SAS.EC.Directory.Model.SDSException
+SAS Message:     [Error] Failed to start the server.
+[Error] Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.
+[Error] Cannot initialize the grid provider module.
+[Error] PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf
+[Error] PROVIDER(Platform): Unable to open file lsf.conf
+
+Raw Message:     <?xml version="1.0" ?><Exceptions><Exception><SASMessage severity="Error">Failed to start the server.</SASMessage></Exception><Exception><SASMessage severity="Error">Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.</SASMessage></Exception><Exception><SASMessage severity="Error">Cannot initialize the grid provider module.</SASMessage></Exception><Exception><SASMessage severity="Error">PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf</SASMessage></Exception><Exception><SASMessage severity="Error">PROVIDER(Platform): Unable to open file lsf.conf</SASMessage></Exception></Exceptions>
+Source:          EC.Directory
+Target Site:     Connect
+
+Inner Exception Details:
+----------------------------------------
+Exception type:  System.Runtime.InteropServices.COMException
+SAS Message:     [Error] Failed to start the server.
+[Error] Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.
+[Error] Cannot initialize the grid provider module.
+[Error] PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf
+[Error] PROVIDER(Platform): Unable to open file lsf.conf
+
+Raw Message:     <?xml version="1.0" ?><Exceptions><Exception><SASMessage severity="Error">Failed to start the server.</SASMessage></Exception><Exception><SASMessage severity="Error">Grid options for this peer were unable to be obtained from the metadata.  Therefore this server cannot be launched.</SASMessage></Exception><Exception><SASMessage severity="Error">Cannot initialize the grid provider module.</SASMessage></Exception><Exception><SASMessage severity="Error">PROVIDER(Platform): Failed in an LSF library call: Unable to open file lsf.conf</SASMessage></Exception><Exception><SASMessage severity="Error">PROVIDER(Platform): Unable to open file lsf.conf</SASMessage></Exception></Exceptions>
+Source:          SASObjectManager
+Target Site:     CreateObjectByLogicalNameAndLogins
+
+Stack Trace:
+   at SASObjectManager.ObjectFactoryMulti2Class.CreateObjectByLogicalNameAndLogins(String Name, Boolean synchronous, Object pIOMI, String LogicalName, LoginDef pOMRLoginDef, LoginDef pSASLoginDef, String nameValuePairs)
+   at SAS.EC.Directory.Model.Server.Connect(ConnectionInfo connInfo)
+
+--------------------------------------------------------------------------------------------------------
+Configuration Details
+--------------------------------------------------------------------------------------------------------
+
+--- SAS Software ---
+  SAS Enterprise Guide version: 7.12 (7.100.2.3350)
+  SAS System version: 9403.0.21899.24381
+  SAS System Command: c:\progra~1\sashome\sasfou~1\9.4\sas.exe -config c:\progra~1\sashome\sasfou~1\9.4\sasv9.cfg -objectserver -nologo -noterminal -noprngetlist
+  SAS Shared Files: C:\Program Files\SASHome
+  JMP Installation: c:\program files\sas\jmppro\13\jmp.exe
+--- Current Process ---
+  Current directory: C:\Program Files\SASHome\SASEnterpriseGuide\7.1
+  Command line: "C:\Program Files\SASHome\SASEnterpriseGuide\7.1\SEGuide.exe" 
+  Temporary files location: D:\Users\prdesa\AppData\Local\Temp\5\SEG1840
+  Memory used: 141,135,872 bytes
+  Client session type: Terminal services client
+  Running in WOW64 (32-bit subsystem): No
+  Running as a 64 bit process: Yes
+--- Operating System ---
+  Name: Windows Server 2008 R2
+  Version: 6.1.65536.7601
+  Service pack: Service Pack 1
+  .NET Runtime Version: 4.0.30319.42000 (no service pack)
+  Internet Explorer version: 9.11.9600.18738
+  System directory: C:\Windows\system32
+  Default web browser: Firefox
+  MDAC version: 6.1.7601.17514
+  WPF Render Capability Tier: 0x0
+--- User ---
+  User name: Pritesh Desai [SAS Contractor]
+  User ID: prdesa
+  Machine name: HLSRDTS02
+--- Active Metadata Connection Profile ---
+  Profile name: Pritesh
+  Description: 
+  Host name: hlsrdts02.vsp.sas.com
+  Port: 8561
+  Default server: 
+  Person name: Pritesh
+  Authentication type: UserPassword
+  Using Integrated Windows Authentication: False
+  Security package: Negotiate
+  Security Package List: Kerberos,NTLM
+  Service principal name: 
+  User: VSP\prdesa
+  Password set: specified
+  Save login: True
+  Connected: True
+--- Metadata Server Status ---
+  Platform version: 9.4.3.0
+  Model version: 16.01
+  Server locale: en_US
+  Server state: ONLINE
+  Pause comment: 
+
+--------------------------------------------------------------------------------------------------------
+Installation Details
+--------------------------------------------------------------------------------------------------------
+
+Report for HLSRDTS02 on 12/8/2017 at 10:34 AM
+
+--- Operating System ---
+  Machine name: HLSRDTS02
+  Date/Time: 12/8/2017 10:34 AM
+  OS: Windows Server 2008 R2
+  Version: 6.1.65536.7601
+  Service pack: Service Pack 1
+  Windows system directory: C:\Windows\system32
+  Running on a 64 bit version operating system: True
+  Running as a 64 bit process: True
+  .NET version: 4.0.30319.42000 (no service pack)
+  MDAC version: 6.1.7601.17514
+  Default web browser: Firefox
+  Internet Explorer version: 9.11.9600.18738
+  DCOM Enabled: Yes. SAS Workspace Auth Level: not specified
+  Temp File location (TMP): D:\Users\prdesa\AppData\Local\Temp\5\SEG1840
+  Temp File location (TEMP): D:\Users\prdesa\AppData\Local\Temp\5\SEG1840
+  Client session: Terminal services client
+--- Current user ---
+  User name: Pritesh Desai [SAS Contractor]
+  User ID: prdesa
+--- SAS System Installation ---
+  SAS System version: 9403.0.21899.24381
+  SAS startup command: c:\progra~1\sashome\sasfou~1\9.4\sas.exe -config c:\progra~1\sashome\sasfou~1\9.4\sasv9.cfg -objectserver -nologo -noterminal -noprngetlist
+  SAS shared files location: C:\Program Files\SASHome
+--- JMP Installation ---
+  JMP Installation: c:\program files\sas\jmppro\13\jmp.exe
+--- Shared Components ---
+  Integration Technologies: 9.400.0.15176
+  Graph (ActiveX): 9.4.0.15176
+  SAS Local Data Provider: 9.403.0.15176
+--- Enterprise Guide 7.1 ---
+  Installed location: C:\Program Files\SASHome\SASEnterpriseGuide\7.1
+  Service pack level: 7.1
+  Installed languages: English
+--- Add-In for Microsoft Office 7.1 ---
+  Installed location: Not installed
+--- Graph (ActiveX) files ---
+  actXimage.exe: 9.4.0.15176
+  SASGAb9.dll: 9.4.0.15176
+  SASGAn9.dll: 9.4.0.15176
+  SASGBr9.dll: 9.4.0.15176
+  SASGBx9.dll: 9.4.0.15176
+  SASGCrd9.dll: 9.4.0.15176
+  SASGFw9.dll: 9.4.0.15176
+  SASGHl9.dll: 9.4.0.15176
+  SASGMp9.dll: 9.4.0.15176
+  SASGPi9.dll: 9.4.0.15176
+  SASGPl9.dll: 9.4.0.15176
+  SASGRd9.dll: 9.4.0.15176
+  SASGrph9.dll: 9.4.0.15176
+  SASGTl9.dll: 9.4.0.15176
+  SASGTp9.dll: 9.4.0.15176
+  SASGul9.dll: 9.4.0.15176
+  SASGVfc9.dll: 9.4.0.15176
+  SASGVgr9.dll: 9.4.0.15176
+  SASGXML9.dll: 9.4.0.15176
+  executable_versions.xml: 20716 bytes
+--- SAS Diagram Control files ---
+  SASDIA9.ocx: 9.4.0.13170
+  SASDIAD9.ocx: 9.4.0.13170
+  executable_versions.xml: 826 bytes
+--- Formats files ---
+  jazwfbin.dll: 9403.00.21899.33344
+  jazwfdte.dll: 9403.00.21899.33428
+  jazwfmsc.dll: 9403.00.21899.33428
+  jazwfnls.dll: 9403.00.21899.33428
+  jazwftme.dll: 9403.00.21899.33428
+  jazwfuwf.dll: 9403.00.21899.33428
+  jazwibin.dll: 9403.00.21899.33428
+  jazwidte.dll: 9403.00.21899.33428
+  jazwimsc.dll: 9403.00.21899.33428
+  jazwiuwi.dll: 9403.00.21899.33428
+  jazxfbrg.dll: 9403.00.21899.27332
+  jazxfbrs.dll: 9403.00.21899.33428
+  jazxfgep.dll: 9403.00.21899.33340
+--- Integration Technologies files ---
+  RegTypeLib.exe: 9.4.0.0
+  SASComb.dll: 9.400.0.15176
+  SASEAM.dll: 9.400.0.15176
+  SASOMan.dll: 9.400.0.15176
+  Scripto.dll: 9.400.0.15176
+  AuthenticationService.chm: 131753 bytes
+  sas.chm: 185453 bytes
+  sasoman.chm: 59812 bytes
+  sasspk.chm: 35116 bytes
+  saswman.chm: 32920 bytes
+  StoredProcessService.chm: 806398 bytes
+  executable_versions.xml: 23494 bytes
+  log4netConfig.xml: 986 bytes
+--- SAS/Secure Client files ---
+  tcpdcapi.dll: 9403.00.21899.34085
+  tcpdeam.dll: 9403.00.21899.34112
+  tcpdencr.dll: 9403.00.21899.34085
+--- SAS OLE DB Data Provider files ---
+  sasafloc.dll: 9.403.0.15176
+  sasafshr.dll: 9.403.0.15176
+  sasafsup.dll: 9.403.0.15176
+  sasaorio.dll: 9.403.0.15176
+  sase8lib.dll: 9403.00.21899.36715
+  sase9lib.dll: 9403.00.21899.36718
+  sasej9lib.dll: 9403.00.21899.24899
+  skndns.dll: 9403.00.21899.26840
+  t0a0en.dll: 9403.00.21899.22462
+  tk4aboot.dll: 9403.00.21899.26849
+  tkarm.dll: 9403.00.21899.26926
+  tkeavl.dll: 9403.00.21899.26987
+  tkeeam.dll: 9403.00.21899.26848
+  tkelm.dll: 9403.00.21899.26872
+  tkevlgio.dll: 9403.00.21899.26886
+  tkezx.dll: 9403.00.21899.26972
+  tkioe.dll: 9403.00.21899.26973
+  tkl4sas.dll: 9403.00.21899.26970
+  tkmk.dll: 9403.00.21899.27056
+  tknls.dll: 9403.00.21899.26892
+  tknlsenc.dll: 9403.00.21899.26883
+  tknlsicv.dll: 9403.00.21899.26845
+  tknlsldb.dll: 9403.00.21899.26894
+  tknlsloc.dll: 9403.00.21899.26851
+  tknlsmb.dll: 9403.00.21899.26908
+  tknlssb.dll: 9403.00.21899.26889
+  tknlssm.dll: 9403.00.21899.26886
+  tknlsudb.dll: 9403.00.21899.26887
+  tkopt.dll: 9403.00.21899.26879
+  tksecure.dll: 9403.00.21899.26974
+  tkxomi.dll: 9403.00.21899.26972
+  executable_versions.xml: 15946 bytes
+--- Enterprise Guide files ---
+  AutoUpdate.exe: 7.100.2.3204
+  InstallChecker.exe: 7.100.2.3204
+  MigrationWizard.exe: 7.100.2.3204
+  RegAddIn.exe: 7.100.2.3204
+  RegSEGuide.exe: 7.100.2.3350
+  RegTasks.exe: 7.100.2.3204
+  SEGExplorer.exe: 7.100.2.3204
+  SEGuide.exe: 7.100.2.3350
+  UMMAPITools.exe: 7.100.2.3204
+  adodb.dll: 7.10.3077
+  ConnectionFactory.dll: 9.400.0.14209
+  EC.Base.dll: 7.100.2.3204
+  EC.Data.dll: 7.100.2.3204
+  EC.Directory.dll: 7.100.2.3204
+  EC.Execution.dll: 7.100.2.3204
+  EC.SASWebExtensions.dll: 7.100.2.3204
+  EC.Session.dll: 7.100.2.3204
+  EC.TaskManagement.dll: 7.100.2.3204
+  EC.Utilities.dll: 7.100.2.3204
+  EC.Workspace.dll: 7.100.2.3204
+  ESRI.ArcGIS.Client.Behaviors.dll: 2.1.0.446
+  ESRI.ArcGIS.Client.dll: 2.1.0.446
+  ESRI.ArcGIS.Client.Toolkit.dll: 2.1.0.446
+  git2-e0902fb.dll: 0.22.0
+  GroupControls.dll: 7.100.2.3204
+  GTLManagedWindowsInterfaces.dll: 7.300.0.17711
+  ISASEGCubeDMLog.dll: 7.100.2.3204
+  Json.NET.dll: 1.0.0.0
+  LibGit2Sharp.dll: 0.21.0
+  log4net.dll: 1.2.11.0
+  LoggingConfigurator.dll: 9.400.0.14209
+  Metadata.dll: 9.400.0.14209
+  Microsoft.Office.Interop.Excel.dll: 12.0.4518.1014
+  Microsoft.Office.Interop.Word.dll: 12.0.4518.1014
+  Microsoft.Vbe.Interop.dll: 12.0.4518.1014
+  Microsoft.Web.Services3.dll: 3.0.5305.0
+  Microsoft.Win32.TaskScheduler.dll: 7.100.2.3204
+  Microsoft.Win32.TaskSchedulerEditor.dll: 7.100.2.3204
+  office.dll: 12.0.4518.1014
+  QueryModel.dll: 7.100.2.3350
+  SAS.AxInterop.SASDIA9.dll: 1.0.0.0
+  SAS.AxInterop.SASGrph9.dll: 1.0.0.0
+  SAS.BI.Metadata.dll: 7.100.2.3204
+  SAS.BI.ServerAccess.dll: 7.100.2.3204
+  SAS.BI.StoredProcessService.dll: 7.100.2.3204
+  SAS.BI.Utilities2.dll: 7.100.2.3204
+  SAS.Comments.dll: 7.100.2.3204
+  SAS.Data.Framework.dll: 7.100.2.3204
+  SAS.Data.Grid.dll: 7.100.2.3204
+  SAS.EC.CTM.CtmRegistry.dll: 7.100.2.3204
+  SAS.EC.Environment.dll: 7.100.2.3204
+  SAS.EC.Favorites.dll: 7.100.2.3204
+  SAS.EC.ReportGTL.dll: 7.100.2.3204
+  SAS.EC.TaskBrowser.dll: 7.100.2.3204
+  SAS.EG.AddIns.Consumers.dll: 7.100.2.3350
+  SAS.EG.Application.dll: 7.100.2.3350
+  SAS.EG.Controls.dll: 7.100.2.3204
+  SAS.EG.Controls.EGProjectTreeView.dll: 7.100.2.3350
+  SAS.EG.Controls.ProcessFlowView.dll: 7.100.2.3350
+  SAS.EG.Controls.Publisher.dll: 7.100.2.3350
+  SAS.EG.Controls.StyleEditor.dll: 7.100.2.3204
+  SAS.EG.Controls.TaskStatusView.dll: 7.100.2.3204
+  SAS.EG.DataAccess.Credentials.dll: 7.100.2.3204
+  SAS.EG.DataAccess.DataModel.dll: 7.100.2.3204
+  SAS.EG.DataAccess.EGExpressionBuilder.dll: 7.100.2.3350
+  SAS.EG.DataAccess.OpenDialogs.dll: 7.100.2.3350
+  SAS.EG.DataGrid.dll: 7.100.2.3204
+  SAS.EG.GridDataModelInterface.dll: 7.100.2.3204
+  SAS.EG.InstallInfo.dll: 7.100.2.3204
+  SAS.EG.JobManagement.dll: 7.100.2.3204
+  SAS.EG.Options.dll: 7.100.2.3204
+  SAS.EG.OptionsUI.dll: 7.100.2.3350
+  SAS.EG.ProjectElements.dll: 7.100.2.3350
+  SAS.EG.ProjectElements.Forms.dll: 7.100.2.3350
+  SAS.EG.ProjectElementViews.dll: 7.100.2.3350
+  SAS.EG.SDS.Configuration.dll: 7.100.2.3204
+  SAS.EG.SDS.Dialogs.dll: 7.100.2.3204
+  SAS.EG.SDS.Model.dll: 7.100.2.3204
+  SAS.EG.SDS.Util.dll: 7.100.2.3204
+  SAS.EG.SDS.Views.dll: 7.100.2.3204
+  SAS.EG.SDS.Views.SEGExplorer.dll: 7.100.2.3204
+  SAS.EG.SEGuide.Forms.dll: 7.100.2.3350
+  SAS.EG.SEGuide.Tools.dll: 7.100.2.3350
+  SAS.EG.Sku.dll: 7.100.2.3350
+  SAS.EG.StoredProcessAuthoring.dll: 7.100.2.3204
+  SAS.EG.Tasks.AdvancedListing.dll: 7.100.2.3204
+  SAS.EG.Tasks.Capability.dll: 7.100.2.3204
+  SAS.EG.Tasks.CommonTaskClasses.dll: 7.100.2.3204
+  SAS.EG.Tasks.ControlCharts.dll: 7.100.2.3204
+  SAS.EG.Tasks.Data.dll: 7.100.2.3204
+  SAS.EG.Tasks.Describe.dll: 7.100.2.3204
+  SAS.EG.Tasks.EGTasks.dll: 7.100.2.3350
+  SAS.EG.Tasks.ForecastStudio.dll: 7.100.2.3204
+  SAS.EG.Tasks.Graph.dll: 7.100.2.3204
+  SAS.EG.Tasks.GraphAppearance.dll: 7.100.2.3204
+  SAS.EG.Tasks.Icons.dll: 7.100.2.3204
+  SAS.EG.Tasks.Multivariate.dll: 7.100.2.3204
+  SAS.EG.Tasks.RegressionAnova.dll: 7.100.2.3204
+  SAS.EG.Tasks.ScoreModel.dll: 7.100.2.3204
+  SAS.EG.Tasks.TaskSDK.Diagnostics.dll: 7.100.2.3204
+  SAS.EG.Tasks.TaskSDK.dll: 7.100.2.3204
+  SAS.EG.Tasks.Timeseries.dll: 7.100.2.3204
+  SAS.EG.Utilities.dll: 7.100.2.3204
+  SAS.EnhancedEditorControl.dll: 7.100.2.3204
+  SAS.EnhancedEditorData.dll: 7.100.2.3204
+  SAS.Interop.ADOX.dll: 2.7.0.0
+  SAS.Interop.DIALib.dll: 1.0.0.0
+  SAS.Interop.MSDASC.dll: 1.0.0.0
+  SAS.Interop.SASGRPH9Lib.dll: 1.0.0.0
+  SAS.Interop.SASGXMLLib.dll: 1.0.0.0
+  SAS.Interop.UMMAPITools.dll: 7.100.2.0
+  SAS.MigrationWizard.Adapter.EG.dll: 7.100.2.3350
+  SAS.MigrationWizard.dll: 7.100.2.3204
+  SAS.OCT.DataModel.dll: 7.100.2.3204
+  SAS.OCT.OlapAnalyzer.dll: 7.100.2.3204
+  SAS.OCT.OlapClientEngine.dll: 7.100.2.3204
+  SAS.OCT.OleDbBridge.dll: 7.100.2.3204
+  SAS.OLAPCommonUI.dll: 7.100.2.3204
+  SAS.ParameterPrompting.DesignTime.dll: 7.100.2.3204
+  SAS.ParameterPrompting.Model.dll: 9.400.0.15341
+  SAS.ParameterPrompting.RunTime.dll: 7.100.2.3204
+  SAS.Report.Data.dll: 7.100.2.3204
+  SAS.Report.Models.dll: 7.100.2.3204
+  SAS.Report.Viewer.dll: 7.100.2.3204
+  SAS.ReportBI.BIRDViewer.dll: 7.100.2.3204
+  SAS.ReportBI.Crosstab.dll: 7.100.2.3204
+  SAS.ReportBI.CrosstabDescriptor.dll: 7.100.2.3204
+  SAS.ReportBI.Prompts.dll: 7.100.2.3204
+  SAS.ReportBI.ViewerHost.dll: 7.100.2.3204
+  SAS.Shared.AddIns.Consumers.dll: 7.100.2.3204
+  SAS.Shared.AddIns.dll: 7.100.2.3204
+  SAS.Shared.AddIns.Management.dll: 7.100.2.3204
+  SAS.Shared.AddIns.RegAddIn.dll: 7.100.2.3204
+  SAS.Shared.dll: 7.100.2.3204
+  SAS.Shared.FileSelectionDialogs.dll: 7.100.2.3204
+  SAS.Shared.InformationMaps.dll: 7.100.2.3204
+  SAS.Shared.MSOffice.dll: 7.100.2.3204
+  SAS.Shared.Query.dll: 7.100.2.3204
+  SAS.SharedAnalytics.dll: 7.100.2.3204
+  SAS.SharedImages.dll: 7.100.2.3204
+  SAS.SharedPrompting.dll: 7.100.2.3204
+  SAS.SharedUI.dll: 7.100.2.3204
+  SAS.SharedUI.SASGraphicView.dll: 7.100.2.3204
+  SAS.SharedUI.WPF.dll: 7.100.2.3204
+  SAS.Tasks.CreateImportedFormat.dll: 7.100.2.3350
+  SAS.Tasks.CtmClient.dll: 7.100.2.3204
+  SAS.Tasks.Data.RandomSample.dll: 7.100.2.3204
+  SAS.Tasks.FileTransfer.dll: 7.100.2.3204
+  SAS.Tasks.HPACommon.dll: 7.100.2.3204
+  SAS.Tasks.HPLogistics.dll: 7.100.2.3204
+  SAS.Tasks.HPRegression.dll: 7.100.2.3204
+  SAS.Tasks.ImportData.dll: 7.100.2.3204
+  SAS.Tasks.ImportOtherPackages.dll: 7.100.2.3204
+  SAS.Tasks.JmpPackager.dll: 7.100.2.3204
+  SAS.Tasks.Lasr.dll: 7.100.2.3204
+  SAS.Tasks.MapChart.dll: 7.100.2.3204
+  SAS.Tasks.MetalibWizard.dll: 7.100.2.3204
+  SAS.Tasks.RegTasks.dll: 7.100.2.3204
+  SAS.Tasks.RFM.dll: 7.100.2.3204
+  SAS.Tasks.RPM.dll: 7.100.2.3204
+  SAS.Tasks.SASCodeAnalyzer.dll: 7.100.2.3350
+  SAS.Tasks.ScatterMatrix.dll: 7.100.2.3204
+  SAS.Tasks.ServerStateViewers.dll: 7.100.2.3204
+  SAS.Tasks.SGDesigner.dll: 7.100.2.3204
+  SAS.Tasks.Toolkit.dll: 7.100.2.3204
+  SASCacheInterop.dll: 1.0.0.0
+  SASCombInterop.dll: 1.0.0.0
+  SASCustomTokenManager.dll: 9.400.0.14209
+  SASEGScripting.dll: 7.100.2.3350
+  SASInterop.dll: 1.5.0.0
+  SASIOMCommonInterop.dll: 1.3.0.0
+  SASOManInterop.dll: 1.1.0.0
+  SASOMIInterop.dll: 1.4.0.0
+  SASStoredProcessInterop.dll: 1.3.0.0
+  sasvft95.dll: 9.00.18765.27434
+  segicons.dll: 7.100.2.3350
+  SharpVectors.Converters.dll: 1.0.0.0
+  SharpVectors.Core.dll: 0.3.1.1588
+  SharpVectors.Css.dll: 0.3.1.1590
+  SharpVectors.Dom.dll: 0.3.1.1589
+  SharpVectors.Model.dll: 0.3.1.1592
+  SharpVectors.Rendering.Gdi.dll: 0.3.1.1595
+  SharpVectors.Rendering.Wpf.dll: 1.0.0.0
+  SharpVectors.Runtime.dll: 1.0.0.0
+  SourceGrid.dll: 7.100.2.3204
+  SpreadsheetGear2012.dll: 7.0.5.106
+  stdole.dll: 7.00.9466
+  Task.dll: 7.100.2.3204
+  UserContext.dll: 9.400.0.14209
+  Utilities.dll: 9.400.0.14209
+  WebDAV.dll: 9.400.0.14209
+  Xceed.Compression.v5.1.dll: 5.1.12266.12120
+  Xceed.FileSystem.v5.1.dll: 5.1.12266.12120
+  Xceed.Zip.v5.1.dll: 5.1.12266.12120
+  egexplorer.chm: 19193 bytes
+  MigrationWizard.chm: 18754 bytes
+  olaphelp.chm: 321703 bytes
+  SEGuide.chm: 1855188 bytes
+  styleshelp.chm: 27200 bytes
+  taskhelp.chm: 817847 bytes
+  AddInRegistry.xml: 673346 bytes
+  CTMExclusions.xml: 2677 bytes
+  executable_versions.xml: 80 bytes
+  libgit2_source.zip (no description): unknown version (2/25/2015)
+  x64\BIRD.dll: 7.301.0.17711
+  x64\Commons.dll: 7.301.0.17711
+  x64\CommonsUI.dll: 7.301.0.17711
+  x64\CommonsWindows.dll: 7.301.0.17711
+  x64\GTLFoundation.dll: 7.301.0.17711
+  x64\GTLManagedWindows.dll: 7.300.0.17711
+  x64\GTLNodeLinkDiagram.dll: 7.301.0.17711
+  x64\GTLWindows.dll: 7.301.0.17711
+  x64\OpenGLES2DisplayList.dll: 7.301.0.17711
+  x64\OpenGLES2DisplayListWindows.dll: 7.301.0.17711
+  x64\Transport.dll: 7.301.0.17711
+  x64\Zlib.dll: 1.2.8
+--- Graph (ActiveX) NLS files ---
+  eng\EngGfw9.dll: 9.4.0.15176
+  eng\EngGrph9.dll: 9.4.0.15176
+--- SAS OLE DB Data Provider NLS files ---
+  eng\sasafres.dll: 9.403.0.15176
+--- SxS C++ Runtime Files ---
+  amd64_microsoft.vc80.atl_1fc8b3b9a1e18e3b_8.0.50727.6195_none_8a1dd9552ed7f8d8: ATL80.dll (8.00.50727.6195)
+  amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_88df89932faf0bf6: msvcm80.dll (8.00.50727.4940), msvcp80.dll (8.00.50727.4940), msvcr80.dll (8.00.50727.4940)
+  amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.6195_none_88e41e092fab0294: msvcm80.dll (8.00.50727.6195), msvcp80.dll (8.00.50727.6195), msvcr80.dll (8.00.50727.6195)
+  amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.762_none_c905be8887838ff2: msvcm80.dll (8.00.50727.762), msvcp80.dll (8.00.50727.762), msvcr80.dll (8.00.50727.762)
+  amd64_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.6195_none_8448b2bd328df189: mfc80.dll (8.00.50727.6195), mfc80u.dll (8.00.50727.6195), mfcm80.dll (8.00.50727.6195), mfcm80u.dll (8.00.50727.6195)
+  amd64_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.762_none_c46a533c8a667ee7: mfc80.dll (8.00.50727.762), mfc80u.dll (8.00.50727.762), mfcm80.dll (8.00.50727.762), mfcm80u.dll (8.00.50727.762)
+  amd64_microsoft.vc80.mfcloc_1fc8b3b9a1e18e3b_8.0.50727.6195_none_bc20f59b0bdd1acd: mfc80CHS.dll (8.00.50727.6195), mfc80CHT.dll (8.00.50727.6195), mfc80DEU.dll (8.00.50727.6195), mfc80ENU.dll (8.00.50727.6195), mfc80ESP.dll (8.00.50727.6195), mfc80FRA.dll (8.00.50727.6195), mfc80ITA.dll (8.00.50727.6195), mfc80JPN.dll (8.00.50727.6195), mfc80KOR.dll (8.00.50727.6195)
+  amd64_microsoft.vc80.mfcloc_1fc8b3b9a1e18e3b_8.0.50727.762_none_fc42961a63b5a82b: mfc80CHS.dll (8.00.50727.762), mfc80CHT.dll (8.00.50727.762), mfc80DEU.dll (8.00.50727.762), mfc80ENU.dll (8.00.50727.762), mfc80ESP.dll (8.00.50727.762), mfc80FRA.dll (8.00.50727.762), mfc80ITA.dll (8.00.50727.762), mfc80JPN.dll (8.00.50727.762), mfc80KOR.dll (8.00.50727.762)
+  amd64_microsoft.vc80.openmp_1fc8b3b9a1e18e3b_8.0.50727.6195_none_f364d326b5304e6e: vcomp.dll (8.00.50727.6195)
+  amd64_microsoft.vc90.atl_1fc8b3b9a1e18e3b_9.0.30729.4148_none_0a1d2fcba76b3f00: ATL90.dll (9.00.30729.4148)
+  amd64_microsoft.vc90.atl_1fc8b3b9a1e18e3b_9.0.30729.6161_none_0a1fd3a3a768b895: ATL90.dll (9.00.30729.6161)
+  amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4148_none_08e3747fa83e48bc: msvcm90.dll (9.00.30729.4148), msvcp90.dll (9.00.30729.4148), msvcr90.dll (9.00.30729.4148)
+  amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_08e4299fa83d7e3c: msvcm90.dll (9.00.30729.4940), msvcp90.dll (9.00.30729.4940), msvcr90.dll (9.00.30729.4940)
+  amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.5570_none_08e72cf3a83ac624: msvcm90.dll (9.00.30729.5570), msvcp90.dll (9.00.30729.5570), msvcr90.dll (9.00.30729.5570)
+  amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_08e61857a83bc251: msvcm90.dll (9.00.30729.6161), msvcp90.dll (9.00.30729.6161), msvcr90.dll (9.00.30729.6161)
+  amd64_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.4148_none_04480933ab2137b1: mfc90.dll (9.00.30729.4148), mfc90u.dll (9.00.30729.4148), mfcm90.dll (9.00.30729.4148), mfcm90u.dll (9.00.30729.4148)
+  amd64_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.5570_none_044bc1a7ab1db519: mfc90.dll (9.00.30729.5570), mfc90u.dll (9.00.30729.5570), mfcm90.dll (9.00.30729.5570), mfcm90u.dll (9.00.30729.5570)
+  amd64_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_044aad0bab1eb146: mfc90.dll (9.00.30729.6161), mfc90u.dll (9.00.30729.6161), mfcm90.dll (9.00.30729.6161), mfcm90u.dll (9.00.30729.6161)
+  amd64_microsoft.vc90.mfcloc_1fc8b3b9a1e18e3b_9.0.30729.4148_none_01c6b44660ce74c3: MFC90CHS.DLL (9.00.30729.4148), MFC90CHT.DLL (9.00.30729.4148), MFC90DEU.DLL (9.00.30729.4148), MFC90ENU.DLL (9.00.30729.4148), MFC90ESN.DLL (9.00.30729.4148), MFC90ESP.DLL (9.00.30729.4148), MFC90FRA.DLL (9.00.30729.4148), MFC90ITA.DLL (9.00.30729.4148), MFC90JPN.DLL (9.00.30729.4148), MFC90KOR.DLL (9.00.30729.4148), MFC90RUS.DLL (9.00.30729.4148)
+  amd64_microsoft.vc90.mfcloc_1fc8b3b9a1e18e3b_9.0.30729.5570_none_01ca6cba60caf22b: MFC90CHS.DLL (9.00.30729.5570), MFC90CHT.DLL (9.00.30729.5570), MFC90DEU.DLL (9.00.30729.5570), MFC90ENU.DLL (9.00.30729.5570), MFC90ESN.DLL (9.00.30729.5570), MFC90ESP.DLL (9.00.30729.5570), MFC90FRA.DLL (9.00.30729.5570), MFC90ITA.DLL (9.00.30729.5570), MFC90JPN.DLL (9.00.30729.5570), MFC90KOR.DLL (9.00.30729.5570), MFC90RUS.DLL (9.00.30729.5570)
+  amd64_microsoft.vc90.mfcloc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_01c9581e60cbee58: MFC90CHS.DLL (9.00.30729.6161), MFC90CHT.DLL (9.00.30729.6161), MFC90DEU.DLL (9.00.30729.6161), MFC90ENU.DLL (9.00.30729.6161), MFC90ESN.DLL (9.00.30729.6161), MFC90ESP.DLL (9.00.30729.6161), MFC90FRA.DLL (9.00.30729.6161), MFC90ITA.DLL (9.00.30729.6161), MFC90JPN.DLL (9.00.30729.6161), MFC90KOR.DLL (9.00.30729.6161), MFC90RUS.DLL (9.00.30729.6161)
+  amd64_microsoft.vc90.openmp_1fc8b3b9a1e18e3b_9.0.30729.4148_none_390a91d20a21a864: vcomp90.dll (9.00.30729.4148)
+  amd64_microsoft.vc90.openmp_1fc8b3b9a1e18e3b_9.0.30729.6161_none_390d35aa0a1f21f9: vcomp90.dll (9.00.30729.6161)
+  x86_microsoft.vc80.atl_1fc8b3b9a1e18e3b_8.0.50727.6195_none_d1cb102c435421de: ATL80.dll (8.00.50727.6195)
+  x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_d08cc06a442b34fc: msvcm80.dll (8.00.50727.4940), msvcp80.dll (8.00.50727.4940), msvcr80.dll (8.00.50727.4940)
+  x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.6195_none_d09154e044272b9a: msvcm80.dll (8.00.50727.6195), msvcp80.dll (8.00.50727.6195), msvcr80.dll (8.00.50727.6195)
+  x86_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.6195_none_cbf5e994470a1a8f: mfc80.dll (8.00.50727.6195), mfc80u.dll (8.00.50727.6195), mfcm80.dll (8.00.50727.6195), mfcm80u.dll (8.00.50727.6195)
+  x86_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.762_none_0c178a139ee2a7ed: mfc80.dll (8.00.50727.762), mfc80u.dll (8.00.50727.762), mfcm80.dll (8.00.50727.762), mfcm80u.dll (8.00.50727.762)
+  x86_microsoft.vc80.mfcloc_1fc8b3b9a1e18e3b_8.0.50727.6195_none_03ce2c72205943d3: mfc80CHS.dll (8.00.50727.6195), mfc80CHT.dll (8.00.50727.6195), mfc80DEU.dll (8.00.50727.6195), mfc80ENU.dll (8.00.50727.6195), mfc80ESP.dll (8.00.50727.6195), mfc80FRA.dll (8.00.50727.6195), mfc80ITA.dll (8.00.50727.6195), mfc80JPN.dll (8.00.50727.6195), mfc80KOR.dll (8.00.50727.6195)
+  x86_microsoft.vc80.mfcloc_1fc8b3b9a1e18e3b_8.0.50727.762_none_43efccf17831d131: mfc80CHS.dll (8.00.50727.762), mfc80CHT.dll (8.00.50727.762), mfc80DEU.dll (8.00.50727.762), mfc80ENU.dll (8.00.50727.762), mfc80ESP.dll (8.00.50727.762), mfc80FRA.dll (8.00.50727.762), mfc80ITA.dll (8.00.50727.762), mfc80JPN.dll (8.00.50727.762), mfc80KOR.dll (8.00.50727.762)
+  x86_microsoft.vc80.openmp_1fc8b3b9a1e18e3b_8.0.50727.6195_none_3b1209fdc9ac7774: vcomp.dll (8.00.50727.6195)
+  x86_microsoft.vc90.atl_1fc8b3b9a1e18e3b_9.0.30729.4148_none_51ca66a2bbe76806: ATL90.dll (9.00.30729.4148)
+  x86_microsoft.vc90.atl_1fc8b3b9a1e18e3b_9.0.30729.6161_none_51cd0a7abbe4e19b: ATL90.dll (9.00.30729.6161)
+  x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.21022.8_none_bcb86ed6ac711f91: msvcm90.dll (9.00.21022.8), msvcp90.dll (9.00.21022.8), msvcr90.dll (9.00.21022.8)
+  x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4148_none_5090ab56bcba71c2: msvcm90.dll (9.00.30729.4148), msvcp90.dll (9.00.30729.4148), msvcr90.dll (9.00.30729.4148)
+  x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_50916076bcb9a742: msvcm90.dll (9.00.30729.4940), msvcp90.dll (9.00.30729.4940), msvcr90.dll (9.00.30729.4940)
+  x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57: msvcm90.dll (9.00.30729.6161), msvcp90.dll (9.00.30729.6161), msvcr90.dll (9.00.30729.6161)
+  x86_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.4148_none_4bf5400abf9d60b7: mfc90.dll (9.00.30729.4148), mfc90u.dll (9.00.30729.4148), mfcm90.dll (9.00.30729.4148), mfcm90u.dll (9.00.30729.4148)
+  x86_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_4bf7e3e2bf9ada4c: mfc90.dll (9.00.30729.6161), mfc90u.dll (9.00.30729.6161), mfcm90.dll (9.00.30729.6161), mfcm90u.dll (9.00.30729.6161)
+  x86_microsoft.vc90.mfcloc_1fc8b3b9a1e18e3b_9.0.30729.4148_none_4973eb1d754a9dc9: MFC90CHS.DLL (9.00.30729.4148), MFC90CHT.DLL (9.00.30729.4148), MFC90DEU.DLL (9.00.30729.4148), MFC90ENU.DLL (9.00.30729.4148), MFC90ESN.DLL (9.00.30729.4148), MFC90ESP.DLL (9.00.30729.4148), MFC90FRA.DLL (9.00.30729.4148), MFC90ITA.DLL (9.00.30729.4148), MFC90JPN.DLL (9.00.30729.4148), MFC90KOR.DLL (9.00.30729.4148), MFC90RUS.DLL (9.00.30729.4148)
+  x86_microsoft.vc90.mfcloc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_49768ef57548175e: MFC90CHS.DLL (9.00.30729.6161), MFC90CHT.DLL (9.00.30729.6161), MFC90DEU.DLL (9.00.30729.6161), MFC90ENU.DLL (9.00.30729.6161), MFC90ESN.DLL (9.00.30729.6161), MFC90ESP.DLL (9.00.30729.6161), MFC90FRA.DLL (9.00.30729.6161), MFC90ITA.DLL (9.00.30729.6161), MFC90JPN.DLL (9.00.30729.6161), MFC90KOR.DLL (9.00.30729.6161), MFC90RUS.DLL (9.00.30729.6161)
+  x86_microsoft.vc90.openmp_1fc8b3b9a1e18e3b_9.0.30729.4148_none_80b7c8a91e9dd16a: vcomp90.dll (9.00.30729.4148)
+  x86_microsoft.vc90.openmp_1fc8b3b9a1e18e3b_9.0.30729.6161_none_80ba6c811e9b4aff: vcomp90.dll (9.00.30729.6161)

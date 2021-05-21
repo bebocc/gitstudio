@@ -1,0 +1,179 @@
+﻿NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+4          OPTIONS LOCALE=en_US DFLANG=LOCALE VALIDVARNAME=ANY;
+5          OPTIONS VALIDMEMNAME=COMPAT;
+6          FILENAME _HTMLOUT %nrstr("F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113/Programs/autoexec.html");
+7          FILENAME _GSFNAME TEMP;
+8          DATA _NULL_;
+9          CALL SYMPUT("GRAPHINIT","");
+10         CALL SYMPUT("GRAPHTERM","");
+11         RC=TSLVL('GEOCODE','N');
+12         _ERROR_=0;
+13         IF (RC^=' ') THEN DO;
+14         CALL SYMPUT("GRAPHINIT","GOPTIONS RESET=ALL GSFNAME=_GSFNAME;");
+15         CALL SYMPUT("GRAPHTERM","GOPTIONS NOACCESSIBLE;");
+16         END;
+17         RUN;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+18         DATA _NULL_;
+19         RC=SYSPROD("PRODNUM002");
+20         IF (RC^=1) THEN DO;
+21         CALL SYMPUT("GRAPHINIT","");
+22         CALL SYMPUT("GRAPHTERM","");
+23         END;
+24         RUN;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+25         %LET SYSCC=0;
+26         %LET _CLIENTAPP=SAS Studio;
+27         %LET _CLIENTAPPVERSION=3.6;
+28         %LET _SASSERVERNAME=%BQUOTE(localhost);
+29         %LET _CLIENTUSERID=%BQUOTE(prdesa);
+30         %LET _CLIENTUSERNAME=%BQUOTE();
+31         %LET CLIENTMACHINE=%BQUOTE(HLSRDTS01.VSP.SAS.COM);
+32         
+33         %LET _SASPROGRAMFILE = %BQUOTE(F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113/Programs/autoexec.sas);
+34         %LET _EXECENV=SASStudio Background;
+35         %LET _SASWS_ = %BQUOTE(D:/Users/prdesa);
+36         %LET _SASWSTEMP_=%BQUOTE();
+37         ODS LISTING CLOSE;
+38         ODS AUTONAVIGATE OFF;
+39         ODS GRAPHICS ON;
+40         ODS HTML5 (ID=WEB) DEVICE=PNG GPATH="&_SASWSTEMP_" ENCODING=utf8 FILE=_HTMLOUT (TITLE='Results: autoexec.sas')
+40       ! STYLE=Htmlblue OPTIONS(BITMAP_MODE='INLINE' OUTLINE='ON' SVG_MODE='INLINE'
+40       ! CSS_PREFIX='.ods_bf1708ea-7cc1-4422-b027-e83c3a1c28f5' BODY_ID='div_bf1708ea-7cc1-4422-b027-e83c3a1c28f5' );
+NOTE: Writing HTML5(WEB) Body file: _HTMLOUT
+41         &GRAPHINIT;
+42         ********************************************************************************;
+43         ***
+44         *** Program:        HLS Pharma autoexec.sas
+45         *** Programmer:     Pritesh Desai (Lineage pgm Matt Becker)
+46         *** Date Created:   31May2017
+2                                                       The SAS System                     Wednesday, June  7, 2017 03:08:22 PM
+
+47         ***
+48         *** Input :         none
+49         ***
+50         *** Output:         none
+51         ***
+52         *** Purpose:        Assign project definitions, options, libnames and macro vars
+53         ***
+54         *** Comments:
+55         ***
+56         *** Software:       LSAF 4.x
+57         ***
+58         *** Modifications:
+59         ***
+60         *** Date       Programmer        Description
+61         *** ---------  ----------------  --------------
+62         ***  20APR2017  JB                  Updated asgain
+63         ***  22MAY2017  JB
+64         ***  31MAY2017  PD
+65         ***  31MAY2017  PD 					Test checkin-check out
+66         ********************************************************************************;
+67         *** Adding new comment;
+68         %let pathname=F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113;
+69         %let rootdir=F:/SAS/Files/HLS_Pharma/Cardiology/Files/XMB113;
+70         
+71         %let ptitle1=%str(PharmaCo);
+72         %let ptitle2=%str(PharmaCo - Compound2 - CONFIDENTIAL);
+73         
+74         %let ddt=&pathname./Study Documents/ddt.xls;
+75         %let sdtm=&pathname./Study Documents/sdtm.xls;
+76         
+77         libname raw "&pathname./RawData";
+NOTE: Libref RAW was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: F:\SAS\Files\HLS_Pharma\Cardiology\Files\XMB113\RawData
+78         libname sdtm "&pathname./SDTM";
+NOTE: Libref SDTM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: F:\SAS\Files\HLS_Pharma\Cardiology\Files\XMB113\SDTM
+79         libname derived "&pathname./ADAM";
+NOTE: Libref DERIVED was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: F:\SAS\Files\HLS_Pharma\Cardiology\Files\XMB113\ADAM
+80         
+81         libname psmac   "&pathname./Macros" access=read;
+NOTE: Libref PSMAC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: F:\SAS\Files\HLS_Pharma\Cardiology\Files\XMB113\Macros
+82         libname fmtdata "&pathname./ADAM";
+NOTE: Libref FMTDATA refers to the same physical library as DERIVED.
+NOTE: Libref FMTDATA was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: F:\SAS\Files\HLS_Pharma\Cardiology\Files\XMB113\ADAM
+83         libname library "&pathname./ADAM";
+NOTE: Libref LIBRARY refers to the same physical library as FMTDATA.
+NOTE: Libref LIBRARY was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: F:\SAS\Files\HLS_Pharma\Cardiology\Files\XMB113\ADAM
+84         
+85         %global rawdata derdata suppkeep;
+86         %let rawdata=raw;
+87         %let derdata=derived;
+88         %let suppkeep=%str(studyid rdomain usubjid idvar idvarval qnam qlabel qval qorig qeval);
+89         
+90         %let output =&pathname./Output;
+91         %let program=&pathname./Programs;
+92         
+93         %*** set treatment variables used in MSS, MFREQ;
+94         %global ovtrt tottrt;
+3                                                       The SAS System                     Wednesday, June  7, 2017 03:08:22 PM
+
+95         %let ovtrt=6;
+96         %let tottrt=6;
+97         
+98         *** set global macro vars;
+99         %global study studynum keepdemo draft_final trtspace demovars ps ls;
+100        %let study=;
+101        %let studynum=;
+102        %let keepdemo=;
+103        %let draft_final=FINAL;
+104        %let trtspace=4;
+105        %let demovars=%str(usubjid age atrt rfendtc rfendtn rfstdtn rfstdtc cnstdtn q_safeas q_immuas race sex tbsa);
+106        %let ps=50;
+107        %let ls=130;
+108        
+109        options linesize=136 pagesize=50 formchar="|----|+|---+=|-/\<>*";
+110        
+111        options mautosource mrecall missing='';
+112        options sasautos=("&pathname" "&pathname/Macros" sasautos) fmtsearch=(fmtdata WORK);
+113        
+114        ods path sashelp.tmplmst(read) &derdata..tplate;
+115        
+116        %let options=mprint center ps=45 ls=132;
+117        %let moptions=macrogen symbolgen /* mlogic */;
+118        %let topdatef=date9.;
+119        
+120        %let fpgfln=%str(put '\b0\f4\fs16\pard\par '; );
+121        %let border=%str(\brdrb\brdrs);
+122        
+123        %let ori=l;     *** landscape;
+124        
+125        data _null_;
+126           daytim=put("&sysdate"d,date9.)||" "||put("&systime"t,time8.);
+127           call symput("nowdate", daytim);
+128        run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+129        OPTIONS NOSYNTAXCHECK;
+130        &GRAPHTERM; ;*';*";*/;RUN;QUIT;
+131        ODS HTML5 (ID=WEB) CLOSE;
+132        

@@ -1,0 +1,3170 @@
+1                                                          The SAS System                                17:47 Monday, June 13, 2016
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M3 MBCS3170) 
+      Licensed to R&D PACKAGE VALIDATION, Site 70188996.
+NOTE: This session is executing on the Linux 2.6.32-504.30.3.el6.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 14.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 2.6.32-504.30.3.el6.x86_64 #1 SMP Thu Jul 9 15:20:47 EDT 2015 x86_64 Red Hat Enterprise Linux Server release 6.6 
+      (Santiago) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS Initialization used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+NOTE: The autoexec file, /sso/biconfig/940/Lev1/SASApp/WorkspaceServer/autoexec.sas, was executed at server initialization.
+1          options nofmterr ls=98;
+2          options linesize=98;
+3          options dtreset;
+4          options locale=EN_US;
+5          %let _SDDUSR_=%bquote(jimbox);
+6          %let _SASWS_ =
+6        ! %nrstr("/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef9
+6        ! 2eed057");
+7          %let _SASWS_ = %qsubstr(&_SASWS_, 2, %length(&_SASWS_) - 2);
+8          
+9          %let _SASUSRWS_ =
+9        ! %nrstr("/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef9
+9        ! 2eed057/Users/jimbox");
+10         %let _SASUSRWS_ = %qsubstr(&_SASUSRWS_, 2, %length(&_SASUSRWS_) - 2);
+11         
+
+/**********************************************************************************************************************
+ * Submission Start: autoexec.sas
+ * Jun 13, 2016 17:47:32 GMT by jimbox
+ *********************************************************************************************************************/
+2                                         The SAS System               17:47 Monday, June 13, 2016
+
+12         
+13         options nosyntaxcheck errorcheck=strict notes;
+14         
+15         
+16         ;*';*";*/;*);run;quit;
+17         *reset syscc macro variable;
+18         %let syscc=0;
+19         %let _SASFILEPATH_ = %nrstr("/SAS/HLS
+19       ! Pharma/Cardiology/Files/XMB111/Programs/autoexec.sas");
+20         %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+21         
+22         /**************************************************************************************
+22       ! ******************************/
+23         proc scaproc; record
+23       ! "&_SASWS_/.sessions/4/sca_dae51f67-58bf-46b8-9486-01b2e7f6494c.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+24         
+25         options nomprint;
+26         /**************************************************************************************
+26       ! ******************************/
+27         
+28         /* Macro Variables for Job Parameters */
+29         
+30         /**************************************************************************************
+30       ! ******************************/
+31         
+32         ********************************************************************************;
+33         ***
+34         *** Program:        HLS Pharma autoexec.sas
+35         *** Programmer:     Matt Becker
+36         *** Date Created:   02FEB2014
+37         ***
+38         *** Input :         none
+39         ***
+40         *** Output:         none
+41         ***
+42         *** Purpose:        Assign project definitions, options, libnames and macro vars
+43         ***
+44         *** Comments:
+45         ***
+46         *** Software:       SDD 4.x
+47         ***
+48         *** Modifications:
+49         ***
+50         *** Date       Programmer        Description
+51         *** ---------  ----------------  --------------
+52         ***
+53         ********************************************************************************;
+54         %let pathname=&_sasws_/SAS/HLS Pharma/Cardiology/Files/XMB111;
+55         %let rootdir=&_sasws_/SAS/HLS Pharma/Cardiology/Files/XMB111;
+56         
+57         %let ptitle1=%str(PharmaCo);
+58         %let ptitle2=%str(PharmaCo - Compound2 - CONFIDENTIAL);
+3                                         The SAS System               17:47 Monday, June 13, 2016
+
+59         
+60         %let ddt=&pathname./Study Documents/ddt.xls;
+61         %let sdtm=&pathname./Study Documents/sdtm.xls;
+62         
+63         libname raw "&pathname./RawData";
+NOTE: Libref RAW was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/H
+      LS Pharma/Cardiology/Files/XMB111/RawData
+64         libname sdtm "&pathname./SDTM";
+NOTE: Libref SDTM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/H
+      LS Pharma/Cardiology/Files/XMB111/SDTM
+65         libname derived "&pathname./ADAM";
+NOTE: Libref DERIVED was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/H
+      LS Pharma/Cardiology/Files/XMB111/ADAM
+66         
+67         libname psmac   "&pathname./Macros" access=read;
+NOTE: Libref PSMAC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/H
+      LS Pharma/Cardiology/Files/XMB111/Macros
+68         libname fmtdata "&pathname./ADAM";
+NOTE: Libref FMTDATA refers to the same physical library as DERIVED.
+NOTE: Libref FMTDATA was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/H
+      LS Pharma/Cardiology/Files/XMB111/ADAM
+69         libname library "&pathname./ADAM";
+NOTE: Libref LIBRARY refers to the same physical library as FMTDATA.
+NOTE: Libref LIBRARY was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: 
+      /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/H
+      LS Pharma/Cardiology/Files/XMB111/ADAM
+70         
+71         %global rawdata derdata suppkeep;
+72         %let rawdata=raw;
+73         %let derdata=derived;
+74         %let suppkeep=%str(studyid rdomain usubjid idvar idvarval qnam qlabel qval qorig qeval)
+74       ! ;
+75         
+76         %let output =&pathname./Output;
+77         %let program=&pathname./Programs;
+78         
+79         %*** set treatment variables used in MSS, MFREQ;
+80         %global ovtrt tottrt;
+81         %let ovtrt=6;
+82         %let tottrt=6;
+83         
+4                                         The SAS System               17:47 Monday, June 13, 2016
+
+84         *** set global macro vars;
+85         %global study studynum keepdemo draft_final trtspace demovars ps ls;
+86         %let study=;
+87         %let studynum=;
+88         %let keepdemo=;
+89         %let draft_final=FINAL;
+90         %let trtspace=4;
+91         %let demovars=%str(usubjid age atrt rfendtc rfendtn rfstdtn rfstdtc cnstdtn q_safeas
+91       ! q_immuas race sex tbsa);
+92         %let ps=50;
+93         %let ls=130;
+94         
+95         options linesize=136 pagesize=50 formchar="|----|+|---+=|-/\<>*";
+96         
+97         options mautosource mrecall missing='';
+98         options sasautos=("&pathname" "&pathname/Macros" sasautos) fmtsearch=(fmtdata WORK);
+99         
+100        ods path sashelp.tmplmst(read) &derdata..tplate;
+101        
+102        %let options=mprint center ps=45 ls=132;
+103        %let moptions=macrogen symbolgen /* mlogic */;
+104        %let topdatef=date9.;
+105        
+106        %let fpgfln=%str(put '\b0\f4\fs16\pard\par '; );
+107        %let border=%str(\brdrb\brdrs);
+108        
+109        %let ori=l;     *** landscape;
+110        
+111        data _null_;
+112           daytim=put("&sysdate"d,date9.)||" "||put("&systime"t,time8.);
+113           call symput("nowdate", daytim);
+114        run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+115        
+116        
+117        ;*';*";*/;*);run;quit;
+118        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+5                                                            The SAS System                                  17:47 Monday, June 13, 2016
+
+119        options nonotes;
+120        
+
+/**********************************************************************************************************************
+ * Submission End: autoexec.sas
+ * Jun 13, 2016 17:47:32 GMT
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Submission Start: d0_dm.sas
+ * Jun 13, 2016 17:47:32 GMT by jimbox
+ *********************************************************************************************************************/
+6                                                            The SAS System                                  17:47 Monday, June 13, 2016
+
+121        
+122        options nosyntaxcheck errorcheck=strict notes;
+123        
+124        
+125        ;*';*";*/;*);run;quit;
+126        *reset syscc macro variable;
+127        %let syscc=0;
+128        %let _SASFILEPATH_ = %nrstr("/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/d0_dm.sas");
+129        %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+130        
+131        /********************************************************************************************************************/
+132        proc scaproc; record "&_SASWS_/.sessions/4/sca_f5006715-1dbe-48af-98e8-fa9dee333fb4.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+133        
+134        options nomprint;
+135        /********************************************************************************************************************/
+136        
+137        ********************************************************************************;
+138        *** Program:        QAGPharma/XMB111/Study111/programs/d0_dm.sas
+139        *** Programmer:     Matt Becker
+140        *** Date Created:   02FEB2014
+141        ***
+142        *** Input :         SDTM DM, DS, VS
+143        ***
+144        *** Output:         Derived DM dataset
+145        ***
+146        *** Purpose:        To create the derived DM dataset
+147        ***
+148        *** Comments:
+149        ***
+150        *** Software:       SDD 4.x
+151        ***
+152        *** Modifications:
+153        ***
+154        *** Date       Programmer        Description
+155        *** ---------  ----------------  --------------
+156        ***
+157        ********************************************************************************;
+158        data dm;
+159          set &rawdata..dm(drop=race);
+NOTE: Data file RAW.DM.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+160          length age atrt x_race dmdtn 8 x_raceot $70 domain $2 usubjid $25 subjid $14 ageu brthdtc dmdtc $10 race $100 arm $20 armcd
+7                                                            The SAS System                                  17:47 Monday, June 13, 2016
+
+160      !  $8
+161                 country $3 sexn 4;
+162          format brthdtn dmdtn date9.;
+163          domain='DM';
+164          arm='Nicardopine';
+165          armcd='A';
+166          country='USA';
+167          studyid='XMB111';
+168          usubjid=trim(left(studyid))||'-'||trim(left(site))||'-'||trim(left(randomno));
+169          subjid=trim(left(site))||'-'||trim(left(randomno));
+170          brthdtc=put(brthdtn,yymmdd10.);
+171          dmdtn=dov;
+172          dmdtc=put(dmdtn,yymmdd10.);
+173          age=round((intck('month',brthdtn,dmdtn) - (day(dmdtn) < day(brthdtn))) / 12,.1);
+174          ageu='Years';
+175          atrt=(0<=age<=2.9)*1 + (3<=age<=6.9)*2 + (7<=age<=11.9)*3 + (12<=age<=17.9)*4;
+176          if atrt not in(1, 2, 3, 4) then put "Age does not fit in any age group" usubjid=;
+177          race=trim(left(racec));
+178          if upcase(racec)="AMERICAN INDIAN OR ALASKA NATIVE" then x_race=1;
+179          else if upcase(racec)="ASIAN" then x_race=2;
+180          else if upcase(racec)="BLACK OR AFRICAN AMERICAN" then x_race=3;
+181          else if upcase(racec)="HISPANIC" then x_race=4;
+182          else if upcase(racec)="NATIVE HAWAIIAN/PACIFIC ISLANDER" then x_race=5;
+183          else if upcase(racec)="WHITE" then x_race=6;
+184          else x_race=7;
+185          if sex='M' then sexn=1;
+186          else if sex='F' then sexn=2;
+187          if raceoth ne '' then x_raceot=raceoth;
+188        run;
+
+NOTE: There were 32 observations read from the data set RAW.DM.
+NOTE: The data set WORK.DM has 32 observations and 30 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+NOTE: Data file RAW.DM.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+189        
+190        proc sort data=dm;
+191          by site randomno;
+192        
+193        %*** Get study drug start from SDA dataset;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: The data set WORK.DM has 32 observations and 30 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+8                                                            The SAS System                                  17:47 Monday, June 13, 2016
+
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+194        proc sort data=&rawdata..sda out=sda(keep=site randomno exdtc);
+NOTE: Data file RAW.SDA.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+195          by site randomno exdtc;
+196          where exyn='Y';
+197        
+
+NOTE: There were 30 observations read from the data set RAW.SDA.
+      WHERE exyn='Y';
+NOTE: The data set WORK.SDA has 30 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+NOTE: Data file RAW.SDA.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+198        data sda(rename=(exdtc=rfstdtn));
+199          set sda;
+200          by site randomno exdtc;
+201          if first.randomno;
+202        run;
+
+NOTE: There were 30 observations read from the data set WORK.SDA.
+NOTE: The data set WORK.SDA has 30 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+203        
+204        data dm;
+205          merge dm(in=x) sda(in=y);
+206          length rfstdtc $10;
+207          by site randomno;
+208          if x;
+209          rfstdtc=put(rfstdtn,yymmdd10.);
+210        run;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 30 observations read from the data set WORK.SDA.
+NOTE: The data set WORK.DM has 32 observations and 32 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+9                                                            The SAS System                                  17:47 Monday, June 13, 2016
+
+      cpu time            0.01 seconds
+      
+
+211        
+212        %*** Get reference end date from DS dataset;
+213        proc sort data=&rawdata..ds out=ds(keep=site randomno dsstdtc rename=(dsstdtc=rfendtn));
+NOTE: Data file RAW.DS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+214          by site randomno;
+215          where dsdecod not in(11,12);
+216        
+
+NOTE: There were 30 observations read from the data set RAW.DS.
+      WHERE dsdecod not in (11, 12);
+NOTE: The data set WORK.DS has 30 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: Data file RAW.DS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+217        data dm;
+218          merge dm(in=x) ds(in=y);
+219          by site randomno;
+220          length rfendtc $10;
+221          if x;
+222          rfendtc=put(rfendtn,yymmdd10.);
+223        run;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 30 observations read from the data set WORK.DS.
+NOTE: The data set WORK.DM has 32 observations and 34 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+224        
+225        %*** Get date of consent, did subject meet all eligibility criteria from the OE panel;
+226        proc sort data=&rawdata..oe out=oe(keep=site randomno cnstdtn oeelig rename=(oeelig=q_oeelig));
+NOTE: Data file RAW.OE.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+227          by site randomno;
+228          where cnstdtn ne .;
+229        
+
+NOTE: There were 32 observations read from the data set RAW.OE.
+10                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+      WHERE cnstdtn not = .;
+NOTE: The data set WORK.OE has 32 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: Data file RAW.OE.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+230        data oe;
+231          set oe;
+232          by site randomno;
+233          if first.randomno;
+234        run;
+
+NOTE: There were 32 observations read from the data set WORK.OE.
+NOTE: The data set WORK.OE has 32 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+235        
+236        data dm;
+237          merge dm(in=x) oe(in=y);
+238          by site randomno;
+239          length dmdy 8 q_infcst q_noteli q_safeas $1;
+240          if x;
+241          if cnstdtn ne . then q_infcst='Y';
+242          else q_infcst='N';
+243          if q_infcst='Y' and q_oeelig='N' then q_noteli='Y';
+244          else q_noteli='N';
+245          if rfstdtn ne . then q_safeas='Y';
+246          else q_safeas='N';
+247          %mstudydy(todate=dmdtn,basedate=rfstdtn,studyday=dmdy);
+248        run;
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      2 at 247:21   2 at 247:31   
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 32 observations read from the data set WORK.OE.
+NOTE: The data set WORK.DM has 32 observations and 40 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+11                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+249        
+250        %*** Get disposition information;
+251        proc sort data=&rawdata..ds out=ds(keep=site randomno dsyn dsdecod dsdecodc dsrsntrc dsrsntr rename=(dsyn=q_comp));
+NOTE: Data file RAW.DS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+252          by site randomno;
+253        
+
+NOTE: There were 32 observations read from the data set RAW.DS.
+NOTE: The data set WORK.DS has 32 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+NOTE: Data file RAW.DS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+254        data dm(rename=(dsdecodc=dsdecod));
+255          merge dm(in=x) ds(in=y);
+256          by site randomno;
+257          length q_eligmd $1 dsdecodn medrecn 8 medrecd $100;
+258          if x;
+259          if dsdecod=12 then q_eligmd='Y';
+260          else q_eligmd='N';
+261          dsdecodn=dsdecod;
+262          medrecd=dsrsntrc;
+263          medrecn=dsrsntr;
+264          drop dsdecod;
+265        run;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 32 observations read from the data set WORK.DS.
+NOTE: The data set WORK.DM has 32 observations and 48 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+266        
+267        %*** Get immunogenecity information;
+268        proc sort data=&rawdata..spc out=spc(keep=site randomno visit);
+NOTE: Data file RAW.SPC.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+269          by site randomno visit;
+270          where spyn='Y';
+271        
+
+NOTE: There were 58 observations read from the data set RAW.SPC.
+12                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+      WHERE spyn='Y';
+NOTE: The data set WORK.SPC has 58 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: Data file RAW.SPC.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+272        data spc(drop=visit);
+273          set spc;
+274          by site randomno visit;
+275          length flagx $15 q_immuas $1;
+276          retain flagx;
+277          if first.randomno then flagx='';
+278          flagx=trim(left(flagx))||' '||trim(left(put(visit,3.)));
+279          if last.randomno then do;
+280            if index(flagx,'0 ') and (index(flagx,'1 ') or index(flagx,'2 ') or index(flagx,'29 ')) then q_immuas='Y';
+281           else q_immuas='N';
+282           output;
+283          end;
+284        run;
+
+NOTE: There were 58 observations read from the data set WORK.SPC.
+NOTE: The data set WORK.SPC has 30 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+285        
+286        data dm;
+287          merge dm(in=x) spc(in=y);
+288          by site randomno;
+289          if x;
+290          if rfstdtn ne . and q_immuas='Y' then q_immuas='Y';
+291          else q_immuas='N';
+292        run;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 30 observations read from the data set WORK.SPC.
+NOTE: The data set WORK.DM has 32 observations and 50 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+293        
+13                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+294        %*** Get height and weight;
+295        proc sort data=&rawdata..vs out=vs(keep=site randomno ornht ornwt ornhtu ornwtu);
+NOTE: Data file RAW.VS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+296          by site randomno;
+297          where visit=0;
+298        
+
+NOTE: There were 30 observations read from the data set RAW.VS.
+      WHERE visit=0;
+NOTE: The data set WORK.VS has 30 observations and 6 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: Data file RAW.VS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+299        data dm(rename=(site=siteid));
+300          merge dm(in=x) vs(in=y);
+301          by site randomno;
+302          length height weight tbsa 8;
+303          if x;
+304          if upcase(ornhtu)='CM' then height=ornht;
+305          else if upcase(ornhtu)='IN' then height=ornht*2.54;
+306          if upcase(ornwtu)='KG' then weight=ornwt;
+307          else if upcase(ornwtu)='LBS' then weight=ornwt*0.454;
+308          tbsa=sqrt((height*weight)/3600);
+309        run;
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      2 at 308:8    2 at 308:20   2 at 308:28   
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 30 observations read from the data set WORK.VS.
+NOTE: The data set WORK.DM has 32 observations and 57 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+310        
+311        %mimpddt(micsv=DM, miin=dm, miout=&derdata..dm, mlbl=DM Analysis Dataset);
+
+NOTE: The import data set has 356 observations and 9 variables.
+NOTE: WORK.ODDT data set was successfully created.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.00 seconds
+14                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+      cpu time            0.01 seconds
+      
+
+
+WARNING: Multiple lengths were specified for the variable varname by input data set(s). This can cause truncation of data.
+WARNING: Multiple lengths were specified for the variable varlabel by input data set(s). This can cause truncation of data.
+NOTE: There were 42 observations read from the data set WORK.ODDT.
+      WHERE filename='DM';
+NOTE: The data set WORK.XLS has 42 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 42 observations read from the data set WORK.XLS.
+NOTE: The data set WORK.CE has 42 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: CALL EXECUTE generated line.
+1         + data derived.dm (label='Study Identifier');
+2         + attrib DOMAIN   label='Domain Abbreviation' length=$2 format=$2.;
+3         + attrib USUBJID  label='Unique Subject Identifier' length=$25 format=$25.;
+4         + attrib SUBJID   label='Subject Identifier for the Study' length=$15 format=$15.;
+5         + attrib AGE      label='Age' length=8 format=8.1;
+6         + attrib AGEU     label='Age Units' length=$10 format=$10.;
+7         + attrib ARM      label='Description of Planned Arm' length=$20 format=$20.;
+8         + attrib ARMCD    label='Planned Arm Code' length=$8 format=$8.;
+9         + attrib ATRT     label='Age Group - numeric' length=8 format=8.;
+10        + attrib BRTHDTC  label='Date/Time of Birth' length=$10 format=$10.;
+11        + attrib BRTHDTN  label='Date/Time of Birth (Numeric)' length=8 format=DATE9.;
+12        + attrib CNSTDTN  label='Date of Informed Consent' length=8 format=DATE9.;
+13        + attrib COUNTRY  label='Country' length=$3 format=$3.;
+14        + attrib DMDTC    label='Date/Time of Collection' length=$10 format=$10.;
+15        + attrib DMDTN    label='Date/Time of Collection (Numeric)' length=8 format=DATE9.;
+16        + attrib DMDY     label='Study Day of Collection' length=8 format=12.;
+17        + attrib DSDECOD  label='Primary Reason for Not Completing Study' length=$28 format=$28.;
+18        + attrib DSDECODN label='Primary Reason for Not Completing Study' length=8 format=8.;
+19        + attrib HEIGHT   label='Height (cm)' length=8 format=8.2;
+20        + attrib MEDRECD  label='Reason(s) Study Drug Not Received' length=$100 format=$100.;
+21        + attrib MEDRECN  label='Reason(s) Study Drug Not Received (Numer' length=8 format=8.;
+22        + attrib Q_COMP   label='Completed Study?' length=$1 format=$1.;
+23        + attrib Q_ELIGMD label='Eligible But Did Not Receive Study Med' length=$1 format=$1.;
+24        + attrib Q_IMMUAS label='Evaluable for Immunogenicity Analysis' length=$1 format=$1.;
+25        + attrib Q_INFCST label='Provided Informed Consent' length=$1 format=$1.;
+15                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+26        + attrib Q_NOTELI label='Informed Consent But Ineligible' length=$1 format=$1.;
+27        + attrib Q_OEELIG label='Met All Eligibility Criteria?' length=$1 format=$1.;
+28        + attrib Q_SAFEAS label='Evaluable for Safety Analysis' length=$1 format=$1.;
+29        + attrib RACE     label='Race' length=$100 format=$100.;
+30        + attrib RANDOMNO label='Randomized Subject Number' length=$4 format=$4.;
+31        + attrib RFENDTC  label='Subject Reference End Date/Time' length=$14 format=$14.;
+32        + attrib RFENDTN  label='Subject Reference End Date/Time (Numeric' length=8 format=DATE9.;
+33        + attrib RFSTDTC  label='Subject Reference Start Date/Time' length=$14 format=$14.;
+34        + attrib RFSTDTN  label='Subject Reference Start Date/Time (Numer' length=8 format=DATE9.;
+35        + attrib SEX      label='Sex' length=$1 format=$1.;
+36        + attrib SEXN     label='Sex (Numeric)' length=4 format=SEXF.;
+37        + attrib SITEID   label='Study Site Identifier' length=$5 format=$5.;
+38        + attrib TBSA     label='Total Body Surface Area (TBSA)' length=8 format=8.2;
+39        + attrib VISIT    label='Visit' length=8 format=8.;
+40        + attrib WEIGHT   label='Weight (kg)' length=8 format=8.2;
+41        + attrib X_RACE   label='Race (Numeric)' length=8 format=RACEF.;
+42        + attrib X_RACEOT label='Race - Other Specify' length=$70 format=$70.;
+43        + set dm;
+44        + keep STUDYID DOMAIN USUBJID SUBJID AGE AGEU ARM ARMCD ATRT BRTHDTC BRTHDTN CNSTDTN COUNTRY DMDTC DMDTN DMDY DSDECOD 
+DSDECODN HEIGHT MEDRECD MEDRECN Q_COMP Q_ELIGMD Q_IMMUAS Q_INFCST Q_NOTELI Q_OEELIG Q_SAFEAS RACE RANDOMNO RFENDTC RFENDTN RFSTDTC 
+RFSTDTN
+45        + SEX SEXN SITEID TBSA VISIT WEIGHT X_RACE X_RACEOT
+46        +
+47        +                                                                                                                             
+                                                                                                                    ;
+48        + run;
+
+WARNING: Multiple lengths were specified for the variable DSDECOD by input data set(s). This can cause truncation of data.
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: The data set DERIVED.DM has 32 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+
+NOTE: There were 32 observations read from the data set DERIVED.DM.
+NOTE: The data set DERIVED.DM has 32 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+312        
+313        
+314        
+315        ;*';*";*/;*);run;quit;
+316        proc scaproc; write; run;
+16                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+317        options nonotes;
+318        
+
+/**********************************************************************************************************************
+ * Submission End: d0_dm.sas
+ * Jun 13, 2016 17:47:32 GMT
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Submission Start: rldemo.sas
+ * Jun 13, 2016 17:47:32 GMT by jimbox
+ *********************************************************************************************************************/
+17                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+319        
+320        options nosyntaxcheck errorcheck=strict notes;
+321        
+322        
+323        ;*';*";*/;*);run;quit;
+324        *reset syscc macro variable;
+325        %let syscc=0;
+326        %let _SASFILEPATH_ = %nrstr("/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/rldemo.sas");
+327        %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+328        
+329        /********************************************************************************************************************/
+330        proc scaproc; record "&_SASWS_/.sessions/4/sca_7f266ecc-58bd-42c3-93a5-8249b282a142.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+331        
+332        options nomprint;
+333        /********************************************************************************************************************/
+334        
+335        ********************************************************************************;
+336        *** Program:        /QAGPharma/XMB111/Study111/Files/programs/rldemo.sas
+337        *** Programmer:     Matt Becker
+338        *** Date Created:   02FEB2014
+339        ***
+340        *** Input :         SDTM DM, STDM VS, SDTM SUPPDM
+341        ***
+342        *** Output:         Listing 9:  Demographics and Subject Characteristics
+343        ***
+344        *** Purpose:        To create the listing of demographics and subject characteristics
+345        ***
+346        *** Comments:
+347        ***
+348        *** Software:       SDD 4.x
+349        ***
+350        *** Modifications:
+351        ***
+352        *** Date       Programmer        Description
+353        *** ---------  ----------------  --------------
+354        ***
+355        ********************************************************************************;
+356        proc sort data=sdtm.vs out=vs;
+NOTE: Data file SDTM.VS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+357          by usubjid;
+358          where visitnum=0 and vstestcd in('ORNHT','ORNWT');
+18                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+359        
+
+NOTE: There were 60 observations read from the data set SDTM.VS.
+      WHERE (visitnum=0) and vstestcd in ('ORNHT', 'ORNWT');
+NOTE: The data set WORK.VS has 60 observations and 17 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+NOTE: Data file SDTM.VS.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+360        proc transpose data=vs out=tranvs(drop=_name_);
+361          by usubjid;
+362          var vsstresn;
+363          id vstest;
+364        run;
+
+NOTE: There were 60 observations read from the data set WORK.VS.
+NOTE: The data set WORK.TRANVS has 30 observations and 4 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+365        
+366        proc sort data=sdtm.dm out=dm;
+NOTE: Data file SDTM.DM.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+367          by usubjid;
+368        
+
+NOTE: There were 32 observations read from the data set SDTM.DM.
+NOTE: The data set WORK.DM has 32 observations and 14 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: Data file SDTM.DM.DATA is in a format that is native to another host, or the file encoding does not match the session encoding. 
+      Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+369        data dm;
+370          merge dm(in=x) tranvs(in=y);
+371          by usubjid;
+372          length tbsa 8;
+373          if x;
+374          tbsa=sqrt((height*weight)/3600);
+375        run;
+19                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      2 at 374:8    2 at 374:20   2 at 374:28   
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 30 observations read from the data set WORK.TRANVS.
+NOTE: The data set WORK.DM has 32 observations and 18 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+376        
+377        proc sort data=sdtm.suppdm out=suppdm(keep=usubjid qval);
+NOTE: Data file SDTM.SUPPDM.DATA is in a format that is native to another host, or the file encoding does not match the session 
+      encoding. Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+378          by usubjid;
+379          where qnam='INIT';
+380        
+
+NOTE: There were 32 observations read from the data set SDTM.SUPPDM.
+      WHERE qnam='INIT';
+NOTE: The data set WORK.SUPPDM has 32 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+NOTE: Data file SDTM.SUPPDM.DATA is in a format that is native to another host, or the file encoding does not match the session 
+      encoding. Cross Environment Data Access will be used, which might require additional CPU resources and might reduce performance.
+
+381        data dm(rename=(qval=init));
+382          merge dm(in=x) suppdm(in=y);
+383          by usubjid;
+384          if x;
+385          page=int(_n_/8)+1;
+386        run;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: There were 32 observations read from the data set WORK.SUPPDM.
+NOTE: The data set WORK.DM has 32 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+387        
+388        %mcase(inds=dm, exceptl=%str('USUBJID','INIT','BRTHDTC'));
+NOTE: PROCEDURE SQL used (Total process time):
+20                                                           The SAS System                                  17:47 Monday, June 13, 2016
+
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+AGEU
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: The data set WORK.DM has 32 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+389        
+390        %mtitle(progid=ldemo);
+MPRINT(MTITLE):   options orientation=Landscape;
+MPRINT(MTITLE):   data toc_prog;
+MPRINT(MTITLE):   set derived.toc_prog;
+MPRINT(MTITLE):   if compress(upcase(progid))=upcase("ldemo");
+MPRINT(MTITLE):   call symput('tabnum',trim(tabnum));
+MPRINT(MTITLE):   if index(title1,'`{') then offset=9;
+MPRINT(MTITLE):   else offset=0;
+MPRINT(MTITLE):   call symput('title1',trim(title1)||repeat(" 
+",(170-length(title1)-length(tabnum)-30-4+offset))||"[Page_00000_of_99999]");
+MPRINT(MTITLE):   call symput('title2',trim(title2));
+MPRINT(MTITLE):   call symput('title3',trim(title3));
+MPRINT(MTITLE):   call symput('title4',trim(title4));
+MPRINT(MTITLE):   call symput('title5',trim(title5));
+MPRINT(MTITLE):   call symput('title6',trim(title6));
+MPRINT(MTITLE):   call symput('outputname',trim(outname));
+MPRINT(MTITLE):   call symput('numtitle',compress(put(numtitle,3.)));
+MPRINT(MTITLE):   call symput('footn1',trim(footn1));
+MPRINT(MTITLE):   call symput('footn2',trim(footn2));
+MPRINT(MTITLE):   call symput('footn3',trim(footn3));
+MPRINT(MTITLE):   call symput('footn4',trim(footn4));
+MPRINT(MTITLE):   call symput('footn5',trim(footn5));
+MPRINT(MTITLE):   call symput('footn6',trim(footn6));
+MPRINT(MTITLE):   call symput('footn7',trim(footn7));
+MPRINT(MTITLE):   call symput('footn8',trim(footn8));
+MPRINT(MTITLE):   call symput('progname',trim(progname));
+MPRINT(MTITLE):   if l_source ne '' then footn11="PROGRAM: " || trim(progname) || ".sas, " || "SOURCE: " || trim(l_source) || ", 
+(FINAL) 13JUN2016 17:47";
+MPRINT(MTITLE):   else footn11="PROGRAM: " || trim(progname) || ".sas, (FINAL) 13JUN2016 17:47";
+MPRINT(MTITLE):   footn11l=trim(footn11);
+MPRINT(MTITLE):   call symput('footn11',trim(footn11l));
+MPRINT(MTITLE):   call symput('numfoot',compress(put(numfoot,3.)));
+MPRINT(MTITLE):   if index(tabnum,'Table') then call symput('outputf','Tables');
+MPRINT(MTITLE):   else if index(tabnum,'Appendix') then call symput('outputf','Listings');
+                                                             The SAS System
+
+MPRINT(MTITLE):   else if index(tabnum,'Figure') then call symput('outputf','Figures');
+MPRINT(MTITLE):   run;
+
+NOTE: There were 110 observations read from the data set DERIVED.TOC_PROG.
+NOTE: The data set WORK.TOC_PROG has 1 observations and 103 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MTITLE):   proc sql noprint;
+MPRINT(MTITLE):   select count(*) into: numobs from toc_prog;
+MPRINT(MTITLE):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MTITLE):   ods listing close;
+MPRINT(MTITLE):   ods path sashelp.tmplmst derived.tplate;
+MPRINT(MTITLE):   ods rtf file="/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf" style=xmb111_std headery=1700 footery=1190;
+WARNING: Style XMB111_STD not found; Rtf style will be used instead.
+NOTE: Writing RTF Body file: /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf
+MPRINT(MTITLE):   ods escapechar='`';
+MPRINT(MTITLE):   options linesize=160 pagesize=50;
+MPRINT(MTITLE):   title1 j=l "PharmaCo";
+MPRINT(MTITLE):   title2 j=l "PharmaCo - Compound2 - CONFIDENTIAL";
+MPRINT(MTITLE):   title4 j=l "Appendix 16.2.4-1:  Demographics and Subject Characteristics                                                                      
+          [Page_00000_of_99999]";
+WARNING: The FOOTNOTE statement is ambiguous due to invalid options or unquoted text.
+MPRINT(MTITLE):   footnote1 j=left '' "`{super a}Total Body Surface Area (mL/m`{super 2}) = square root of [Ht (cm) * Wt (kg) divided by 3600]";
+MPRINT(MTITLE):   footnote2 " ";
+MPRINT(MTITLE):   footnote3 j=l "PROGRAM: rldemo.sas, (FINAL) 13JUN2016 17:47";
+391        
+392        proc report data=dm headline headskip nowindows split='|' missing spacing=1;
+393          column page usubjid init brthdtc age sex race height weight tbsa;
+394          define page / order noprint;
+395          define usubjid / order 'Subject' style={just=left cellwidth=7%};
+396          define init / display 'Initials' style={just=left cellwidth=6%};
+397          define brthdtc / display 'Date of Birth' style={just=left cellwidth=10%};
+398          define age / order 'Age|(Years)' format=4.1 style={just=center cellwidth=7%};
+399          define sex / display 'Gender' style={just=left cellwidth=7%};
+400          define race / display 'Race' style={just=left cellwidth=22%};
+401          define height / display 'Height|(cm)' format=3. style={just=left cellwidth=8%};
+402          define weight / display 'Weight|(kg)' format=3. style={just=left cellwidth=8%};
+403          define tbsa / display "TBSA`{super a}" format=4.1 style={just=left cellwidth=8%};
+                                                                         The SAS System
+
+404          break after page / page;
+405          compute before usubjid;
+406            line " ";
+407          endcomp;
+408        run;
+
+NOTE: There were 32 observations read from the data set WORK.DM.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+409        
+410        ods rtf close;
+411        ods listing;
+412        
+413        %mpageof;
+MPRINT(MPAGEOF):   ods rtf close;
+MPRINT(MPAGEOF):   data _null_;
+MPRINT(MPAGEOF):   infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf" lrecl=32767 end=_eof;
+MPRINT(MPAGEOF):   input;
+MPRINT(MPAGEOF):   if index(_infile_,"[Page_00000_of_99999]") then pageno + 1;
+MPRINT(MPAGEOF):   if _eof then call symput('NUMPAGES',compress(put(pageno,14.)));
+MPRINT(MPAGEOF):   run;
+
+NOTE: The infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf" is:
+      
+      Filename=/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf,
+      Owner Name=webtrust,Group Name=webtrust,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=13Jun2016:17:47:33,
+      File Size (bytes)=84446
+
+NOTE: 1073 records were read from the infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf".
+      The minimum record length was 5.
+      The maximum record length was 214.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MPAGEOF):   data _null_;
+MPRINT(MPAGEOF):   infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf" lrecl=32767 end=_eof;
+                                                                         The SAS System
+
+MPRINT(MPAGEOF):   length pageof $ 21;
+MPRINT(MPAGEOF):   input ;
+MPRINT(MPAGEOF):   if index(_infile_,"[Page_00000_of_99999]") then do;
+MPRINT(MPAGEOF):   pageno + 1;
+MPRINT(MPAGEOF):   pageof = 'Page '|| put(pageno,1.) ||" of 5";
+MPRINT(MPAGEOF):   pageof = compbl(pageof);
+MPRINT(MPAGEOF):   pageof = right(pageof);
+MPRINT(MPAGEOF):   pad="";
+MPRINT(MPAGEOF):   _infile_ = tranwrd(_infile_,"[Page_00000_of_99999]",pageof);
+MPRINT(MPAGEOF):   end;
+MPRINT(MPAGEOF):   file "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf" noprint lrecl=32767;
+MPRINT(MPAGEOF):   put _infile_;
+MPRINT(MPAGEOF):   run;
+
+NOTE: The file/infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf" is:
+      
+      Filename=/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf,
+      Owner Name=webtrust,Group Name=webtrust,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=13Jun2016:17:47:33,
+      File Size (bytes)=84446
+
+NOTE: 1073 records were read from the infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf".
+      The minimum record length was 5.
+      The maximum record length was 214.
+NOTE: 1073 records were written to the file "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Listings/a16_02_04_01_ldemo.rtf".
+      The minimum record length was 5.
+      The maximum record length was 214.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+414        
+415        
+416        
+417        ;*';*";*/;*);run;quit;
+418        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+                                                                         The SAS System
+
+
+419        options nonotes;
+420        
+
+/**********************************************************************************************************************
+ * Submission End: rldemo.sas
+ * Jun 13, 2016 17:47:33 GMT
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Submission Start: rtdemog.sas
+ * Jun 13, 2016 17:47:33 GMT by jimbox
+ *********************************************************************************************************************/
+                                                                         The SAS System
+
+421        
+422        options nosyntaxcheck errorcheck=strict notes;
+423        
+424        
+425        ;*';*";*/;*);run;quit;
+426        *reset syscc macro variable;
+427        %let syscc=0;
+428        %let _SASFILEPATH_ = %nrstr("/SAS/HLS Pharma/Cardiology/Files/XMB111/Programs/rtdemog.sas");
+429        %let _SASFILEPATH_ = %qsubstr(&_SASFILEPATH_, 2, %length(&_SASFILEPATH_) - 2);
+430        
+431        /********************************************************************************************************************/
+432        proc scaproc; record "&_SASWS_/.sessions/4/sca_a15b2b56-5d22-43ae-bdb1-798dd9d9251c.txt" EXPANDMACROS; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+433        
+434        options nomprint;
+435        /********************************************************************************************************************/
+436        
+437        ********************************************************************************;
+438        *** Program:        \biometrics\499\499H01\analyses_mjb\CSR\programs\prod\rtdemog.sas
+439        *** Programmer:     Matt Becker
+440        *** Date Created:   02Feb2010
+441        ***
+442        *** Input :         Derived DMs
+443        ***
+444        *** Output:         Demographic summary table
+445        ***
+446        *** Purpose:        To create the demographic summary table
+447        ***
+448        *** Comments:
+449        ***
+450        *** Software:       SAS 9 (Windows)
+451        ***
+452        *** Modifications:
+453        ***
+454        *** Date       Programmer        Description
+455        *** ---------  ----------------  --------------
+456        ***
+457        ********************************************************************************;
+458        proc format;
+459          value orderf 1="Age (years)"
+460                       2="Gender, n(%)"
+461                       3="Race, n(%)"
+462        		 4="Height (cm)"
+                                                                         The SAS System
+
+463        		 5="Weight (kg)"
+464        		 6="TBSA (m`{super 2})`{super a}";
+NOTE: Format ORDERF has been output.
+465        run;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+466        
+467        %macro rtdemog(progid=tdemog1, tcond=, up_limit=17, itprogid=4a);
+468        
+469        data dm;
+470          set &derdata..dm(where=(q_safeas='Y'));
+471          &tcond;
+472          output;
+473          if atrt in(2,3,4) then do;
+474            atrt=5;
+475        	output;
+476          end;
+477          atrt=6;
+478          output;
+479        run;
+480        
+481        %mtottrt(cond=%str(if q_safeas='Y';) &tcond);
+482        
+483        %mss(msdata=dm, msout=age, msvar=age, msstats=n meansd median range, msprec=1, msorder=1);
+484        
+485        %mfreq(mfdata=dm, mfout=gender, mfcntvar=sexn, mforder=2, mfdrng=%str(1,2), mffmt=sexf);
+486        
+487        %mfreq(mfdata=dm, mfout=race, mfcntvar=x_race, mforder=3, mffmt=racef);
+488        
+489        %mss(msdata=dm, msout=height, msvar=height, msstats=n meansd median range, msprec=0, msorder=4);
+490        
+491        %mss(msdata=dm, msout=weight, msvar=weight, msstats=n meansd median range, msprec=0, msorder=5);
+492        
+493        %mss(msdata=dm, msout=tbsa, msvar=tbsa, msstats=n meansd median range, msprec=1, msorder=6);
+494        
+495        data final;
+496          set age gender race height weight tbsa;
+497          length page 4;
+498          page=1;
+499        run;
+500        
+501        proc sort data=final;
+502          by page order sorder;
+503        run;
+                                                                         The SAS System
+
+504        
+505        data final;
+506          set final;
+507          by page order sorder;
+508          length firstcol $30;
+509          if first.order then firstcol=put(order,orderf.);
+510          else firstcol='';
+511        run;
+512        
+513        %mtitle(progid=&progid);
+514        
+515        proc report data=final headline headskip nowindows split='|' missing spacing=1 style(header)=[protectspecialchars=off];
+516          column  page order sorder firstcol text ("Age Group (years)" trt1 trt2 trt3 trt4 trt5) trt6;
+517          define page /order noprint;
+518          define order /order noprint;
+519          define sorder /order noprint;
+520          define firstcol /" " style={just=l cellwidth=8%};
+521          define text/ " " style={just=l cellwidth=12%};
+522          define trt1 / "     0 - 2 |     (N=&pop1)" style={cellwidth=13% asis=on};
+523          define trt2 / "     3 - 6 |     (N=&pop2)" style={cellwidth=13% asis=on};
+524          define trt3 / "     7 - 11 |     (N=&pop3)" style={cellwidth=13% asis=on};
+525          define trt4 / "     12 - &up_limit |     (N=&pop4)" style={cellwidth=13% asis=on};
+526          define trt5 / "     3 - &up_limit   Total |     (N=&pop5)" style={cellwidth=13% asis=on};
+527          define trt6 / "     Total |     (N=&pop6)" style={cellwidth=13% asis=on};
+528          break after page / page;
+529          compute before order;
+530            line " ";
+531          endcomp;
+532        run;
+533        
+534        ods rtf close;
+535        ods listing;
+536        
+537        %mpageof;
+538        
+539        
+540        %mend rtdemog;
+541        %rtdemog(progid=tdemog1, tcond=, itprogid=tdemog4a);
+
+NOTE: There were 30 observations read from the data set DERIVED.DM.
+      WHERE q_safeas='Y';
+NOTE: The data set WORK.DM has 79 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+                                                                         The SAS System
+
+NOTE: There were 32 observations read from the data set DERIVED.DM.
+NOTE: The data set WORK._FTMP1A has 30 observations and 43 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 30 observations read from the data set WORK._FTMP1A.
+NOTE: The data set WORK._FTMP1 has 79 observations and 43 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK._FTMP1.
+NOTE: The data set WORK._FTMP2 has 6 observations and 3 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK._FTMP2.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+pop1 = 11
+pop2 = 8
+pop3 = 3
+pop4 = 8
+pop5 = 19
+pop6 = 30
+
+NOTE: There were 79 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS01 has 79 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.MS01.
+NOTE: The data set WORK.MS1 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+                                                                         The SAS System
+
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS1.
+NOTE: The data set WORK.MS21 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS21.
+NOTE: The data set WORK.MS31 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.MS31.
+NOTE: The data set WORK.AGE has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.AGE.
+NOTE: The data set WORK.AGE has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+                                                                         The SAS System
+
+
+NOTE: There were 79 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MF2 has 11 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 11 observations read from the data set WORK.MF2.
+NOTE: The data set WORK.MFALL0 has 12 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 12 observations read from the data set WORK.MFALL0.
+NOTE: There were 11 observations read from the data set WORK.MF2.
+NOTE: The data set WORK.MF3 has 12 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 12 observations read from the data set WORK.MF3.
+NOTE: The data set WORK.MF5 has 12 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 12 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF5 has 12 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 12 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF6 has 2 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+                                                                         The SAS System
+
+
+
+NOTE: There were 2 observations read from the data set WORK.MF6.
+NOTE: The data set WORK.GENDER has 2 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MF2 has 19 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 19 observations read from the data set WORK.MF2.
+NOTE: The data set WORK.MF3 has 19 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 19 observations read from the data set WORK.MF3.
+NOTE: The data set WORK.MF5 has 19 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 19 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF5 has 19 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+                                                                         The SAS System
+
+NOTE: There were 19 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF6 has 4 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.MF6.
+NOTE: The data set WORK.RACE has 4 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS04 has 79 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.MS04.
+NOTE: The data set WORK.MS4 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS4.
+NOTE: The data set WORK.MS24 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS24.
+NOTE: The data set WORK.MS34 has 4 observations and 7 variables.
+                                                                         The SAS System
+
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.MS34.
+NOTE: The data set WORK.HEIGHT has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.HEIGHT.
+NOTE: The data set WORK.HEIGHT has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS05 has 79 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.MS05.
+NOTE: The data set WORK.MS5 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS5.
+NOTE: The data set WORK.MS25 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+                                                                         The SAS System
+
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS25.
+NOTE: The data set WORK.MS35 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.MS35.
+NOTE: The data set WORK.WEIGHT has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.WEIGHT.
+NOTE: The data set WORK.WEIGHT has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS06 has 79 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 79 observations read from the data set WORK.MS06.
+NOTE: The data set WORK.MS6 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+                                                                         The SAS System
+
+
+
+NOTE: There were 6 observations read from the data set WORK.MS6.
+NOTE: The data set WORK.MS26 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set WORK.MS26.
+NOTE: The data set WORK.MS36 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.MS36.
+NOTE: The data set WORK.TBSA has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+
+NOTE: There were 4 observations read from the data set WORK.TBSA.
+NOTE: The data set WORK.TBSA has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+WARNING: Multiple lengths were specified for the variable text by input data set(s). This can cause truncation of data.
+NOTE: There were 4 observations read from the data set WORK.AGE.
+NOTE: There were 2 observations read from the data set WORK.GENDER.
+NOTE: There were 4 observations read from the data set WORK.RACE.
+NOTE: There were 4 observations read from the data set WORK.HEIGHT.
+NOTE: There were 4 observations read from the data set WORK.WEIGHT.
+NOTE: There were 4 observations read from the data set WORK.TBSA.
+NOTE: The data set WORK.FINAL has 22 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+                                                                         The SAS System
+
+NOTE: There were 22 observations read from the data set WORK.FINAL.
+NOTE: The data set WORK.FINAL has 22 observations and 14 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 22 observations read from the data set WORK.FINAL.
+NOTE: The data set WORK.FINAL has 22 observations and 15 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MTITLE):   options orientation=Landscape;
+MPRINT(MTITLE):   data toc_prog;
+MPRINT(MTITLE):   set derived.toc_prog;
+MPRINT(MTITLE):   if compress(upcase(progid))=upcase("tdemog1");
+MPRINT(MTITLE):   call symput('tabnum',trim(tabnum));
+MPRINT(MTITLE):   if index(title1,'`{') then offset=9;
+MPRINT(MTITLE):   else offset=0;
+MPRINT(MTITLE):   call symput('title1',trim(title1)||repeat(" ",(170-length(title1)-length(tabnum)-30-4+offset))||"[Page_00000_of_99999]");
+MPRINT(MTITLE):   call symput('title2',trim(title2));
+MPRINT(MTITLE):   call symput('title3',trim(title3));
+MPRINT(MTITLE):   call symput('title4',trim(title4));
+MPRINT(MTITLE):   call symput('title5',trim(title5));
+MPRINT(MTITLE):   call symput('title6',trim(title6));
+MPRINT(MTITLE):   call symput('outputname',trim(outname));
+MPRINT(MTITLE):   call symput('numtitle',compress(put(numtitle,3.)));
+MPRINT(MTITLE):   call symput('footn1',trim(footn1));
+MPRINT(MTITLE):   call symput('footn2',trim(footn2));
+MPRINT(MTITLE):   call symput('footn3',trim(footn3));
+MPRINT(MTITLE):   call symput('footn4',trim(footn4));
+MPRINT(MTITLE):   call symput('footn5',trim(footn5));
+MPRINT(MTITLE):   call symput('footn6',trim(footn6));
+MPRINT(MTITLE):   call symput('footn7',trim(footn7));
+MPRINT(MTITLE):   call symput('footn8',trim(footn8));
+MPRINT(MTITLE):   call symput('progname',trim(progname));
+MPRINT(MTITLE):   if l_source ne '' then footn11="PROGRAM: " || trim(progname) || ".sas, " || "SOURCE: " || trim(l_source) || ", (FINAL) 13JUN2016 17:47";
+MPRINT(MTITLE):   else footn11="PROGRAM: " || trim(progname) || ".sas, (FINAL) 13JUN2016 17:47";
+MPRINT(MTITLE):   footn11l=trim(footn11);
+MPRINT(MTITLE):   call symput('footn11',trim(footn11l));
+MPRINT(MTITLE):   call symput('numfoot',compress(put(numfoot,3.)));
+MPRINT(MTITLE):   if index(tabnum,'Table') then call symput('outputf','Tables');
+MPRINT(MTITLE):   else if index(tabnum,'Appendix') then call symput('outputf','Listings');
+MPRINT(MTITLE):   else if index(tabnum,'Figure') then call symput('outputf','Figures');
+MPRINT(MTITLE):   run;
+                                                                         The SAS System
+
+
+NOTE: There were 110 observations read from the data set DERIVED.TOC_PROG.
+NOTE: The data set WORK.TOC_PROG has 1 observations and 103 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(MTITLE):   proc sql noprint;
+MPRINT(MTITLE):   select count(*) into: numobs from toc_prog;
+MPRINT(MTITLE):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MTITLE):   ods listing close;
+MPRINT(MTITLE):   ods path sashelp.tmplmst derived.tplate;
+MPRINT(MTITLE):   ods rtf file="/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf" style=xmb111_std headery=1700 footery=1190;
+WARNING: Style XMB111_STD not found; Rtf style will be used instead.
+NOTE: Writing RTF Body file: /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf
+MPRINT(MTITLE):   ods escapechar='`';
+MPRINT(MTITLE):   options linesize=160 pagesize=50;
+MPRINT(MTITLE):   title1 j=l "PharmaCo";
+MPRINT(MTITLE):   title2 j=l "PharmaCo - Compound2 - CONFIDENTIAL";
+MPRINT(MTITLE):   title4 j=l "Table 14.1.1-1:  Demographics and Subject Characteristics                                                                         
+          [Page_00000_of_99999]";
+WARNING: The FOOTNOTE statement is ambiguous due to invalid options or unquoted text.
+MPRINT(MTITLE):   footnote1 j=left '' "`{super a}Total Body Surface Area = square root of [Ht (cm) * Wt (kg) divided by 3600]";
+MPRINT(MTITLE):   footnote2 " ";
+MPRINT(MTITLE):   footnote3 j=l "PROGRAM: rtdemog.sas, (FINAL) 13JUN2016 17:47";
+MPRINT(RTDEMOG):  ;
+MPRINT(RTDEMOG):   proc report data=final headline headskip nowindows split='|' missing spacing=1 style(header)=[protectspecialchars=off];
+MPRINT(RTDEMOG):   column page order sorder firstcol text ("Age Group (years)" trt1 trt2 trt3 trt4 trt5) trt6;
+MPRINT(RTDEMOG):   define page /order noprint;
+MPRINT(RTDEMOG):   define order /order noprint;
+MPRINT(RTDEMOG):   define sorder /order noprint;
+MPRINT(RTDEMOG):   define firstcol /" " style={just=l cellwidth=8%};
+MPRINT(RTDEMOG):   define text/ " " style={just=l cellwidth=12%};
+MPRINT(RTDEMOG):   define trt1 / "     0 - 2 |     (N=11)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt2 / "     3 - 6 |     (N=8)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt3 / "     7 - 11 |     (N=3)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt4 / "     12 - 17 |     (N=8)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt5 / "     3 - 17   Total |     (N=19)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt6 / "     Total |     (N=30)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   break after page / page;
+                                                                         The SAS System
+
+MPRINT(RTDEMOG):   compute before order;
+MPRINT(RTDEMOG):   line " ";
+MPRINT(RTDEMOG):   endcomp;
+MPRINT(RTDEMOG):   run;
+
+WARNING: Use of CELLWIDTH/OUTPUTWIDTH= in a spanning header or footer will rarely yield expected results. For conventional usage, specify outputwidth only for 
+         the data column cells.
+NOTE: There were 22 observations read from the data set WORK.FINAL.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.04 seconds
+      
+
+MPRINT(RTDEMOG):   ods rtf close;
+MPRINT(RTDEMOG):   ods listing;
+MPRINT(MPAGEOF):   ods rtf close;
+MPRINT(MPAGEOF):   data _null_;
+MPRINT(MPAGEOF):   infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf" lrecl=32767 end=_eof;
+MPRINT(MPAGEOF):   input;
+MPRINT(MPAGEOF):   if index(_infile_,"[Page_00000_of_99999]") then pageno + 1;
+MPRINT(MPAGEOF):   if _eof then call symput('NUMPAGES',compress(put(pageno,14.)));
+MPRINT(MPAGEOF):   run;
+
+NOTE: The infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf" is:
+      
+      Filename=/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf,
+      Owner Name=webtrust,Group Name=webtrust,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=13Jun2016:17:47:33,
+      File Size (bytes)=41860
+
+NOTE: 508 records were read from the infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf".
+      The minimum record length was 6.
+      The maximum record length was 214.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MPAGEOF):   data _null_;
+MPRINT(MPAGEOF):   infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf" lrecl=32767 end=_eof;
+MPRINT(MPAGEOF):   length pageof $ 21;
+MPRINT(MPAGEOF):   input ;
+                                                                         The SAS System
+
+MPRINT(MPAGEOF):   if index(_infile_,"[Page_00000_of_99999]") then do;
+MPRINT(MPAGEOF):   pageno + 1;
+MPRINT(MPAGEOF):   pageof = 'Page '|| put(pageno,1.) ||" of 1";
+MPRINT(MPAGEOF):   pageof = compbl(pageof);
+MPRINT(MPAGEOF):   pageof = right(pageof);
+MPRINT(MPAGEOF):   pad="";
+MPRINT(MPAGEOF):   _infile_ = tranwrd(_infile_,"[Page_00000_of_99999]",pageof);
+MPRINT(MPAGEOF):   end;
+MPRINT(MPAGEOF):   file "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf" noprint lrecl=32767;
+MPRINT(MPAGEOF):   put _infile_;
+MPRINT(MPAGEOF):   run;
+
+NOTE: The file/infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf" is:
+      
+      Filename=/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf,
+      Owner Name=webtrust,Group Name=webtrust,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=13Jun2016:17:47:33,
+      File Size (bytes)=41860
+
+NOTE: 508 records were read from the infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf".
+      The minimum record length was 6.
+      The maximum record length was 214.
+NOTE: 508 records were written to the file "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_01_01_tdemog1.rtf".
+      The minimum record length was 6.
+      The maximum record length was 214.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+542        %rtdemog(progid=tdemog2, tcond=%str(if age<17), up_limit=16, itprogid=tdemog4b);
+MPRINT(RTDEMOG):   data dm;
+MPRINT(RTDEMOG):   set derived.dm(where=(q_safeas='Y'));
+MPRINT(RTDEMOG):   if age<17;
+MPRINT(RTDEMOG):   output;
+MPRINT(RTDEMOG):   if atrt in(2,3,4) then do;
+MPRINT(RTDEMOG):   atrt=5;
+MPRINT(RTDEMOG):   output;
+MPRINT(RTDEMOG):   end;
+MPRINT(RTDEMOG):   atrt=6;
+MPRINT(RTDEMOG):   output;
+                                                                         The SAS System
+
+MPRINT(RTDEMOG):   run;
+
+NOTE: There were 30 observations read from the data set DERIVED.DM.
+      WHERE q_safeas='Y';
+NOTE: The data set WORK.DM has 67 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MTOTTRT):   data _ftmp1a;
+MPRINT(MTOTTRT):   set derived.dm;
+MPRINT(MTOTTRT):   if q_safeas='Y';
+MPRINT(MTOTTRT):   if age<17;
+MPRINT(MTOTTRT):   __trt=atrt;
+MPRINT(MTOTTRT):   if __trt>.;
+MPRINT(MTOTTRT):   run;
+
+NOTE: There were 32 observations read from the data set DERIVED.DM.
+NOTE: The data set WORK._FTMP1A has 26 observations and 43 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MTOTTRT):   data _ftmp1;
+MPRINT(MTOTTRT):   set _ftmp1a;
+MPRINT(MTOTTRT):   output;
+MPRINT(MTOTTRT):   if __trt in(2,3,4) then do;
+MPRINT(MTOTTRT):   __trt=5;
+MPRINT(MTOTTRT):   output;
+MPRINT(MTOTTRT):   end;
+MPRINT(MTOTTRT):   __trt=6;
+MPRINT(MTOTTRT):   *** Total ***;
+MPRINT(MTOTTRT):   output;
+MPRINT(MTOTTRT):   run;
+NOTE: There were 26 observations read from the data set WORK._FTMP1A.
+NOTE: The data set WORK._FTMP1 has 67 observations and 43 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MTOTTRT):   proc freq data=_ftmp1 noprint;
+MPRINT(MTOTTRT):   tables __trt / out=_ftmp2;
+MPRINT(MTOTTRT):   run;
+
+NOTE: There were 67 observations read from the data set WORK._FTMP1.
+                                                                         The SAS System
+
+NOTE: The data set WORK._FTMP2 has 6 observations and 3 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MTOTTRT):   data _null_;
+MPRINT(MTOTTRT):   set _ftmp2;
+MPRINT(MTOTTRT):   call symput(compress('pop'||put(__trt,3.)),compress(put(count,4.)));
+MPRINT(MTOTTRT):   run;
+
+NOTE: There were 6 observations read from the data set WORK._FTMP2.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+pop1 = 11
+pop2 = 8
+pop3 = 3
+pop4 = 4
+pop5 = 15
+pop6 = 26
+MPRINT(RTDEMOG):  ;
+MPRINT(MSS):   ** (1) - IF THIS IS LEFT BLANK, THE STANDARD STATS ARE PRODUCED WHICH ARE N, MEAN (SE), STD, MEDIAN Q1, Q3, MIN and MAX. NMISS AND SUM ARE 
+AVAILABLE USING THE STATS OPTION ;
+MPRINT(MSS):   ** (2) - EXTRA BY VARIABLES CAN BE ADDED IN THE BY OPTION ;
+MPRINT(MSS):   ** (3) - IF THIS IS USED, IT STATES THE PRECISION OF THE DATA HELD ON THE DATASET. MEANS AND MEDIANS ARE THEN PRESENTED TO +1 DP AND STD TO +2 
+DP;
+MPRINT(MSS):   data ms01;
+MPRINT(MSS):   set dm;
+MPRINT(MSS):   if index(upcase("n meansd median range"),"GMEAN") then do;
+MPRINT(MSS):   if age gt 0 then age=log(age);
+MPRINT(MSS):   else if age=0 then age=0;
+MPRINT(MSS):   call symput("GMEAN","YES");
+MPRINT(MSS):   end;
+MPRINT(MSS):   else call symput("GMEAN","NO");
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS01 has 67 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   proc means data=ms01 nway noprint;
+MPRINT(MSS):   var age;
+                                                                         The SAS System
+
+MPRINT(MSS):   class atrt;
+MPRINT(MSS):   output out=ms1 n=nn mean=nmean std=nstd median=nmedian min=nmin max=nmax nmiss=nnmiss sum=nsum stderr=nse q1=nq1 q3=nq3 var=nvar uclm=nuclm 
+lclm=nlclm;
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.MS01.
+NOTE: The data set WORK.MS1 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   data _null_;
+MPRINT(MSS):   if 0 then set ms1 nobs=count;
+MPRINT(MSS):   call symput("numobs",left(put(count,10.)));
+MPRINT(MSS):   stop;
+MPRINT(MSS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   data ms21;
+MPRINT(MSS):   set ms1;
+MPRINT(MSS):   if nn ne . then n=put(nn,7.);
+MPRINT(MSS):   if nnmiss ne . then nmiss=put(nnmiss,7.);
+MPRINT(MSS):   if nmean ne . then mean=put(nmean,10.2);
+MPRINT(MSS):   if nn>1 then std=put(nstd,11.2);
+MPRINT(MSS):   else if nn=1 then std=repeat(' ',5-1)||'-';
+MPRINT(MSS):   if nn>1 then stderr=put(nse,11.2);
+MPRINT(MSS):   else if nn=1 then se=repeat(' ',5-1)||' ';
+MPRINT(MSS):   if nmin ne . then min=put(nmin,9.1);
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nmedian ne . then median=put(nmedian,10.2);
+MPRINT(MSS):   if nmax ne . then max=put(nmax,9.1);
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nq1 ne . then q1=put(nq1,10.2);
+MPRINT(MSS):   if nq3 ne . then q3=put(nq3,10.2);
+MPRINT(MSS):   if nsum ne . then sum=put(nsum,7.);
+MPRINT(MSS):   if nn>1 and nuclm ne . then uclm=put(nuclm,15.2);
+MPRINT(MSS):   else if nn=1 then uclm=repeat(' ',5-1)||' ';
+MPRINT(MSS):   if nn>1 and nlclm ne . then lclm=put(nlclm,15.2);
+MPRINT(MSS):   else if nn=1 then lclm=repeat(' ',5-1)||' ';
+MPRINT(MSS):   gmean=mean;
+MPRINT(MSS):   length meanse meansd quarts range ci95 $50 ;
+MPRINT(MSS):   meanse=mean || ' (' || compress(se) || ')';
+MPRINT(MSS):   meansd=mean || ' (' || compress(std) || ')';
+                                                                         The SAS System
+
+MPRINT(MSS):   quarts=compress(q1) || ', ' || compress(q3);
+MPRINT(MSS):   range=compress(min) || ', ' || compress(max);
+MPRINT(MSS):   if n(nuclm,nlclm)=2 then ci95=compress(lclm) || ', ' || compress(uclm);
+MPRINT(MSS):   else ci95=repeat(' ',5-1)||' ';
+MPRINT(MSS):   if nn lt 1 then ci95='';
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS1.
+NOTE: The data set WORK.MS21 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   proc transpose data=ms21 out=ms31 prefix=trt;
+MPRINT(MSS):   id atrt;
+MPRINT(MSS):   var n meansd median range;
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS21.
+NOTE: The data set WORK.MS31 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   data age;
+MPRINT(MSS):   length trt1 trt2 trt3 trt4 trt5 trt6 $100;
+MPRINT(MSS):   set ms31;
+MPRINT(MSS):   order=1;
+MPRINT(MSS):   length text $70;
+MPRINT(MSS):   _name_=upcase(_name_);
+MPRINT(MSS):   if _name_='STD' then text='SD';
+MPRINT(MSS):   else if _name_='NMISS' then text='N Missing';
+MPRINT(MSS):   else if _name_='MIN' then text='Min';
+MPRINT(MSS):   else if _name_='MAX' then text='Max';
+MPRINT(MSS):   else if _name_='CI95' then text='95% CI';
+MPRINT(MSS):   else if _name_='RANGE' then text='Min, Max';
+MPRINT(MSS):   else if _name_='QUARTS' then text='Quartiles';
+MPRINT(MSS):   else if _name_='MEANSE' then text='Mean (SE)';
+MPRINT(MSS):   else if _name_='MEANSD' then text='Mean (SD)';
+MPRINT(MSS):   else if _name_='N' then text='n';
+MPRINT(MSS):   else if _name_='GMEAN' then text='Geometric Mean';
+MPRINT(MSS):   else if _name_='LCLM' then text='95% CI: Lower';
+MPRINT(MSS):   else if _name_='UCLM' then text='              Upper';
+MPRINT(MSS):   else if _name_='Q1' then text='Quartiles: Q1';
+MPRINT(MSS):   else if _name_='Q3' then text='                 Q3';
+MPRINT(MSS):   else text=substr(_name_,1,1)||lowcase(substr(_name_,2));
+                                                                         The SAS System
+
+MPRINT(MSS):   sorder=input(_name_,statord.);
+MPRINT(MSS):   array medvrs _character_;
+MPRINT(MSS):   do i=1 to dim(medvrs);
+MPRINT(MSS):   if compress(medvrs(i))='.' then medvrs(i)='';
+MPRINT(MSS):   end;
+MPRINT(MSS):   drop i;
+MPRINT(MSS):   array trtvars $ trt1-trt6;
+MPRINT(MSS):   if _name_='N' and trt1='' then trt1=put(0,7.);
+MPRINT(MSS):   space1=int((12+2 - length(trim(trt1)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt1,',') and space1 gt 0 then trt1=repeat(' ',space1+1) || trim(trt1);
+MPRINT(MSS):   drop space1;
+MPRINT(MSS):   if _name_='N' and trt2='' then trt2=put(0,7.);
+MPRINT(MSS):   space2=int((12+2 - length(trim(trt2)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt2,',') and space2 gt 0 then trt2=repeat(' ',space2+1) || trim(trt2);
+MPRINT(MSS):   drop space2;
+MPRINT(MSS):   if _name_='N' and trt3='' then trt3=put(0,7.);
+MPRINT(MSS):   space3=int((12+2 - length(trim(trt3)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt3,',') and space3 gt 0 then trt3=repeat(' ',space3+1) || trim(trt3);
+MPRINT(MSS):   drop space3;
+MPRINT(MSS):   if _name_='N' and trt4='' then trt4=put(0,7.);
+MPRINT(MSS):   space4=int((12+2 - length(trim(trt4)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt4,',') and space4 gt 0 then trt4=repeat(' ',space4+1) || trim(trt4);
+MPRINT(MSS):   drop space4;
+MPRINT(MSS):   if _name_='N' and trt5='' then trt5=put(0,7.);
+MPRINT(MSS):   space5=int((12+2 - length(trim(trt5)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt5,',') and space5 gt 0 then trt5=repeat(' ',space5+1) || trim(trt5);
+MPRINT(MSS):   drop space5;
+MPRINT(MSS):   if _name_='N' and trt6='' then trt6=put(0,7.);
+MPRINT(MSS):   space6=int((12+2 - length(trim(trt6)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt6,',') and space6 gt 0 then trt6=repeat(' ',space6+1) || trim(trt6);
+MPRINT(MSS):   drop space6;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.MS31.
+NOTE: The data set WORK.AGE has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   proc sort data=age;
+MPRINT(MSS):   by order sorder;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.AGE.
+NOTE: The data set WORK.AGE has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+                                                                         The SAS System
+
+      cpu time            0.00 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+MPRINT(MFREQ):   data _null_;
+MPRINT(MFREQ):   length table $100;
+MPRINT(MFREQ):   if "atrt" ne " " then table="atrt";
+MPRINT(MFREQ):   else table=" ";
+MPRINT(MFREQ):   if "" ne " " then table=trim(table) || ' ' || trim("");
+MPRINT(MFREQ):   call symput('mfoby',trim(table));
+MPRINT(MFREQ):   call symput('mfobyl',reverse(scan(reverse(table),1,' ')));
+MPRINT(MFREQ):   table=trim(table) || ' ' || trim("sexn");
+MPRINT(MFREQ):   call symput('mftable',translate(trim(left(table)),'*',' '));
+MPRINT(MFREQ):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MFREQ):   proc freq data=dm noprint;
+MPRINT(MFREQ):   tables atrt*sexn / out=mf2;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 67 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MF2 has 11 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MFREQ):   data mfall0;
+MPRINT(MFREQ):   set mf2 (drop=sexn);
+MPRINT(MFREQ):   by atrt;
+MPRINT(MFREQ):   if last.atrt then do sexn=1,2;
+MPRINT(MFREQ):   count=0;
+MPRINT(MFREQ):   output;
+MPRINT(MFREQ):   end;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 11 observations read from the data set WORK.MF2.
+NOTE: The data set WORK.MFALL0 has 12 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   data mf3;
+                                                                         The SAS System
+
+MPRINT(MFREQ):   merge mfall0 mf2;
+MPRINT(MFREQ):   by atrt sexn;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 12 observations read from the data set WORK.MFALL0.
+NOTE: There were 11 observations read from the data set WORK.MF2.
+NOTE: The data set WORK.MF3 has 12 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   data mf5;
+MPRINT(MFREQ):   merge mf3;
+MPRINT(MFREQ):   by atrt;
+MPRINT(MFREQ):   if atrt=1 then denom=11;
+MPRINT(MFREQ):   if atrt=2 then denom=8;
+MPRINT(MFREQ):   if atrt=3 then denom=3;
+MPRINT(MFREQ):   if atrt=4 then denom=4;
+MPRINT(MFREQ):   if atrt=5 then denom=15;
+MPRINT(MFREQ):   if atrt=6 then denom=26;
+MPRINT(MFREQ):   perc=compress('(' || put((count/denom*100),perc.) ||'%)');
+MPRINT(MFREQ):   length disp $50;
+MPRINT(MFREQ):   if count >= 0 then disp=put(count,4.) || ' ' || right(perc);
+MPRINT(MFREQ):   else disp=put(count,4.);
+MPRINT(MFREQ):   run;
+
+NOTE: There were 12 observations read from the data set WORK.MF3.
+NOTE: The data set WORK.MF5 has 12 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   proc sort data=mf5;
+MPRINT(MFREQ):   by sexn atrt;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 12 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF5 has 12 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MFREQ):   proc transpose data=mf5 out=mf6 prefix=trt;
+MPRINT(MFREQ):   id atrt;
+MPRINT(MFREQ):   by sexn;
+                                                                         The SAS System
+
+MPRINT(MFREQ):   var disp;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 12 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF6 has 2 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   data gender;
+MPRINT(MFREQ):   length trt1 trt2 trt3 trt4 trt5 trt6 $50;
+MPRINT(MFREQ):   set mf6;
+MPRINT(MFREQ):   order=2;
+MPRINT(MFREQ):   sorder=sexn;
+MPRINT(MFREQ):   length text $200;
+MPRINT(MFREQ):   text='';
+MPRINT(MFREQ):   text=put(sorder,sexf.);
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt1='' then trt1=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt2='' then trt2=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt3='' then trt3=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt4='' then trt4=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt5='' then trt5=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt6='' then trt6=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 2 observations read from the data set WORK.MF6.
+NOTE: The data set WORK.GENDER has 2 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+MPRINT(MFREQ):   data _null_;
+MPRINT(MFREQ):   length table $100;
+MPRINT(MFREQ):   if "atrt" ne " " then table="atrt";
+MPRINT(MFREQ):   else table=" ";
+MPRINT(MFREQ):   if "" ne " " then table=trim(table) || ' ' || trim("");
+MPRINT(MFREQ):   call symput('mfoby',trim(table));
+MPRINT(MFREQ):   call symput('mfobyl',reverse(scan(reverse(table),1,' ')));
+MPRINT(MFREQ):   table=trim(table) || ' ' || trim("x_race");
+                                                                         The SAS System
+
+MPRINT(MFREQ):   call symput('mftable',translate(trim(left(table)),'*',' '));
+MPRINT(MFREQ):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MFREQ):   proc freq data=dm noprint;
+MPRINT(MFREQ):   tables atrt*x_race / out=mf2;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 67 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MF2 has 18 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   data mf3;
+MPRINT(MFREQ):   set mf2;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 18 observations read from the data set WORK.MF2.
+NOTE: The data set WORK.MF3 has 18 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MFREQ):   data mf5;
+MPRINT(MFREQ):   merge mf3;
+MPRINT(MFREQ):   by atrt;
+MPRINT(MFREQ):   if atrt=1 then denom=11;
+MPRINT(MFREQ):   if atrt=2 then denom=8;
+MPRINT(MFREQ):   if atrt=3 then denom=3;
+MPRINT(MFREQ):   if atrt=4 then denom=4;
+MPRINT(MFREQ):   if atrt=5 then denom=15;
+MPRINT(MFREQ):   if atrt=6 then denom=26;
+MPRINT(MFREQ):   perc=compress('(' || put((count/denom*100),perc.) ||'%)');
+MPRINT(MFREQ):   length disp $50;
+MPRINT(MFREQ):   if count >= 0 then disp=put(count,4.) || ' ' || right(perc);
+MPRINT(MFREQ):   else disp=put(count,4.);
+MPRINT(MFREQ):   run;
+
+NOTE: There were 18 observations read from the data set WORK.MF3.
+NOTE: The data set WORK.MF5 has 18 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+                                                                         The SAS System
+
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   proc sort data=mf5;
+MPRINT(MFREQ):   by x_race atrt;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 18 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF5 has 18 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MFREQ):   proc transpose data=mf5 out=mf6 prefix=trt;
+MPRINT(MFREQ):   id atrt;
+MPRINT(MFREQ):   by x_race;
+MPRINT(MFREQ):   var disp;
+MPRINT(MFREQ):   run;
+
+NOTE: There were 18 observations read from the data set WORK.MF5.
+NOTE: The data set WORK.MF6 has 4 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MFREQ):   data race;
+MPRINT(MFREQ):   length trt1 trt2 trt3 trt4 trt5 trt6 $50;
+MPRINT(MFREQ):   set mf6;
+MPRINT(MFREQ):   order=3;
+MPRINT(MFREQ):   sorder=x_race;
+MPRINT(MFREQ):   length text $200;
+MPRINT(MFREQ):   text='';
+MPRINT(MFREQ):   text=put(sorder,racef.);
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt1='' then trt1=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt2='' then trt2=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt3='' then trt3=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt4='' then trt4=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt5='' then trt5=put(0,4.) || ' ' || right(perc) ;
+MPRINT(MFREQ):   perc=compress('(' || put((0/1*100),perc.) ||'%)');
+MPRINT(MFREQ):   if trt6='' then trt6=put(0,4.) || ' ' || right(perc) ;
+                                                                         The SAS System
+
+MPRINT(MFREQ):   run;
+
+NOTE: There were 4 observations read from the data set WORK.MF6.
+NOTE: The data set WORK.RACE has 4 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+MPRINT(MSS):   ** (1) - IF THIS IS LEFT BLANK, THE STANDARD STATS ARE PRODUCED WHICH ARE N, MEAN (SE), STD, MEDIAN Q1, Q3, MIN and MAX. NMISS AND SUM ARE 
+AVAILABLE USING THE STATS OPTION ;
+MPRINT(MSS):   ** (2) - EXTRA BY VARIABLES CAN BE ADDED IN THE BY OPTION ;
+MPRINT(MSS):   ** (3) - IF THIS IS USED, IT STATES THE PRECISION OF THE DATA HELD ON THE DATASET. MEANS AND MEDIANS ARE THEN PRESENTED TO +1 DP AND STD TO +2 
+DP;
+MPRINT(MSS):   data ms04;
+MPRINT(MSS):   set dm;
+MPRINT(MSS):   if index(upcase("n meansd median range"),"GMEAN") then do;
+MPRINT(MSS):   if height gt 0 then height=log(height);
+MPRINT(MSS):   else if height=0 then height=0;
+MPRINT(MSS):   call symput("GMEAN","YES");
+MPRINT(MSS):   end;
+MPRINT(MSS):   else call symput("GMEAN","NO");
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS04 has 67 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   proc means data=ms04 nway noprint;
+MPRINT(MSS):   var height;
+MPRINT(MSS):   class atrt;
+MPRINT(MSS):   output out=ms4 n=nn mean=nmean std=nstd median=nmedian min=nmin max=nmax nmiss=nnmiss sum=nsum stderr=nse q1=nq1 q3=nq3 var=nvar uclm=nuclm 
+lclm=nlclm;
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.MS04.
+NOTE: The data set WORK.MS4 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   data _null_;
+MPRINT(MSS):   if 0 then set ms4 nobs=count;
+                                                                         The SAS System
+
+MPRINT(MSS):   call symput("numobs",left(put(count,10.)));
+MPRINT(MSS):   stop;
+MPRINT(MSS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   data ms24;
+MPRINT(MSS):   set ms4;
+MPRINT(MSS):   if nn ne . then n=put(nn,7.);
+MPRINT(MSS):   if nnmiss ne . then nmiss=put(nnmiss,7.);
+MPRINT(MSS):   if nmean ne . then mean=put(nmean,9.1);
+MPRINT(MSS):   if nn>1 then std=put(nstd,10.1);
+MPRINT(MSS):   else if nn=1 then std=repeat(' ',5-0)||'-';
+MPRINT(MSS):   if nn>1 then stderr=put(nse,10.1);
+MPRINT(MSS):   else if nn=1 then se=repeat(' ',5-0)||' ';
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nmin ne . then min=put(nmin,7.);
+MPRINT(MSS):   if nmedian ne . then median=put(nmedian,9.1);
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nmax ne . then max=put(nmax,7.);
+MPRINT(MSS):   if nq1 ne . then q1=put(nq1,9.1);
+MPRINT(MSS):   if nq3 ne . then q3=put(nq3,9.1);
+MPRINT(MSS):   if nsum ne . then sum=put(nsum,7.);
+MPRINT(MSS):   if nn>1 and nuclm ne . then uclm=put(nuclm,14.1);
+MPRINT(MSS):   else if nn=1 then uclm=repeat(' ',5-0)||' ';
+MPRINT(MSS):   if nn>1 and nlclm ne . then lclm=put(nlclm,14.1);
+MPRINT(MSS):   else if nn=1 then lclm=repeat(' ',5-0)||' ';
+MPRINT(MSS):   gmean=mean;
+MPRINT(MSS):   length meanse meansd quarts range ci95 $50 ;
+MPRINT(MSS):   meanse=mean || ' (' || compress(se) || ')';
+MPRINT(MSS):   meansd=mean || ' (' || compress(std) || ')';
+MPRINT(MSS):   quarts=compress(q1) || ', ' || compress(q3);
+MPRINT(MSS):   range=compress(min) || ', ' || compress(max);
+MPRINT(MSS):   if n(nuclm,nlclm)=2 then ci95=compress(lclm) || ', ' || compress(uclm);
+MPRINT(MSS):   else ci95=repeat(' ',5-0)||' ';
+MPRINT(MSS):   if nn lt 1 then ci95='';
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS4.
+NOTE: The data set WORK.MS24 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+                                                                         The SAS System
+
+MPRINT(MSS):   proc transpose data=ms24 out=ms34 prefix=trt;
+MPRINT(MSS):   id atrt;
+MPRINT(MSS):   var n meansd median range;
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS24.
+NOTE: The data set WORK.MS34 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   data height;
+MPRINT(MSS):   length trt1 trt2 trt3 trt4 trt5 trt6 $100;
+MPRINT(MSS):   set ms34;
+MPRINT(MSS):   order=4;
+MPRINT(MSS):   length text $70;
+MPRINT(MSS):   _name_=upcase(_name_);
+MPRINT(MSS):   if _name_='STD' then text='SD';
+MPRINT(MSS):   else if _name_='NMISS' then text='N Missing';
+MPRINT(MSS):   else if _name_='MIN' then text='Min';
+MPRINT(MSS):   else if _name_='MAX' then text='Max';
+MPRINT(MSS):   else if _name_='CI95' then text='95% CI';
+MPRINT(MSS):   else if _name_='RANGE' then text='Min, Max';
+MPRINT(MSS):   else if _name_='QUARTS' then text='Quartiles';
+MPRINT(MSS):   else if _name_='MEANSE' then text='Mean (SE)';
+MPRINT(MSS):   else if _name_='MEANSD' then text='Mean (SD)';
+MPRINT(MSS):   else if _name_='N' then text='n';
+MPRINT(MSS):   else if _name_='GMEAN' then text='Geometric Mean';
+MPRINT(MSS):   else if _name_='LCLM' then text='95% CI: Lower';
+MPRINT(MSS):   else if _name_='UCLM' then text='              Upper';
+MPRINT(MSS):   else if _name_='Q1' then text='Quartiles: Q1';
+MPRINT(MSS):   else if _name_='Q3' then text='                 Q3';
+MPRINT(MSS):   else text=substr(_name_,1,1)||lowcase(substr(_name_,2));
+MPRINT(MSS):   sorder=input(_name_,statord.);
+MPRINT(MSS):   array medvrs _character_;
+MPRINT(MSS):   do i=1 to dim(medvrs);
+MPRINT(MSS):   if compress(medvrs(i))='.' then medvrs(i)='';
+MPRINT(MSS):   end;
+MPRINT(MSS):   drop i;
+MPRINT(MSS):   array trtvars $ trt1-trt6;
+MPRINT(MSS):   if _name_='N' and trt1='' then trt1=put(0,7.);
+MPRINT(MSS):   space1=int((12+0 - length(trim(trt1)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt1,',') and space1 gt 0 then trt1=repeat(' ',space1+1) || trim(trt1);
+MPRINT(MSS):   drop space1;
+MPRINT(MSS):   if _name_='N' and trt2='' then trt2=put(0,7.);
+MPRINT(MSS):   space2=int((12+0 - length(trim(trt2)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt2,',') and space2 gt 0 then trt2=repeat(' ',space2+1) || trim(trt2);
+                                                                         The SAS System
+
+MPRINT(MSS):   drop space2;
+MPRINT(MSS):   if _name_='N' and trt3='' then trt3=put(0,7.);
+MPRINT(MSS):   space3=int((12+0 - length(trim(trt3)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt3,',') and space3 gt 0 then trt3=repeat(' ',space3+1) || trim(trt3);
+MPRINT(MSS):   drop space3;
+MPRINT(MSS):   if _name_='N' and trt4='' then trt4=put(0,7.);
+MPRINT(MSS):   space4=int((12+0 - length(trim(trt4)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt4,',') and space4 gt 0 then trt4=repeat(' ',space4+1) || trim(trt4);
+MPRINT(MSS):   drop space4;
+MPRINT(MSS):   if _name_='N' and trt5='' then trt5=put(0,7.);
+MPRINT(MSS):   space5=int((12+0 - length(trim(trt5)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt5,',') and space5 gt 0 then trt5=repeat(' ',space5+1) || trim(trt5);
+MPRINT(MSS):   drop space5;
+MPRINT(MSS):   if _name_='N' and trt6='' then trt6=put(0,7.);
+MPRINT(MSS):   space6=int((12+0 - length(trim(trt6)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt6,',') and space6 gt 0 then trt6=repeat(' ',space6+1) || trim(trt6);
+MPRINT(MSS):   drop space6;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.MS34.
+NOTE: The data set WORK.HEIGHT has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(MSS):   proc sort data=height;
+MPRINT(MSS):   by order sorder;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.HEIGHT.
+NOTE: The data set WORK.HEIGHT has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+MPRINT(MSS):   ** (1) - IF THIS IS LEFT BLANK, THE STANDARD STATS ARE PRODUCED WHICH ARE N, MEAN (SE), STD, MEDIAN Q1, Q3, MIN and MAX. NMISS AND SUM ARE 
+AVAILABLE USING THE STATS OPTION ;
+MPRINT(MSS):   ** (2) - EXTRA BY VARIABLES CAN BE ADDED IN THE BY OPTION ;
+MPRINT(MSS):   ** (3) - IF THIS IS USED, IT STATES THE PRECISION OF THE DATA HELD ON THE DATASET. MEANS AND MEDIANS ARE THEN PRESENTED TO +1 DP AND STD TO +2 
+DP;
+MPRINT(MSS):   data ms05;
+MPRINT(MSS):   set dm;
+MPRINT(MSS):   if index(upcase("n meansd median range"),"GMEAN") then do;
+MPRINT(MSS):   if weight gt 0 then weight=log(weight);
+MPRINT(MSS):   else if weight=0 then weight=0;
+                                                                         The SAS System
+
+MPRINT(MSS):   call symput("GMEAN","YES");
+MPRINT(MSS):   end;
+MPRINT(MSS):   else call symput("GMEAN","NO");
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS05 has 67 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   proc means data=ms05 nway noprint;
+MPRINT(MSS):   var weight;
+MPRINT(MSS):   class atrt;
+MPRINT(MSS):   output out=ms5 n=nn mean=nmean std=nstd median=nmedian min=nmin max=nmax nmiss=nnmiss sum=nsum stderr=nse q1=nq1 q3=nq3 var=nvar uclm=nuclm 
+lclm=nlclm;
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.MS05.
+NOTE: The data set WORK.MS5 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   data _null_;
+MPRINT(MSS):   if 0 then set ms5 nobs=count;
+MPRINT(MSS):   call symput("numobs",left(put(count,10.)));
+MPRINT(MSS):   stop;
+MPRINT(MSS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   data ms25;
+MPRINT(MSS):   set ms5;
+MPRINT(MSS):   if nn ne . then n=put(nn,7.);
+MPRINT(MSS):   if nnmiss ne . then nmiss=put(nnmiss,7.);
+MPRINT(MSS):   if nmean ne . then mean=put(nmean,9.1);
+MPRINT(MSS):   if nn>1 then std=put(nstd,10.1);
+MPRINT(MSS):   else if nn=1 then std=repeat(' ',5-0)||'-';
+MPRINT(MSS):   if nn>1 then stderr=put(nse,10.1);
+MPRINT(MSS):   else if nn=1 then se=repeat(' ',5-0)||' ';
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nmin ne . then min=put(nmin,7.);
+                                                                         The SAS System
+
+MPRINT(MSS):   if nmedian ne . then median=put(nmedian,9.1);
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nmax ne . then max=put(nmax,7.);
+MPRINT(MSS):   if nq1 ne . then q1=put(nq1,9.1);
+MPRINT(MSS):   if nq3 ne . then q3=put(nq3,9.1);
+MPRINT(MSS):   if nsum ne . then sum=put(nsum,7.);
+MPRINT(MSS):   if nn>1 and nuclm ne . then uclm=put(nuclm,14.1);
+MPRINT(MSS):   else if nn=1 then uclm=repeat(' ',5-0)||' ';
+MPRINT(MSS):   if nn>1 and nlclm ne . then lclm=put(nlclm,14.1);
+MPRINT(MSS):   else if nn=1 then lclm=repeat(' ',5-0)||' ';
+MPRINT(MSS):   gmean=mean;
+MPRINT(MSS):   length meanse meansd quarts range ci95 $50 ;
+MPRINT(MSS):   meanse=mean || ' (' || compress(se) || ')';
+MPRINT(MSS):   meansd=mean || ' (' || compress(std) || ')';
+MPRINT(MSS):   quarts=compress(q1) || ', ' || compress(q3);
+MPRINT(MSS):   range=compress(min) || ', ' || compress(max);
+MPRINT(MSS):   if n(nuclm,nlclm)=2 then ci95=compress(lclm) || ', ' || compress(uclm);
+MPRINT(MSS):   else ci95=repeat(' ',5-0)||' ';
+MPRINT(MSS):   if nn lt 1 then ci95='';
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS5.
+NOTE: The data set WORK.MS25 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   proc transpose data=ms25 out=ms35 prefix=trt;
+MPRINT(MSS):   id atrt;
+MPRINT(MSS):   var n meansd median range;
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS25.
+NOTE: The data set WORK.MS35 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   data weight;
+MPRINT(MSS):   length trt1 trt2 trt3 trt4 trt5 trt6 $100;
+MPRINT(MSS):   set ms35;
+MPRINT(MSS):   order=5;
+MPRINT(MSS):   length text $70;
+MPRINT(MSS):   _name_=upcase(_name_);
+MPRINT(MSS):   if _name_='STD' then text='SD';
+MPRINT(MSS):   else if _name_='NMISS' then text='N Missing';
+                                                                         The SAS System
+
+MPRINT(MSS):   else if _name_='MIN' then text='Min';
+MPRINT(MSS):   else if _name_='MAX' then text='Max';
+MPRINT(MSS):   else if _name_='CI95' then text='95% CI';
+MPRINT(MSS):   else if _name_='RANGE' then text='Min, Max';
+MPRINT(MSS):   else if _name_='QUARTS' then text='Quartiles';
+MPRINT(MSS):   else if _name_='MEANSE' then text='Mean (SE)';
+MPRINT(MSS):   else if _name_='MEANSD' then text='Mean (SD)';
+MPRINT(MSS):   else if _name_='N' then text='n';
+MPRINT(MSS):   else if _name_='GMEAN' then text='Geometric Mean';
+MPRINT(MSS):   else if _name_='LCLM' then text='95% CI: Lower';
+MPRINT(MSS):   else if _name_='UCLM' then text='              Upper';
+MPRINT(MSS):   else if _name_='Q1' then text='Quartiles: Q1';
+MPRINT(MSS):   else if _name_='Q3' then text='                 Q3';
+MPRINT(MSS):   else text=substr(_name_,1,1)||lowcase(substr(_name_,2));
+MPRINT(MSS):   sorder=input(_name_,statord.);
+MPRINT(MSS):   array medvrs _character_;
+MPRINT(MSS):   do i=1 to dim(medvrs);
+MPRINT(MSS):   if compress(medvrs(i))='.' then medvrs(i)='';
+MPRINT(MSS):   end;
+MPRINT(MSS):   drop i;
+MPRINT(MSS):   array trtvars $ trt1-trt6;
+MPRINT(MSS):   if _name_='N' and trt1='' then trt1=put(0,7.);
+MPRINT(MSS):   space1=int((12+0 - length(trim(trt1)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt1,',') and space1 gt 0 then trt1=repeat(' ',space1+1) || trim(trt1);
+MPRINT(MSS):   drop space1;
+MPRINT(MSS):   if _name_='N' and trt2='' then trt2=put(0,7.);
+MPRINT(MSS):   space2=int((12+0 - length(trim(trt2)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt2,',') and space2 gt 0 then trt2=repeat(' ',space2+1) || trim(trt2);
+MPRINT(MSS):   drop space2;
+MPRINT(MSS):   if _name_='N' and trt3='' then trt3=put(0,7.);
+MPRINT(MSS):   space3=int((12+0 - length(trim(trt3)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt3,',') and space3 gt 0 then trt3=repeat(' ',space3+1) || trim(trt3);
+MPRINT(MSS):   drop space3;
+MPRINT(MSS):   if _name_='N' and trt4='' then trt4=put(0,7.);
+MPRINT(MSS):   space4=int((12+0 - length(trim(trt4)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt4,',') and space4 gt 0 then trt4=repeat(' ',space4+1) || trim(trt4);
+MPRINT(MSS):   drop space4;
+MPRINT(MSS):   if _name_='N' and trt5='' then trt5=put(0,7.);
+MPRINT(MSS):   space5=int((12+0 - length(trim(trt5)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt5,',') and space5 gt 0 then trt5=repeat(' ',space5+1) || trim(trt5);
+MPRINT(MSS):   drop space5;
+MPRINT(MSS):   if _name_='N' and trt6='' then trt6=put(0,7.);
+MPRINT(MSS):   space6=int((12+0 - length(trim(trt6)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt6,',') and space6 gt 0 then trt6=repeat(' ',space6+1) || trim(trt6);
+MPRINT(MSS):   drop space6;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.MS35.
+                                                                         The SAS System
+
+NOTE: The data set WORK.WEIGHT has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   proc sort data=weight;
+MPRINT(MSS):   by order sorder;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.WEIGHT.
+NOTE: The data set WORK.WEIGHT has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+MPRINT(MSS):   ** (1) - IF THIS IS LEFT BLANK, THE STANDARD STATS ARE PRODUCED WHICH ARE N, MEAN (SE), STD, MEDIAN Q1, Q3, MIN and MAX. NMISS AND SUM ARE 
+AVAILABLE USING THE STATS OPTION ;
+MPRINT(MSS):   ** (2) - EXTRA BY VARIABLES CAN BE ADDED IN THE BY OPTION ;
+MPRINT(MSS):   ** (3) - IF THIS IS USED, IT STATES THE PRECISION OF THE DATA HELD ON THE DATASET. MEANS AND MEDIANS ARE THEN PRESENTED TO +1 DP AND STD TO +2 
+DP;
+MPRINT(MSS):   data ms06;
+MPRINT(MSS):   set dm;
+MPRINT(MSS):   if index(upcase("n meansd median range"),"GMEAN") then do;
+MPRINT(MSS):   if tbsa gt 0 then tbsa=log(tbsa);
+MPRINT(MSS):   else if tbsa=0 then tbsa=0;
+MPRINT(MSS):   call symput("GMEAN","YES");
+MPRINT(MSS):   end;
+MPRINT(MSS):   else call symput("GMEAN","NO");
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.DM.
+NOTE: The data set WORK.MS06 has 67 observations and 42 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   proc means data=ms06 nway noprint;
+MPRINT(MSS):   var tbsa;
+MPRINT(MSS):   class atrt;
+MPRINT(MSS):   output out=ms6 n=nn mean=nmean std=nstd median=nmedian min=nmin max=nmax nmiss=nnmiss sum=nsum stderr=nse q1=nq1 q3=nq3 var=nvar uclm=nuclm 
+lclm=nlclm;
+MPRINT(MSS):   run;
+
+NOTE: There were 67 observations read from the data set WORK.MS06.
+                                                                         The SAS System
+
+NOTE: The data set WORK.MS6 has 6 observations and 17 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   data _null_;
+MPRINT(MSS):   if 0 then set ms6 nobs=count;
+MPRINT(MSS):   call symput("numobs",left(put(count,10.)));
+MPRINT(MSS):   stop;
+MPRINT(MSS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(MSS):   data ms26;
+MPRINT(MSS):   set ms6;
+MPRINT(MSS):   if nn ne . then n=put(nn,7.);
+MPRINT(MSS):   if nnmiss ne . then nmiss=put(nnmiss,7.);
+MPRINT(MSS):   if nmean ne . then mean=put(nmean,10.2);
+MPRINT(MSS):   if nn>1 then std=put(nstd,11.2);
+MPRINT(MSS):   else if nn=1 then std=repeat(' ',5-1)||'-';
+MPRINT(MSS):   if nn>1 then stderr=put(nse,11.2);
+MPRINT(MSS):   else if nn=1 then se=repeat(' ',5-1)||' ';
+MPRINT(MSS):   if nmin ne . then min=put(nmin,9.1);
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nmedian ne . then median=put(nmedian,10.2);
+MPRINT(MSS):   if nmax ne . then max=put(nmax,9.1);
+MPRINT(MSS):  ;
+MPRINT(MSS):   if nq1 ne . then q1=put(nq1,10.2);
+MPRINT(MSS):   if nq3 ne . then q3=put(nq3,10.2);
+MPRINT(MSS):   if nsum ne . then sum=put(nsum,7.);
+MPRINT(MSS):   if nn>1 and nuclm ne . then uclm=put(nuclm,15.2);
+MPRINT(MSS):   else if nn=1 then uclm=repeat(' ',5-1)||' ';
+MPRINT(MSS):   if nn>1 and nlclm ne . then lclm=put(nlclm,15.2);
+MPRINT(MSS):   else if nn=1 then lclm=repeat(' ',5-1)||' ';
+MPRINT(MSS):   gmean=mean;
+MPRINT(MSS):   length meanse meansd quarts range ci95 $50 ;
+MPRINT(MSS):   meanse=mean || ' (' || compress(se) || ')';
+MPRINT(MSS):   meansd=mean || ' (' || compress(std) || ')';
+MPRINT(MSS):   quarts=compress(q1) || ', ' || compress(q3);
+MPRINT(MSS):   range=compress(min) || ', ' || compress(max);
+MPRINT(MSS):   if n(nuclm,nlclm)=2 then ci95=compress(lclm) || ', ' || compress(uclm);
+MPRINT(MSS):   else ci95=repeat(' ',5-1)||' ';
+MPRINT(MSS):   if nn lt 1 then ci95='';
+MPRINT(MSS):   run;
+                                                                         The SAS System
+
+
+NOTE: There were 6 observations read from the data set WORK.MS6.
+NOTE: The data set WORK.MS26 has 6 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MSS):   proc transpose data=ms26 out=ms36 prefix=trt;
+MPRINT(MSS):   id atrt;
+MPRINT(MSS):   var n meansd median range;
+MPRINT(MSS):   run;
+
+NOTE: There were 6 observations read from the data set WORK.MS26.
+NOTE: The data set WORK.MS36 has 4 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   data tbsa;
+MPRINT(MSS):   length trt1 trt2 trt3 trt4 trt5 trt6 $100;
+MPRINT(MSS):   set ms36;
+MPRINT(MSS):   order=6;
+MPRINT(MSS):   length text $70;
+MPRINT(MSS):   _name_=upcase(_name_);
+MPRINT(MSS):   if _name_='STD' then text='SD';
+MPRINT(MSS):   else if _name_='NMISS' then text='N Missing';
+MPRINT(MSS):   else if _name_='MIN' then text='Min';
+MPRINT(MSS):   else if _name_='MAX' then text='Max';
+MPRINT(MSS):   else if _name_='CI95' then text='95% CI';
+MPRINT(MSS):   else if _name_='RANGE' then text='Min, Max';
+MPRINT(MSS):   else if _name_='QUARTS' then text='Quartiles';
+MPRINT(MSS):   else if _name_='MEANSE' then text='Mean (SE)';
+MPRINT(MSS):   else if _name_='MEANSD' then text='Mean (SD)';
+MPRINT(MSS):   else if _name_='N' then text='n';
+MPRINT(MSS):   else if _name_='GMEAN' then text='Geometric Mean';
+MPRINT(MSS):   else if _name_='LCLM' then text='95% CI: Lower';
+MPRINT(MSS):   else if _name_='UCLM' then text='              Upper';
+MPRINT(MSS):   else if _name_='Q1' then text='Quartiles: Q1';
+MPRINT(MSS):   else if _name_='Q3' then text='                 Q3';
+MPRINT(MSS):   else text=substr(_name_,1,1)||lowcase(substr(_name_,2));
+MPRINT(MSS):   sorder=input(_name_,statord.);
+MPRINT(MSS):   array medvrs _character_;
+MPRINT(MSS):   do i=1 to dim(medvrs);
+MPRINT(MSS):   if compress(medvrs(i))='.' then medvrs(i)='';
+MPRINT(MSS):   end;
+MPRINT(MSS):   drop i;
+                                                                         The SAS System
+
+MPRINT(MSS):   array trtvars $ trt1-trt6;
+MPRINT(MSS):   if _name_='N' and trt1='' then trt1=put(0,7.);
+MPRINT(MSS):   space1=int((12+2 - length(trim(trt1)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt1,',') and space1 gt 0 then trt1=repeat(' ',space1+1) || trim(trt1);
+MPRINT(MSS):   drop space1;
+MPRINT(MSS):   if _name_='N' and trt2='' then trt2=put(0,7.);
+MPRINT(MSS):   space2=int((12+2 - length(trim(trt2)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt2,',') and space2 gt 0 then trt2=repeat(' ',space2+1) || trim(trt2);
+MPRINT(MSS):   drop space2;
+MPRINT(MSS):   if _name_='N' and trt3='' then trt3=put(0,7.);
+MPRINT(MSS):   space3=int((12+2 - length(trim(trt3)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt3,',') and space3 gt 0 then trt3=repeat(' ',space3+1) || trim(trt3);
+MPRINT(MSS):   drop space3;
+MPRINT(MSS):   if _name_='N' and trt4='' then trt4=put(0,7.);
+MPRINT(MSS):   space4=int((12+2 - length(trim(trt4)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt4,',') and space4 gt 0 then trt4=repeat(' ',space4+1) || trim(trt4);
+MPRINT(MSS):   drop space4;
+MPRINT(MSS):   if _name_='N' and trt5='' then trt5=put(0,7.);
+MPRINT(MSS):   space5=int((12+2 - length(trim(trt5)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt5,',') and space5 gt 0 then trt5=repeat(' ',space5+1) || trim(trt5);
+MPRINT(MSS):   drop space5;
+MPRINT(MSS):   if _name_='N' and trt6='' then trt6=put(0,7.);
+MPRINT(MSS):   space6=int((12+2 - length(trim(trt6)))/2);
+MPRINT(MSS):   if _name_='RANGE' and index(trt6,',') and space6 gt 0 then trt6=repeat(' ',space6+1) || trim(trt6);
+MPRINT(MSS):   drop space6;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.MS36.
+NOTE: The data set WORK.TBSA has 4 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MSS):   proc sort data=tbsa;
+MPRINT(MSS):   by order sorder;
+MPRINT(MSS):   run;
+
+NOTE: There were 4 observations read from the data set WORK.TBSA.
+NOTE: The data set WORK.TBSA has 4 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+MPRINT(RTDEMOG):   data final;
+MPRINT(RTDEMOG):   set age gender race height weight tbsa;
+                                                                         The SAS System
+
+MPRINT(RTDEMOG):   length page 4;
+MPRINT(RTDEMOG):   page=1;
+MPRINT(RTDEMOG):   run;
+
+WARNING: Multiple lengths were specified for the variable text by input data set(s). This can cause truncation of data.
+NOTE: There were 4 observations read from the data set WORK.AGE.
+NOTE: There were 2 observations read from the data set WORK.GENDER.
+NOTE: There were 4 observations read from the data set WORK.RACE.
+NOTE: There were 4 observations read from the data set WORK.HEIGHT.
+NOTE: There were 4 observations read from the data set WORK.WEIGHT.
+NOTE: There were 4 observations read from the data set WORK.TBSA.
+NOTE: The data set WORK.FINAL has 22 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(RTDEMOG):   proc sort data=final;
+MPRINT(RTDEMOG):   by page order sorder;
+MPRINT(RTDEMOG):   run;
+
+NOTE: There were 22 observations read from the data set WORK.FINAL.
+NOTE: The data set WORK.FINAL has 22 observations and 14 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(RTDEMOG):   data final;
+MPRINT(RTDEMOG):   set final;
+MPRINT(RTDEMOG):   by page order sorder;
+MPRINT(RTDEMOG):   length firstcol $30;
+MPRINT(RTDEMOG):   if first.order then firstcol=put(order,orderf.);
+MPRINT(RTDEMOG):   else firstcol='';
+MPRINT(RTDEMOG):   run;
+
+NOTE: There were 22 observations read from the data set WORK.FINAL.
+NOTE: The data set WORK.FINAL has 22 observations and 15 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+MPRINT(MTITLE):   options nodate nonumber nobyline;
+MPRINT(MTITLE):   options mprint;
+MPRINT(MTITLE):   options orientation=Landscape;
+MPRINT(MTITLE):   data toc_prog;
+MPRINT(MTITLE):   set derived.toc_prog;
+                                                                         The SAS System
+
+MPRINT(MTITLE):   if compress(upcase(progid))=upcase("tdemog2");
+MPRINT(MTITLE):   call symput('tabnum',trim(tabnum));
+MPRINT(MTITLE):   if index(title1,'`{') then offset=9;
+MPRINT(MTITLE):   else offset=0;
+MPRINT(MTITLE):   call symput('title1',trim(title1)||repeat(" ",(170-length(title1)-length(tabnum)-30-4+offset))||"[Page_00000_of_99999]");
+MPRINT(MTITLE):   call symput('title2',trim(title2));
+MPRINT(MTITLE):   call symput('title3',trim(title3));
+MPRINT(MTITLE):   call symput('title4',trim(title4));
+MPRINT(MTITLE):   call symput('title5',trim(title5));
+MPRINT(MTITLE):   call symput('title6',trim(title6));
+MPRINT(MTITLE):   call symput('outputname',trim(outname));
+MPRINT(MTITLE):   call symput('numtitle',compress(put(numtitle,3.)));
+MPRINT(MTITLE):   call symput('footn1',trim(footn1));
+MPRINT(MTITLE):   call symput('footn2',trim(footn2));
+MPRINT(MTITLE):   call symput('footn3',trim(footn3));
+MPRINT(MTITLE):   call symput('footn4',trim(footn4));
+MPRINT(MTITLE):   call symput('footn5',trim(footn5));
+MPRINT(MTITLE):   call symput('footn6',trim(footn6));
+MPRINT(MTITLE):   call symput('footn7',trim(footn7));
+MPRINT(MTITLE):   call symput('footn8',trim(footn8));
+MPRINT(MTITLE):   call symput('progname',trim(progname));
+MPRINT(MTITLE):   if l_source ne '' then footn11="PROGRAM: " || trim(progname) || ".sas, " || "SOURCE: " || trim(l_source) || ", (FINAL) 13JUN2016 17:47";
+MPRINT(MTITLE):   else footn11="PROGRAM: " || trim(progname) || ".sas, (FINAL) 13JUN2016 17:47";
+MPRINT(MTITLE):   footn11l=trim(footn11);
+MPRINT(MTITLE):   call symput('footn11',trim(footn11l));
+MPRINT(MTITLE):   call symput('numfoot',compress(put(numfoot,3.)));
+MPRINT(MTITLE):   if index(tabnum,'Table') then call symput('outputf','Tables');
+MPRINT(MTITLE):   else if index(tabnum,'Appendix') then call symput('outputf','Listings');
+MPRINT(MTITLE):   else if index(tabnum,'Figure') then call symput('outputf','Figures');
+MPRINT(MTITLE):   run;
+
+NOTE: There were 110 observations read from the data set DERIVED.TOC_PROG.
+NOTE: The data set WORK.TOC_PROG has 1 observations and 103 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MTITLE):   proc sql noprint;
+MPRINT(MTITLE):   select count(*) into: numobs from toc_prog;
+MPRINT(MTITLE):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MTITLE):   ods listing close;
+MPRINT(MTITLE):   ods path sashelp.tmplmst derived.tplate;
+                                                                         The SAS System
+
+MPRINT(MTITLE):   ods rtf file="/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf" style=xmb111_std headery=1700 footery=1190;
+WARNING: Style XMB111_STD not found; Rtf style will be used instead.
+NOTE: Writing RTF Body file: /sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf
+MPRINT(MTITLE):   ods escapechar='`';
+MPRINT(MTITLE):   options linesize=160 pagesize=50;
+MPRINT(MTITLE):   title1 j=l "PharmaCo";
+MPRINT(MTITLE):   title2 j=l "PharmaCo - Compound2 - CONFIDENTIAL";
+MPRINT(MTITLE):   title4 j=l "Table 14.1.2-1:  Demographics and Subject Characteristics`{super b}                                                               
+                   [Page_00000_of_99999]";
+WARNING: The FOOTNOTE statement is ambiguous due to invalid options or unquoted text.
+MPRINT(MTITLE):   footnote1 j=left '' "`{super a}Total Body Surface Area = square root of [Ht (cm) * Wt (kg) divided by 3600]" '' "`{super b}Does not include 
+subjects with age >= 17";
+MPRINT(MTITLE):   footnote2 " ";
+MPRINT(MTITLE):   footnote3 j=l "PROGRAM: rtdemog.sas, (FINAL) 13JUN2016 17:47";
+MPRINT(RTDEMOG):  ;
+MPRINT(RTDEMOG):   proc report data=final headline headskip nowindows split='|' missing spacing=1 style(header)=[protectspecialchars=off];
+MPRINT(RTDEMOG):   column page order sorder firstcol text ("Age Group (years)" trt1 trt2 trt3 trt4 trt5) trt6;
+MPRINT(RTDEMOG):   define page /order noprint;
+MPRINT(RTDEMOG):   define order /order noprint;
+MPRINT(RTDEMOG):   define sorder /order noprint;
+MPRINT(RTDEMOG):   define firstcol /" " style={just=l cellwidth=8%};
+MPRINT(RTDEMOG):   define text/ " " style={just=l cellwidth=12%};
+MPRINT(RTDEMOG):   define trt1 / "     0 - 2 |     (N=11)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt2 / "     3 - 6 |     (N=8)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt3 / "     7 - 11 |     (N=3)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt4 / "     12 - 16 |     (N=4)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt5 / "     3 - 16   Total |     (N=15)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   define trt6 / "     Total |     (N=26)" style={cellwidth=13% asis=on};
+MPRINT(RTDEMOG):   break after page / page;
+MPRINT(RTDEMOG):   compute before order;
+MPRINT(RTDEMOG):   line " ";
+MPRINT(RTDEMOG):   endcomp;
+MPRINT(RTDEMOG):   run;
+
+WARNING: Use of CELLWIDTH/OUTPUTWIDTH= in a spanning header or footer will rarely yield expected results. For conventional usage, specify outputwidth only for 
+         the data column cells.
+NOTE: There were 22 observations read from the data set WORK.FINAL.
+NOTE: PROCEDURE REPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.04 seconds
+      
+
+MPRINT(RTDEMOG):   ods rtf close;
+MPRINT(RTDEMOG):   ods listing;
+MPRINT(MPAGEOF):   ods rtf close;
+MPRINT(MPAGEOF):   data _null_;
+                                                                         The SAS System
+
+MPRINT(MPAGEOF):   infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf" lrecl=32767 end=_eof;
+MPRINT(MPAGEOF):   input;
+MPRINT(MPAGEOF):   if index(_infile_,"[Page_00000_of_99999]") then pageno + 1;
+MPRINT(MPAGEOF):   if _eof then call symput('NUMPAGES',compress(put(pageno,14.)));
+MPRINT(MPAGEOF):   run;
+
+NOTE: The infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf" is:
+      
+      Filename=/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf,
+      Owner Name=webtrust,Group Name=webtrust,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=13Jun2016:17:47:34,
+      File Size (bytes)=41946
+
+NOTE: 508 records were read from the infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf".
+      The minimum record length was 6.
+      The maximum record length was 228.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(MPAGEOF):   data _null_;
+MPRINT(MPAGEOF):   infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf" lrecl=32767 end=_eof;
+MPRINT(MPAGEOF):   length pageof $ 21;
+MPRINT(MPAGEOF):   input ;
+MPRINT(MPAGEOF):   if index(_infile_,"[Page_00000_of_99999]") then do;
+MPRINT(MPAGEOF):   pageno + 1;
+MPRINT(MPAGEOF):   pageof = 'Page '|| put(pageno,1.) ||" of 1";
+MPRINT(MPAGEOF):   pageof = compbl(pageof);
+MPRINT(MPAGEOF):   pageof = right(pageof);
+MPRINT(MPAGEOF):   pad="";
+MPRINT(MPAGEOF):   _infile_ = tranwrd(_infile_,"[Page_00000_of_99999]",pageof);
+MPRINT(MPAGEOF):   end;
+MPRINT(MPAGEOF):   file "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf" noprint lrecl=32767;
+MPRINT(MPAGEOF):   put _infile_;
+MPRINT(MPAGEOF):   run;
+
+NOTE: The file/infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf" is:
+      
+      Filename=/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+                                                                         The SAS System
+
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf,
+      Owner Name=webtrust,Group Name=webtrust,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=13Jun2016:17:47:34,
+      File Size (bytes)=41946
+
+NOTE: 508 records were read from the infile "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf".
+      The minimum record length was 6.
+      The maximum record length was 228.
+NOTE: 508 records were written to the file "/sddshared/SASWorkspaces/.transient/_run_demo.job-5ddfb482-d084-44ab-9292-94ef92eed057/SAS/HLS 
+      Pharma/Cardiology/Files/XMB111/Output/Tables/t14_01_02_01_tdemog2.rtf".
+      The minimum record length was 6.
+      The maximum record length was 228.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(RTDEMOG):  ;
+543        
+544        
+545        
+546        ;*';*";*/;*);run;quit;
+547        proc scaproc; write; run;
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+548        options nonotes;
+549        
+
+/**********************************************************************************************************************
+ * Submission End: rtdemog.sas
+ * Jun 13, 2016 17:47:34 GMT
+ *********************************************************************************************************************/
