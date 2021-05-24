@@ -21,6 +21,11 @@
 *** 4/13/2020   pdesai			fix some errors
 *** 4/14/2020   pdesai			fix some errors
 ********************************************************************************;
+
+%let base_path = %substr(&_sasprogramfile,1,%sysfunc(find(&_sasprogramfile,%str(/),-%length(&_sasprogramfile)))-1);
+
+%include "&base_path/autoexec_viya.sas";
+
 data dm;
   set &rawdata..dm(drop=race);
   length age atrt x_race dmdtn 8 x_raceot $70 domain $2 usubjid $25 subjid $14 ageu brthdtc dmdtc $10 race $100 arm $20 armcd $8

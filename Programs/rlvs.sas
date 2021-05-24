@@ -19,8 +19,15 @@
 *** ---------  ----------------  --------------
 ***
 ********************************************************************************;
+
+
+%let base_path = %substr(&_sasprogramfile,1,%sysfunc(find(&_sasprogramfile,%str(/),-%length(&_sasprogramfile)))-1);
+
+%include "&base_path/autoexec_viya.sas";
+
 proc sort data=sdtm.vs out=vs;
   by usubjid visit vsdtc vsdy;
+run;
 
 proc transpose data=vs out=transvs;
   by usubjid visit vsdtc vsdy;
@@ -60,11 +67,11 @@ proc report data=vs headline headskip nowindows split='|' missing spacing=2;
   define age / order 'Age|(Years)' format=4.1 style={just=center cellwidth=7%};
   define visit / display 'Visit' style={just=left cellwidth=15%};
   define vsdy / display 'Study Day' format=3. style={just=left cellwidth=7%};
-  define ornht / display 'Height|(cm)' format=3. style={just=left cellwidth=4%};
-  define ornwt / display 'Weight|(kg)' format=3. style={just=left cellwidth=4%};
-  define ornresp / display 'Respiratory Rate|(bpm)' format=3. style={just=left cellwidth=11%};
+  *define ornht / display 'Height|(cm)' format=3. style={just=left cellwidth=4%};
+ * define ornwt / display 'Weight|(kg)' format=3. style={just=left cellwidth=4%};
+ * define ornresp / display 'Respiratory Rate|(bpm)' format=3. style={just=left cellwidth=11%};
   define bp / display 'Blood Pressure (mmHg)|Systolic/Diastolic' style={just=left cellwidth=15%};
-  define ornhr / display 'Heart Rate|(bpm)' format=3. style={just=left cellwidth=11%};
+*  define ornhr / display 'Heart Rate|(bpm)' format=3. style={just=left cellwidth=11%};
   break after page / page;
   compute before usubjid;
     line " ";

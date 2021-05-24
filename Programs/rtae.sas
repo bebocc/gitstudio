@@ -19,6 +19,11 @@
 *** ---------  ----------------  --------------
 ***
 ********************************************************************************;
+
+%let base_path = %substr(&_sasprogramfile,1,%sysfunc(find(&_sasprogramfile,%str(/),-%length(&_sasprogramfile)))-1);
+
+%include "&base_path/autoexec_viya.sas";
+
 proc format;
   value $anyrow "AAAAB"="Any AE                                                   ";
 run;

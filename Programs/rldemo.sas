@@ -39,7 +39,7 @@ data dm;
   if x;
   tbsa=sqrt((height*weight)/3600);
 run;
-
+/**
 proc sort data=sdtm.suppdm out=suppdm(keep=usubjid qval);
   by usubjid;
   where qnam='INIT';
@@ -50,6 +50,15 @@ data dm(rename=(qval=init));
   if x;
   page=int(_n_/8)+1;
 run;
+**/
+
+data dm(rename=(qval=init));
+  set dm;
+  by usubjid;
+  page=int(_n_/8)+1;
+  init = "NA";
+run;
+
 
 %mcase(inds=dm, exceptl=%str('USUBJID','INIT','BRTHDTC'));
 
